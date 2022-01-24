@@ -6,9 +6,7 @@
         "runtime": "python3.8",
         "s3_bucket": "pyconweb2022-zappa",
         "domain" : "pycondev2022dev.pycon.kr",
-        "lets_encrypt_key": "s3://pyconweb2022-zappa/account.key",
-        "lets_encrypt_expression": "rate(15 days)",
-        "base_path": "/",
+        "certificate_arn" : "arn:aws:acm:us-east-1:518013201776:certificate/1b33bc75-8f1c-4465-bfef-1f47309fcab2",
         "use_precompiled_packages": false,
 
         "vpc_config": {
