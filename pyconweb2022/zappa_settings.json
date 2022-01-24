@@ -1,0 +1,22 @@
+{
+    "dev": {
+        "django_settings": "pyconweb2022.settings",
+        "profile_name": "pycon",
+        "project_name": "pyconweb2022",
+        "runtime": "python3.8",
+        "s3_bucket": "pyconweb2022-zappa",
+        "domain" : "pycondev2022dev.pycon.kr",
+        "lets_encrypt_key": "s3://pyconweb2022-zappa/account.key",
+        "lets_encrypt_expression": "rate(15 days)",
+        "base_path": "/",
+        "use_precompiled_packages": false,
+
+        "vpc_config": {
+            "SubnetIds": ["subnet-8d06c2c1","subnet-8e1b8fe6"],
+            "SecurityGroupIds": ["sg-b98a31d2"]
+        },
+
+        "aws_region": "ap-northeast-2"
+
+    }
+}
