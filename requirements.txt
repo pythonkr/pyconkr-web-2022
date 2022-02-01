@@ -1,0 +1,5 @@
+django
+pytest
+pytest-django
+zappa
+django-s3-sqlite
