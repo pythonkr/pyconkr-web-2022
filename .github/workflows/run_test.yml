@@ -3,7 +3,7 @@ name: Testing pyconweb2022
 on:
   push:
     branches: [main]
-  pull_requests:
+  pull_request:
     branches: [main]
 
 
@@ -23,7 +23,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Install mysql common
         run: |
-          apt-get install -y mysql-common
+          sudo apt-get install -y mysql-common
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
