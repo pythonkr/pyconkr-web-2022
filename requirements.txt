@@ -3,3 +3,5 @@ pytest
 pytest-django
 zappa
 django-s3-sqlite
+mysql-connector-python
+mysqlclient
