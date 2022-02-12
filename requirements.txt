@@ -9,3 +9,4 @@ djangorestframework
 markdown
 django-filter
 django-import-export
+sorl-thumbnail

@@ -1,7 +1,6 @@
 from django.urls import reverse
 from django.db import models
 from django.contrib.auth import get_user_model
-from django.utils.translation import ugettext as _
 from sorl.thumbnail import ImageField as SorlImageField
 from django.urls import reverse
 
