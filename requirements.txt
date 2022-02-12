@@ -5,3 +5,6 @@ zappa
 django-s3-sqlite
 mysql-connector-python
 mysqlclient
+djangorestframework
+markdown
+django-filter
