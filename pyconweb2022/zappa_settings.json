@@ -1,6 +1,6 @@
 {
     "dev": {
-        "django_settings": "pyconweb2022.settings",
+        "django_settings": "pyconweb2022.settings_prod",
         "profile_name": "pycon",
         "project_name": "pyconweb2022",
         "runtime": "python3.8",

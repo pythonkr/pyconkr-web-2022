@@ -76,12 +76,8 @@ WSGI_APPLICATION = 'pyconweb2022.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'mysql.connector.django',
-        'NAME': 'pyconkrweb2022dev',
-        'USER': 'pyconkrweb2022dev',
-        'PASSWORD': 'devdevdev2022##2022',
-        'HOST': 'pyconkr2022-dev.cluster-c3lemconopmq.ap-northeast-2.rds.amazonaws.com',
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
