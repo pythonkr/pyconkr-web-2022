@@ -10,3 +10,6 @@ markdown
 django-filter
 django-import-export
 sorl-thumbnail
+django-storages
+Pillow
+boto3
