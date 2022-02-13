@@ -1,0 +1,32 @@
+from django.shortcuts import get_object_or_404
+from django.core.exceptions import PermissionDenied
+
+from rest_framework.viewsets import ModelViewSet
+from rest_framework.permissions import IsAuthenticatedOrReadOnly, AllowAny
+from rest_framework.response import Response
+
+from sponsor.serializers import SponsorSerializer, SponsorListSerializer
+from sponsor.models import Sponsor
+
+
+class SponsorViewSet(ModelViewSet):
+    serializer_class = SponsorSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]  # 로그인된 사용자에게만 허용
+
+    def get_queryset(self):
+        return Sponsor.objects.all()
+
+    def list(self, request, *args, **kwargs):
+        queryset = Sponsor.objects.filter(accepted=True)    # 모든 절차가 완료된 후원사만 리스팅
+        serializer = SponsorListSerializer(queryset, many=True)
+        return Response(serializer.data)
+
+    def retrieve(self, request, *args, **kwargs):
+        pk = kwargs['pk']
+        sponsor_data = get_object_or_404(Sponsor, pk=pk)
+
+        if sponsor_data.creator != request.user:
+            raise PermissionDenied
+
+        serializer = SponsorSerializer(sponsor_data)
+        return Response(serializer.data)
