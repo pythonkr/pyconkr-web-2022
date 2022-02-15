@@ -26,5 +26,8 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
 
     # App
-    path('sponsor/', include(sponsor.routers.get_router().urls))
+    path('sponsor/', include(sponsor.routers.get_router().urls)),
+
+    # PyConEmailer
+    path('pyconemailer/', include('pyconemailer.urls')),
 ]
