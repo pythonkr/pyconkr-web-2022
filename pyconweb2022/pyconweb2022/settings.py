@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'import_export',
     'sponsor',
     'program',
+    'pyconemailer',
 ]
 
 MIDDLEWARE = [
