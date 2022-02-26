@@ -14,3 +14,4 @@ django-storages
 Pillow
 boto3
 Werkzeug
+zappa-django-utils
