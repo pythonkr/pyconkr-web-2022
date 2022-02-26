@@ -13,3 +13,4 @@ sorl-thumbnail
 django-storages
 Pillow
 boto3
+Werkzeug
