@@ -1,3 +1,5 @@
+from pyconweb2022.settings import *
+
 # RDS
 DATABASES = {
     'default': {
