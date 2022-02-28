@@ -8,3 +8,10 @@ mysqlclient
 djangorestframework
 markdown
 django-filter
+django-import-export
+sorl-thumbnail
+django-storages
+Pillow
+boto3
+Werkzeug
+zappa-django-utils

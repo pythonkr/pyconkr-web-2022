@@ -16,9 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+import sponsor.routers
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
 
     # DRF
-    path('api-auth/', include('rest_framework.urls'))
+    path('api-auth/', include('rest_framework.urls')),
+
+    # App
+    path('sponsor/', include(sponsor.routers.get_router().urls)),
+
+    # PyConEmailer
+    path('pyconemailer/', include('pyconemailer.urls')),
 ]
