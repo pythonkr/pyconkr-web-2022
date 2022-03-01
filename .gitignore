@@ -133,3 +133,5 @@ dmypy.json
 # Migrations
 /pyconweb2022/sponsor/migrations/
 /pyconweb2022/program/migrations/
+# to use pyconkr-secrets
+/pyconweb2022/zappa_settings.json
