@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'sponsor',
     'program',
     'pyconemailer',
+    'article',
     'zappa_django_utils',
 ]
 

@@ -27,6 +27,7 @@ urlpatterns = [
 
     # App
     path('sponsor/', include(sponsor.routers.get_router().urls)),
+    path('article/', include('article.urls')),
 
     # PyConEmailer
     path('pyconemailer/', include('pyconemailer.urls')),
