@@ -12,6 +12,7 @@ import datetime
 
 # TODO : 이메일은 markdown 으로만 쓸수 있다. => markdown 으로 된 모델을 만들자.
 
+
 def index(request):
     now = datetime.datetime.now()
     html = "<html><body>It is now %s.</body></html>" % now
