@@ -1,5 +1,5 @@
 from rest_framework.viewsets import ReadOnlyModelViewSet, ModelViewSet
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 
 from program.models import Proposal
@@ -7,8 +7,9 @@ from program.serializers import ProposalSerializer, ProposalDetailSerializer
 
 
 class ProposalViewSet(ReadOnlyModelViewSet):
-    queryset = Proposal.objects.all()
+    queryset = Proposal.objects.filter(accepted=True)
     serializer_class = ProposalSerializer
+    permission_classes = [AllowAny]
 
 
 class ProposalDetailViewSet(ModelViewSet):
