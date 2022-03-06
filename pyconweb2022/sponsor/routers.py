@@ -5,6 +5,6 @@ from sponsor.viewsets import *
 
 def get_router():
     router = DefaultRouter()
-    router.register('', SponsorViewSet, basename='sponsor')
+    router.register("", SponsorViewSet, basename="sponsor")
 
     return router
