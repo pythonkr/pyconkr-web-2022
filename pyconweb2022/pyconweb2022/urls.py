@@ -28,7 +28,7 @@ urlpatterns = [
 
     # App
     path("sponsor/", include(sponsor.routers.get_router().urls)),
-    path("program/", include(sponsor.routers.get_router().urls)),
+    path("program/", include(program.routers.get_router().urls)),
 
     # PyConEmailer
     path("pyconemailer/", include("pyconemailer.urls")),
