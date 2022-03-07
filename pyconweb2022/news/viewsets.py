@@ -3,17 +3,17 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 from .models import News
 
-from .serializers import ArticleSerializer
+from .serializers import NewsSerializer
 
 
-class ArticleViewSet(
+class NewsViewSet(
     mixins.CreateModelMixin,
     mixins.RetrieveModelMixin,
     mixins.UpdateModelMixin,
     mixins.DestroyModelMixin,
     viewsets.GenericViewSet
 ):
-    serializer_class = ArticleSerializer
+    serializer_class = NewsSerializer
     permission_class = (IsAuthenticatedOrReadOnly,)
 
     def get_queryset(self):

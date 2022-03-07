@@ -2,7 +2,7 @@ from rest_framework import serializers
 
 from .models import News
 
-class ArticleSerializer(serializers.ModelSerializer):
+class NewsSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
     title = serializers.CharField()
     content = serializers.CharField()

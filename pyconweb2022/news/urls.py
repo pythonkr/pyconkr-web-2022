@@ -1,13 +1,13 @@
 from django.urls import path
 from rest_framework import routers
 
-from .viewsets import ArticleViewSet
+from .viewsets import NewsViewSet
 
 router = routers.SimpleRouter()
 
 router.register(
     r"",
-    ArticleViewSet,
+    NewsViewSet,
     basename="news"
 )
 
