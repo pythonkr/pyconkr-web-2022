@@ -31,7 +31,6 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
-<<<<<<< HEAD
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,6 +45,7 @@ INSTALLED_APPS = [
     'pyconemailer',
     'news',
     'zappa_django_utils',
+]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
