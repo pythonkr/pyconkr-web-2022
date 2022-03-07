@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class Article(models.Model):
+class News(models.Model):
     title = models.CharField(max_length=64)
     content = models.TextField()
     url = models.URLField(null=True, blank=True)
@@ -10,7 +10,7 @@ class Article(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        app_label = "article"
+        app_label = "news"
         
     def __str__(self):
         return self.title

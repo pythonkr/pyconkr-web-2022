@@ -8,7 +8,7 @@ router = routers.SimpleRouter()
 router.register(
     r"",
     ArticleViewSet,
-    basename="article"
+    basename="news"
 )
 
 urlpatterns = []

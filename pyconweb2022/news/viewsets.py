@@ -1,7 +1,7 @@
 from rest_framework import mixins, viewsets
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
-from .models import Article
+from .models import News
 
 from .serializers import ArticleSerializer
 
@@ -17,8 +17,8 @@ class ArticleViewSet(
     permission_class = (IsAuthenticatedOrReadOnly,)
 
     def get_queryset(self):
-        return Article.objects.all()
+        return News.objects.all()
 
     def get_object(self):
-        return Article.objects.filter(id=self.kwargs["pk"]).first()
+        return News.objects.filter(id=self.kwargs["pk"]).first()
         

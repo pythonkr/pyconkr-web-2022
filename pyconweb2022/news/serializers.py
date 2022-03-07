@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Article
+from .models import News
 
 class ArticleSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
@@ -12,7 +12,7 @@ class ArticleSerializer(serializers.ModelSerializer):
     updated_at = serializers.DateTimeField(required=False)
     
     class Meta: 
-        model = Article
+        model = News
         fields ='__all__'
 
     # 시간되면 추가..
