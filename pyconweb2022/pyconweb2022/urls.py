@@ -17,14 +17,19 @@ from django.contrib import admin
 from django.urls import path, include
 
 import sponsor.routers
+import program.routers
 
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+
     # DRF
     path("api-auth/", include("rest_framework.urls")),
+
     # App
     path("sponsor/", include(sponsor.routers.get_router().urls)),
+    path("program/", include(program.routers.get_router().urls)),
+
     # PyConEmailer
     path("pyconemailer/", include("pyconemailer.urls")),
 ]
