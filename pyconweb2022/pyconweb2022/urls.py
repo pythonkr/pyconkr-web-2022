@@ -22,14 +22,12 @@ import program.routers
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-
     # DRF
     path("api-auth/", include("rest_framework.urls")),
-
     # App
     path("sponsor/", include(sponsor.routers.get_router().urls)),
+    path("news/", include("news.urls")),
     path("program/", include(program.routers.get_router().urls)),
-
     # PyConEmailer
     path("pyconemailer/", include("pyconemailer.urls")),
 ]
