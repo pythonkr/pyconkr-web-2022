@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 import sponsor.routers
+import program.routers
 
 
 urlpatterns = [
@@ -26,6 +27,7 @@ urlpatterns = [
     # App
     path("sponsor/", include(sponsor.routers.get_router().urls)),
     path("news/", include("news.urls")),
+    path("program/", include(program.routers.get_router().urls)),
     # PyConEmailer
     path("pyconemailer/", include("pyconemailer.urls")),
 ]
