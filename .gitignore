@@ -135,3 +135,9 @@ dmypy.json
 /pyconweb2022/program/migrations/
 # to use pyconkr-secrets
 /pyconweb2022/zappa_settings.json
+
+
+Pipfile
+Pipfile.lock
+.DS_Store
+settings_local.py
