@@ -1,10 +1,13 @@
 import React from 'react'
 import type { NextPage } from 'next'
+import MainBackground from '../components/service/home/Main'
 
-const Home: NextPage = () => {
+const Index: NextPage = () => {
   return (
-    <div>Home</div>
+    <div>
+        <MainBackground />
+    </div>
   )
 }
 
-export default Home
+export default Index

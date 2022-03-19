@@ -1,22 +1,45 @@
 import React from 'react'
 import Routes from '../../routes/routes'
-import Link from "next/link";
+import styled from 'styled-components'
+import { useTranslation } from 'react-i18next'
+import { useRouter } from 'next/router'
+
+const List = styled.ul`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+`
+const ListItem = styled.li<{active?: boolean}>`
+    cursor: pointer;
+    padding: 1.3rem 0;
+    font-weight: ${props => props.active ? 'bold' : 'normal'};
+    color: ${props => props.theme.colors.white};
+`
+const Link = styled.a`
+    display: block;
+`
+
 
 const NavBar = () => {
+    const { t } = useTranslation()
+    const router = useRouter()
+
     return (
         <nav>
-            <ul>
+            <List>
             {Routes.map((route, index) => {
                 return (
-                    <Link
+                    <ListItem
                         key={index}
-                        href={route.path}
+                        active={router.pathname === route.path}
                     >
-                        <li>{route.name}</li>
-                    </Link>
+                        <Link href={route.path}>
+                            {t(`pageTitle:${route.name}`)}
+                        </Link>
+                    </ListItem>
                 )
             })}
-            </ul>
+            </List>
         </nav>
     )
 }

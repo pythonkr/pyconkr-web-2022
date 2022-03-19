@@ -1,5 +1,5 @@
 import React from 'react'
-import type { NextPage } from 'next'
+import { NextPage } from 'next'
 import { useTranslation } from 'react-i18next'
 
 const ErrorPage: NextPage = () => {
