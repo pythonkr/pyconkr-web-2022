@@ -21,7 +21,7 @@ const GlobalStyle = createGlobalStyle`
     body {
         background-color: ${Theme.colors.primary0};
         color: ${Theme.colors.white};
-        font-family "Noto Sans KR", sans-serif
+        font-family: "Noto Sans KR", sans-serif
     }
 `
 
