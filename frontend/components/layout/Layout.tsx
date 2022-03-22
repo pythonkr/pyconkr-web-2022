@@ -28,9 +28,7 @@ const Layout = (props: LayoutProps) => {
         <Container>
             <NavBarMobile />
             <NavBar />
-            <Body>
-                {props.children}
-            </Body>
+            <Body>{props.children}</Body>
         </Container>
     )
 }

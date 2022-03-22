@@ -2,7 +2,7 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Paragraph } from '../../../assets/styles/typo'
 import styled from 'styled-components'
-import {media} from "../../../assets/styles/mixin";
+import { media } from '../../../assets/styles/mixin'
 
 const Container = styled.div`
     text-align: center;
@@ -40,9 +40,12 @@ const Background = styled.div`
     z-index: -1;
     overflow: hidden;
     opacity: 0.7;
-    background: linear-gradient(118deg,rgb(12, 0, 96) 0%,
-                rgb(98,89,156) 49%,
-                rgb(255,247,53) 100%);
+    background: linear-gradient(
+        118deg,
+        rgb(12, 0, 96) 0%,
+        rgb(98, 89, 156) 49%,
+        rgb(255, 247, 53) 100%
+    );
 `
 
 const MainBackground = () => {
