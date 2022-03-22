@@ -2,6 +2,7 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Paragraph } from '../../../assets/styles/typo'
 import styled from 'styled-components'
+import {media} from "../../../assets/styles/mixin";
 
 const Container = styled.div`
     text-align: center;
@@ -16,18 +17,18 @@ const Title = styled.div`
     font-size: 5rem;
     font-weight: bold;
     word-break: normal;
-    @media (max-width: 1080px) {
+    ${media.mobile(`
         font-size: 2rem;
-    }
+    `)}
 `
 
 const BodyText = styled(Paragraph)`
     font-size: 2rem;
     font-weight: bold;
     margin-top: 2rem;
-    @media (max-width: 1080px) {
+    ${media.mobile(`
         font-size: 1rem;
-    }
+    `)}
 `
 
 const Background = styled.div`

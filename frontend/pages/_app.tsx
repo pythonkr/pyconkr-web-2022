@@ -14,17 +14,22 @@ const App = ({ Component, pageProps }: AppProps) => {
     const i18n = React.useMemo(() => createI18n({ locale }), [locale])
     const { t } = useTranslation()
 
+    const pageName = pageProps.title ?? ''
+
     return (
         <>
             <Head>
                 <title>{t(`label:siteTitle`)}</title>
-                <meta name="viewport" content="width=device-width" />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
             </Head>
             <I18nextProvider i18n={i18n}>
               <GlobalStyle />
               <ThemeProvider theme={Theme}>
                   <Layout>
-                      <Component {...pageProps} />
+                      <Component
+                          pageName={pageName}
+                         {...pageProps}
+                      />
                   </Layout>
               </ThemeProvider>
             </I18nextProvider>
