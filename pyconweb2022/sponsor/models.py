@@ -143,6 +143,7 @@ class Sponsor(models.Model):
     paid_at = models.DateTimeField(
         null=True, blank=True, help_text="후원금이 입금된 일시입니다. 아직 입금되지 않았을 경우 None이 들어갑니다."
     )
+    exported = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
