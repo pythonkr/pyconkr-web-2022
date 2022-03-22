@@ -53,8 +53,8 @@ admin.site.register(SponsorLevel, SponsorLevelAdmin)
 # https://stackoverflow.com/questions/2223375/multiple-modeladmins-views-for-same-model-in-django-admin
 class SponsorProxyModel(Sponsor):
     class Meta:
-        verbose_name = 'To Be Send ModuSign'
-        verbose_name_plural = 'To Be Send ModuSign'
+        verbose_name = "To Be Send ModuSign"
+        verbose_name_plural = "To Be Send ModuSign"
         proxy = True
 
 
