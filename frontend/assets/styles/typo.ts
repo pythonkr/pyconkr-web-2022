@@ -24,11 +24,4 @@ const Caption = styled.div`
     font-size: 0.8rem;
 `
 
-export {
-    Heading1,
-    Heading2,
-    Heading3,
-    Heading4,
-    Paragraph,
-    Caption
-}
+export { Heading1, Heading2, Heading3, Heading4, Paragraph, Caption }

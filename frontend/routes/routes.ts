@@ -8,23 +8,22 @@ export interface RouteType {
 export const routes: RouteType[] = [
     {
         path: '/',
-        name: PageName.Home,
+        name: PageName.Home
     },
     {
         path: '/about',
-        name: PageName.About,
+        name: PageName.About
     },
     {
         path: '/contribute',
-        name: PageName.Contribute,
+        name: PageName.Contribute
     },
     {
         path: '/support',
-        name: PageName.Support,
+        name: PageName.Support
     },
     {
         path: '/coc',
-        name: PageName.Coc,
+        name: PageName.Coc
     }
 ]
-

@@ -2,8 +2,8 @@ import React from 'react'
 import type { NextPage, GetServerSideProps } from 'next'
 import { useTranslation } from 'react-i18next'
 import { PageName } from '../../data/enums/PageName'
-import PageTitle from "../../components/core/PageTitle";
-import {PageProps} from "../../interfaces/PageProps";
+import PageTitle from '../../components/core/PageTitle'
+import { PageProps } from '../../interfaces/PageProps'
 
 const Contribute: NextPage = (props: PageProps) => {
     const { t } = useTranslation()
@@ -19,8 +19,8 @@ const Contribute: NextPage = (props: PageProps) => {
 export const getServerSideProps: GetServerSideProps = async () => {
     return {
         props: {
-            title: PageName.Contribute,
-        },
+            title: PageName.Contribute
+        }
     }
 }
 

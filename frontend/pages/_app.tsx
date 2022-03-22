@@ -20,18 +20,18 @@ const App = ({ Component, pageProps }: AppProps) => {
         <>
             <Head>
                 <title>{t(`label:siteTitle`)}</title>
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1"
+                />
             </Head>
             <I18nextProvider i18n={i18n}>
-              <GlobalStyle />
-              <ThemeProvider theme={Theme}>
-                  <Layout>
-                      <Component
-                          pageName={pageName}
-                         {...pageProps}
-                      />
-                  </Layout>
-              </ThemeProvider>
+                <GlobalStyle />
+                <ThemeProvider theme={Theme}>
+                    <Layout>
+                        <Component pageName={pageName} {...pageProps} />
+                    </Layout>
+                </ThemeProvider>
             </I18nextProvider>
         </>
     )

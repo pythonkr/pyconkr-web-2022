@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 import { useRouter } from 'next/router'
 import { media } from '../../assets/styles/mixin'
-import Theme from "../../assets/styles/theme";
+import Theme from '../../assets/styles/theme'
 
 const Container = styled.div`
     display: none;
@@ -28,41 +28,42 @@ const ToggleMenuLabel = styled.label`
 `
 
 const ToggleMenuIcon = styled.span`
-    background: ${props => props.theme.colors.white};
+    background: ${(props) => props.theme.colors.white};
     display: block;
     height: 0.125rem;
     position: relative;
-    transition: background .2s ease-out;
+    transition: background 0.2s ease-out;
     width: 1.4rem;
     margin-top: 0.5rem;
     &:before,
     &:after {
-      background: ${props => props.theme.colors.white};
-      content: '';
-      display: block;
-      height: 100%;
-      position: absolute;
-      transition: all .2s ease-out;
-      width: 100%;
-      top: 0;
+        background: ${(props) => props.theme.colors.white};
+        content: '';
+        display: block;
+        height: 100%;
+        position: absolute;
+        transition: all 0.2s ease-out;
+        width: 100%;
+        top: 0;
     }
     &:before {
-      top: 0.5rem;
+        top: 0.5rem;
     }
     &:after {
-      top: -0.5rem;
+        top: -0.5rem;
     }
     ${ToggleMenu}:checked ~${ToggleMenuLabel} & {
-      background: transparent;
-      &:after, &:before {
-        top: 0;
-      }
-      &:before {
-        transform: rotate(-45deg);
-      }
-      &:after {
-        transform: rotate(45deg);
-      }
+        background: transparent;
+        &:after,
+        &:before {
+            top: 0;
+        }
+        &:before {
+            transform: rotate(-45deg);
+        }
+        &:after {
+            transform: rotate(45deg);
+        }
     }
 `
 
@@ -83,16 +84,15 @@ const List = styled.ul`
     padding: 2.5rem 0;
 `
 
-const ListItem = styled.li<{active?: boolean}>`
+const ListItem = styled.li<{ active?: boolean }>`
     padding: 1.3rem 0;
-    text-decoration: ${props => props.active ? 'underline' : 'none'};
-    color: ${props => props.theme.colors.white};
+    text-decoration: ${(props) => (props.active ? 'underline' : 'none')};
+    color: ${(props) => props.theme.colors.white};
 `
 const Link = styled.a`
     display: block;
     cursor: pointer;
 `
-
 
 const NavBarMobile = () => {
     const { t } = useTranslation()
@@ -104,18 +104,18 @@ const NavBarMobile = () => {
         return route.path !== routes[0].path && router.pathname === route.path
     }
     const toggleMenu = () => {
-        setIsMenuOpen(isMenuOpen => !isMenuOpen)
+        setIsMenuOpen((isMenuOpen) => !isMenuOpen)
     }
 
     return (
         <Container>
             <ToggleMenu
-                type='checkbox'
-                id='menu-btn'
+                type="checkbox"
+                id="menu-btn"
                 checked={isMenuOpen}
                 onChange={toggleMenu}
             />
-            <ToggleMenuLabel htmlFor='menu-btn'>
+            <ToggleMenuLabel htmlFor="menu-btn">
                 <ToggleMenuIcon />
             </ToggleMenuLabel>
             {isMenuOpen && (
@@ -123,10 +123,7 @@ const NavBarMobile = () => {
                     <List>
                         {routes.map((route, index) => {
                             return (
-                                <ListItem
-                                    key={index}
-                                    active={isActive(route)}
-                                >
+                                <ListItem key={index} active={isActive(route)}>
                                     <Link href={route.path}>
                                         {t(`pageTitle:${route.name}`)}
                                     </Link>

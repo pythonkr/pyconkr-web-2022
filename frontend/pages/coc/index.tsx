@@ -3,7 +3,7 @@ import type { GetServerSideProps, NextPage } from 'next'
 import { useTranslation } from 'react-i18next'
 import { PageName } from '../../data/enums/PageName'
 import { PageProps } from '../../interfaces/PageProps'
-import PageTitle from "../../components/core/PageTitle";
+import PageTitle from '../../components/core/PageTitle'
 
 const Coc: NextPage = (props: PageProps) => {
     const { t } = useTranslation()
@@ -19,8 +19,8 @@ const Coc: NextPage = (props: PageProps) => {
 export const getServerSideProps: GetServerSideProps = async () => {
     return {
         props: {
-            title: PageName.Coc,
-        },
+            title: PageName.Coc
+        }
     }
 }
 

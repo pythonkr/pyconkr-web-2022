@@ -5,9 +5,7 @@ import { useTranslation } from 'react-i18next'
 const ErrorPage: NextPage = () => {
     const { t } = useTranslation()
 
-    return (
-        <div>{t('error:notFound')}</div>
-    )
+    return <div>{t('error:notFound')}</div>
 }
 
 export default ErrorPage
