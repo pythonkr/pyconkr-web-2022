@@ -3,6 +3,13 @@ import { routes, RouteType } from '../../routes/routes'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 import { useRouter } from 'next/router'
+import {media} from "../../assets/styles/mixin";
+
+const Container = styled.nav`
+    ${media.mobile(`
+        display: none;
+    `)}
+`
 
 const List = styled.ul`
     display: flex;
@@ -29,7 +36,7 @@ const NavBar = () => {
     }
 
     return (
-        <nav>
+        <Container>
             <List>
             {routes.map((route, index) => {
                 return (
@@ -44,7 +51,7 @@ const NavBar = () => {
                 )
             })}
             </List>
-        </nav>
+        </Container>
     )
 }
 
