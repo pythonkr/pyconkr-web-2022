@@ -143,3 +143,11 @@ REST_FRAMEWORK = {
         "rest_framework.permissions.IsAuthenticated",
     ]
 }
+
+# Amazon SES
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = os.getenv("AWS_SES_HOST")
+EMAIL_HOST_USER = os.getenv("AWS_SES_USERNAME")
+EMAIL_HOST_PASSWORD = os.getenv("AWS_SES_PASSWORD")
+EMAIL_PORT = int(os.getenv("AWS_SES_PORT"))
+EMAIL_USE_TLS = True
