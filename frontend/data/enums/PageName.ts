@@ -3,5 +3,5 @@ export enum PageName {
     About = 'About',
     Contribute = 'Contribute',
     Support = 'Support',
-    Coc = 'Coc',
+    CoC = 'CoC'
 }

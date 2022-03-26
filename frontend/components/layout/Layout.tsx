@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { media } from '../../assets/styles/mixin'
 
 interface LayoutProps {
+    locale: string
     children: ReactNode
 }
 
@@ -24,10 +25,11 @@ const Body = styled.div`
 `
 
 const Layout = (props: LayoutProps) => {
+    // TODO: locale을 context로 관리
     return (
         <Container>
-            <NavBarMobile />
-            <NavBar />
+            <NavBarMobile locale={props.locale} />
+            <NavBar locale={props.locale} />
             <Body>{props.children}</Body>
         </Container>
     )

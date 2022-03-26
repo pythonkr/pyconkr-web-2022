@@ -5,7 +5,7 @@ import { PageName } from '../../data/enums/PageName'
 import { PageProps } from '../../interfaces/PageProps'
 import PageTitle from '../../components/core/PageTitle'
 
-const Coc: NextPage = (props: PageProps) => {
+const CoC: NextPage = (props: PageProps) => {
     const { t } = useTranslation()
 
     return (
@@ -19,9 +19,9 @@ const Coc: NextPage = (props: PageProps) => {
 export const getServerSideProps: GetServerSideProps = async () => {
     return {
         props: {
-            title: PageName.Coc
+            title: PageName.CoC
         }
     }
 }
 
-export default Coc
+export default CoC

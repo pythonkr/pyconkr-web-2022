@@ -26,12 +26,22 @@ const Link = styled.a`
     cursor: pointer;
 `
 
-const NavBar = () => {
+interface NavProps {
+    locale: string
+}
+
+const NavBar = (props: NavProps) => {
     const { t } = useTranslation()
     const router = useRouter()
 
     const isActive = (route: RouteType) => {
         return route.path !== routes[0].path && router.pathname === route.path
+    }
+
+    const getPath = (routePath: string) => {
+        return props.locale === 'ko'
+            ? routePath
+            : `/${props.locale}${routePath}`
     }
 
     return (
@@ -40,12 +50,21 @@ const NavBar = () => {
                 {routes.map((route, index) => {
                     return (
                         <ListItem key={index} active={isActive(route)}>
-                            <Link href={route.path}>
+                            <Link href={getPath(route.path)}>
                                 {t(`pageTitle:${route.name}`)}
                             </Link>
                         </ListItem>
                     )
                 })}
+                {props.locale === 'ko' ? (
+                    <ListItem>
+                        <Link href="/en">English</Link>
+                    </ListItem>
+                ) : (
+                    <ListItem>
+                        <Link href="/">한국어</Link>
+                    </ListItem>
+                )}
             </List>
         </Container>
     )

@@ -24,6 +24,6 @@ export const routes: RouteType[] = [
     },
     {
         path: '/coc',
-        name: PageName.Coc
+        name: PageName.CoC
     }
 ]
