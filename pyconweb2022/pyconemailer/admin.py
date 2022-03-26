@@ -8,9 +8,7 @@ from martor.widgets import AdminMartorWidget
 
 class EmailTemplatesAdmin(admin.ModelAdmin):
     list_display = ("title",)
-    formfield_overrides = {
-        models.TextField: {'widget': AdminMartorWidget}
-    }
+    formfield_overrides = {models.TextField: {"widget": AdminMartorWidget}}
 
 
 class MailingAdmin(admin.ModelAdmin):

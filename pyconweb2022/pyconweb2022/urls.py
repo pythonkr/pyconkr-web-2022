@@ -31,7 +31,6 @@ urlpatterns = [
     # PyConEmailer
     path("pyconemailer/", include("pyconemailer.urls")),
     path("api/pyconmailer/", include(pyconemailer.routers.get_router().urls)),
-
     # martor
-    path('martor/', include('martor.urls')),
+    path("martor/", include("martor.urls")),
 ]
