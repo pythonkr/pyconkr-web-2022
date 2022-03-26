@@ -1,9 +1,11 @@
 from django.db import models
 
+from martor.models import MartorField
+
 
 class EmailTemplates(models.Model):
     title = models.CharField(max_length=255)
-    content = models.TextField()
+    content = MartorField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

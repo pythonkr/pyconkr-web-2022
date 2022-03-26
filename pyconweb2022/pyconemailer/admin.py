@@ -1,10 +1,16 @@
 from django.contrib import admin
+from django.db import models
 
 from pyconemailer.models import EmailTemplates, Mailing, Queue
+
+from martor.widgets import AdminMartorWidget
 
 
 class EmailTemplatesAdmin(admin.ModelAdmin):
     list_display = ("title",)
+    formfield_overrides = {
+        models.TextField: {'widget': AdminMartorWidget}
+    }
 
 
 class MailingAdmin(admin.ModelAdmin):
