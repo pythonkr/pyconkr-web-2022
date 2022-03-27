@@ -16,9 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+import pyconemailer.routers
 import sponsor.routers
 import program.routers
-
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -30,4 +30,7 @@ urlpatterns = [
     path("program/", include(program.routers.get_router().urls)),
     # PyConEmailer
     path("pyconemailer/", include("pyconemailer.urls")),
+    path("api/pyconmailer/", include(pyconemailer.routers.get_router().urls)),
+    # martor
+    path("martor/", include("martor.urls")),
 ]
