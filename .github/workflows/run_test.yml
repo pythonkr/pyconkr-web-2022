@@ -59,4 +59,5 @@ jobs:
 
       - name: Zappa Deploy(Update)
         run: |
+          cd pyconkr-web-2022/pyconweb2022/
           zappa update dev
