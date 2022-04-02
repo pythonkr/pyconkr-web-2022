@@ -35,12 +35,12 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       # Pull request dose not get the gitub action secrets
       # this section will be applied to the deploy workflow
-      #- uses: webfactory/ssh-agent@v0.5.4
-      #  with:
-      #      ssh-private-key: ${{ secrets.GH_PYCONKR_SECRETS }}
-      #- name: update pyconkr-secretes
-      #  run: |
-      #    ./update_secrets.sh
+      - uses: webfactory/ssh-agent@v0.5.4
+       with:
+           ssh-private-key: ${{ secrets.GH_PYCONKR_SECRETS }}
+      - name: update pyconkr-secretes
+       run: |
+         ./update_secrets.sh
       - name: Test with pytest
         run: |
           pytest pyconweb2022
