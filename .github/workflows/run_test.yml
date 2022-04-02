@@ -36,10 +36,10 @@ jobs:
       # Pull request dose not get the gitub action secrets
       # this section will be applied to the deploy workflow
       - uses: webfactory/ssh-agent@v0.5.4
-       with:
+        with:
            ssh-private-key: ${{ secrets.GH_PYCONKR_SECRETS }}
       - name: update pyconkr-secretes
-       run: |
+        run: |
          ./update_secrets.sh
       - name: Test with pytest
         run: |
