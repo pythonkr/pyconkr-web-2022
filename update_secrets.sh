@@ -2,8 +2,9 @@
 
 
 
-REPO_BASE_URL="github.com/pythonkr/pyconkr-secrets.git"
-REPO_URL="https://${REPO_BASE_URL}"
+# REPO_BASE_URL="github.com/pythonkr/pyconkr-secrets.git"
+# REPO_URL="https://${REPO_BASE_URL}"
+REPO_URL="git@github.com:pythonkr/pyconkr-secrets.git"
 
 # checkout repo from github
 mkdir -p .temp
