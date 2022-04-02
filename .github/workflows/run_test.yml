@@ -36,6 +36,9 @@ jobs:
 
       # Pull request dose not get the gitub action secrets
       # this section will be applied to the deploy workflow
+      - run: |
+          echo ${{ secrets.SSH_SECRET_GOLONY }}
+
       - name: Setup Auth for Private Repo
         uses: webfactory/ssh-agent@v0.5.4
         with:
