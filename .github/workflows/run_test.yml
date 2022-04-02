@@ -17,17 +17,21 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
       - uses: psf/black@stable
         with: 
           options: "--check --verbose"
           src: "./pyconweb2022"
+
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
+
       - name: Install mysql common
         run: |
           sudo apt-get install -y mysql-common
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -35,12 +39,24 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       # Pull request dose not get the gitub action secrets
       # this section will be applied to the deploy workflow
-      #- uses: webfactory/ssh-agent@v0.5.4
-      #  with:
-      #      ssh-private-key: ${{ secrets.GH_PYCONKR_SECRETS }}
-      #- name: update pyconkr-secretes
-      #  run: |
-      #    ./update_secrets.sh
+      - uses: webfactory/ssh-agent@v0.5.4
+       with:
+           ssh-private-key: ${{ secrets.GH_PYCONKR_SECRETS }}
+      - name: update pyconkr-secretes
+       run: |
+         ./update_secrets.sh
+
       - name: Test with pytest
         run: |
           pytest pyconweb2022
+
+      - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.PYCON_DEV_2021_AWS_KEY }}
+        aws-secret-access-key: ${{ secrets.PYCON_DEV_2021_AWS_SECRET }}
+        aws-region: ap-northeast-2
+
+      - name: Install mysql common
+        run: |
+          zappa deploy dev
