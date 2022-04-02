@@ -33,14 +33,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-          
+
       # Pull request dose not get the gitub action secrets
       # this section will be applied to the deploy workflow
       - name: Setup Auth for Private Repo
         uses: webfactory/ssh-agent@v0.5.4
         with:
+            ssh-private-key: ${{ secrets.SSH_SECRET_GOLONY }}
           #  ssh-private-key: ${{ secrets.GH_PYCONKR_SECRETS }}
-          ssh-private-key: ${{ secrets.SSH_SECRET_GOLONY}}
 
       - name: update pyconkr-secretes
         run: |
