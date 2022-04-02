@@ -35,9 +35,10 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       # Pull request dose not get the gitub action secrets
       # this section will be applied to the deploy workflow
-      # - uses: webfactory/ssh-agent@v0.5.4
-      #   with:
-      #      ssh-private-key: ${{ secrets.GH_PYCONKR_SECRETS }}
+      - name: Pull zappa_settings
+        uses: webfactory/ssh-agent@v0.5.4
+        with:
+           ssh-private-key: ${{ secrets.GH_PYCONKR_SECRETS }}
       - name: update pyconkr-secretes
         run: |
          ./update_secrets.sh
@@ -52,6 +53,6 @@ jobs:
           aws-secret-access-key: ${{ secrets.PYCON_DEV_2021_AWS_SECRET }}
           aws-region: ap-northeast-2
 
-      - name: Install dependencies
+      - name: Zappa Deploy(Update)
         run: |
           zappa update dev
