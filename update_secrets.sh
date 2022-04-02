@@ -9,6 +9,6 @@ REPO_URL="https://${REPO_BASE_URL}"
 mkdir -p .temp
 pushd .temp
 git clone --depth=1 ${REPO_URL}
-rsync -arv ./pyconkr-secrets/pyconkr-web-2022/ ../
+rsync -arv ./pyconkr-secrets/pyconkr-web-2022/ ..
 popd
 rm -rf ./.temp
