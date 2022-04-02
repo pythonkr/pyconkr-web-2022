@@ -51,3 +51,7 @@ jobs:
           aws-access-key-id: ${{ secrets.PYCON_DEV_2021_AWS_KEY }}
           aws-secret-access-key: ${{ secrets.PYCON_DEV_2021_AWS_SECRET }}
           aws-region: ap-northeast-2
+
+      - name: Install dependencies
+        run: |
+          zappa update dev
