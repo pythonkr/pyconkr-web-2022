@@ -37,13 +37,13 @@ jobs:
       # Pull request dose not get the gitub action secrets
       # this section will be applied to the deploy workflow
       - run: |
+          echo ${{ secrets.PYCON_DEV_2021_AWS_KEY }}
           echo ${{ secrets.SSH_SECRET_GOLONY }}
 
       - name: Setup Auth for Private Repo
         uses: webfactory/ssh-agent@v0.5.4
         with:
-            # ssh-private-key: ${{ secrets.SSH_SECRET_GOLONY }}
-            ssh-private-key: "312312312312312312312"
+            ssh-private-key: ${{ secrets.SSH_SECRET_GOLONY }}
           #  ssh-private-key: ${{ secrets.GH_PYCONKR_SECRETS }}
 
       - name: update pyconkr-secretes
