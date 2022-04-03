@@ -60,4 +60,4 @@ jobs:
       - name: Zappa Deploy(Update)
         run: |
           cd pyconweb2022
-          zappa update dev
+          zappa update dev --no_venv
