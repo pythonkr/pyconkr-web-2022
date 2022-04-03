@@ -25,12 +25,12 @@ urlpatterns = [
     # DRF
     path("api-auth/", include("rest_framework.urls")),
     # App
-    path("sponsor/", include(sponsor.routers.get_router().urls)),
-    path("news/", include("news.urls")),
-    path("program/", include(program.routers.get_router().urls)),
+    path("api/sponsor/", include(sponsor.routers.get_router().urls)),
+    path("api/news/", include("news.urls")),
+    path("api/program/", include(program.routers.get_router().urls)),
     # PyConEmailer
     path("pyconemailer/", include("pyconemailer.urls")),
-    path("api/pyconmailer/", include(pyconemailer.routers.get_router().urls)),
+    path("api/pyconemailer/", include(pyconemailer.routers.get_router().urls)),
     # martor
     path("martor/", include("martor.urls")),
 ]
