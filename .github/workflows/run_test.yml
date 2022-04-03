@@ -32,6 +32,9 @@ jobs:
       - name: Setup Virtualenv
         run: |
           pip install virtualenv
+
+      - name: Create and Activate Virtualenv
+        run: |
           virtualenv pyconweb2022-zappa
           source ./pyconweb2022-zappa/bin/activate
 
