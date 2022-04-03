@@ -21,10 +21,12 @@ jobs:
         with: 
           options: "--check --verbose"
           src: "./pyconweb2022"
+
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
+
       - name: Install mysql common
         run: |
           sudo apt-get install -y mysql-common
@@ -33,9 +35,12 @@ jobs:
         run: |
           pip install virtualenv
 
-      - name: Create and Activate Virtualenv
+      - name: Create Virtualenv
         run: |
           virtualenv pyconweb2022-zappa
+
+      - name: Activate Virtualenv
+        run: |
           source ./pyconweb2022-zappa/bin/activate
 
       - name: Install dependencies
