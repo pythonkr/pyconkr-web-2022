@@ -31,32 +31,33 @@ jobs:
         run: |
           sudo apt-get install -y mysql-common
 
-      - name: Install python version
-        uses: gabrielfalcao/pyenv-action@v9
-        with:
-          default: "${{ matrix.python }}"
-          command: |
-            python -m pip install --upgrade pip
-            pip install pytest
-            if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      # - name: Install python version
+      #   uses: gabrielfalcao/pyenv-action@v9
+      #   with:
+      #     default: "${{ matrix.python }}"
+      #     command: |
+      #       python -m pip install --upgrade pip
+      #       pip install pytest
+      #       if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      # - name: Setup Virtualenv
-      #   run: |
-      #     pip install virtualenv
+      - name: Setup Virtualenv
+        run: |
+          pip install virtualenv
 
-      # - name: Create Virtualenv
-      #   run: |
-      #     virtualenv pyconweb2022-zappa
+      - name: Create Virtualenv
+        run: |
+          virtualenv pyconweb2022-zappa
 
       # - name: Activate Virtualenv
       #   run: |
       #     source ./pyconweb2022-zappa/bin/activate
 
-      # - name: Install dependencies
-      #   run: |
-      #     python -m pip install --upgrade pip
-      #     pip install pytest
-      #     if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Install dependencies
+        run: |
+          source ./pyconweb2022-zappa/bin/activate
+          python -m pip install --upgrade pip
+          pip install pytest
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       # Pull request dose not get the gitub action secrets
       # this section will be applied to the deploy workflow
@@ -72,6 +73,7 @@ jobs:
 
       - name: Test with pytest
         run: |
+          source ./pyconweb2022-zappa/bin/activate
           pytest pyconweb2022
 
       - name: Configure AWS Credentials
@@ -86,5 +88,6 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.PYCON_DEV_2021_AWS_KEY }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.PYCON_DEV_2021_AWS_SECRET }}
         run: |
+          source ./pyconweb2022-zappa/bin/activate
           cd pyconweb2022
           zappa update dev
