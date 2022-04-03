@@ -28,6 +28,13 @@ jobs:
       - name: Install mysql common
         run: |
           sudo apt-get install -y mysql-common
+
+      - name: Setup Virtualenv
+        run: |
+          pip install virtualenv
+          virtualenv pyconweb2022-zappa
+          source ./pyconweb2022-zappa/bin/activate
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -63,4 +70,4 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.PYCON_DEV_2021_AWS_SECRET }}
         run: |
           cd pyconweb2022
-          zappa update dev --no_venv
+          zappa update dev
