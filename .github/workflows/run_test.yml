@@ -58,6 +58,9 @@ jobs:
           aws-region: ap-northeast-2
 
       - name: Zappa Deploy(Update)
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.PYCON_DEV_2021_AWS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.PYCON_DEV_2021_AWS_SECRET }}
         run: |
           cd pyconweb2022
           zappa update dev --no_venv
