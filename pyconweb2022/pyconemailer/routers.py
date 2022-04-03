@@ -5,6 +5,6 @@ from pyconemailer.viewsets import MailingViewSet
 
 def get_router():
     router = DefaultRouter()
-    router.register("", MailingViewSet, basename="program-edit")
+    router.register("", MailingViewSet, basename="mailing")
 
     return router
