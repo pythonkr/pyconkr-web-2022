@@ -27,11 +27,13 @@ const Body = styled.div`
 const Layout = (props: LayoutProps) => {
     // TODO: locale을 context로 관리
     return (
-        <Container>
+        <>
             <NavBarMobile locale={props.locale} />
             <NavBar locale={props.locale} />
-            <Body>{props.children}</Body>
-        </Container>
+            <Container>
+                <Body>{props.children}</Body>
+            </Container>
+        </>
     )
 }
 

@@ -74,7 +74,7 @@ const Navigation = styled.nav`
     right: 0;
     bottom: 0;
     z-index: 1;
-    background-color: ${Theme.colors.primary1};
+    background-color: ${Theme.colors.primary0};
 `
 
 const List = styled.ul`

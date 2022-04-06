@@ -1,8 +1,9 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Paragraph } from '../../../assets/styles/typo'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { media } from '../../../assets/styles/mixin'
+import theme from '../../../assets/styles/theme'
 
 const Container = styled.div`
     text-align: center;
@@ -11,6 +12,7 @@ const Container = styled.div`
     right: 0;
     top: 50%;
     transform: translateY(-50%);
+    color: ${(props) => props.theme.colors.white};
 `
 
 const Title = styled.div`
@@ -30,6 +32,11 @@ const BodyText = styled(Paragraph)`
         font-size: 1rem;
     `)}
 `
+const Gradients = keyframes`
+    0%  {background-position: 0 0;}
+    50% {background-position: 100% 0;}
+    100%  {background-position: 0 0;}
+`
 
 const Background = styled.div`
     position: absolute;
@@ -39,13 +46,10 @@ const Background = styled.div`
     bottom: 0;
     z-index: -1;
     overflow: hidden;
-    opacity: 0.7;
-    background: linear-gradient(
-        118deg,
-        rgb(12, 0, 96) 0%,
-        rgb(98, 89, 156) 49%,
-        rgb(255, 247, 53) 100%
-    );
+    background-size: 200%;
+    background-position: 0 0;
+    background-image: ${theme.gradient};
+    animation: ${Gradients} 10s infinite;
 `
 
 const MainBackground = () => {
