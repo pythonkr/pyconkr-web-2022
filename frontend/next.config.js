@@ -2,8 +2,12 @@
 const nextConfig = {
     reactStrictMode: true,
     compiler: {
-        styledComponents: true,
+        styledComponents: true
     },
+    i18n: {
+        locales: ['ko', 'en'],
+        defaultLocale: 'ko'
+    }
 }
 
 module.exports = nextConfig

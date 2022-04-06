@@ -1,31 +1,29 @@
 import { PageName } from '../data/enums/PageName'
 
-interface RouteType {
+export interface RouteType {
     path: string
     name: string
 }
 
-const routes: RouteType[] = [
+export const routes: RouteType[] = [
     {
         path: '/',
-        name: PageName.Home,
+        name: PageName.Home
     },
     {
         path: '/about',
-        name: PageName.About,
+        name: PageName.About
     },
     {
         path: '/contribute',
-        name: PageName.Contribute,
+        name: PageName.Contribute
     },
     {
         path: '/support',
-        name: PageName.Support,
+        name: PageName.Support
     },
     {
         path: '/coc',
-        name: PageName.Coc,
+        name: PageName.CoC
     }
 ]
-
-export default routes

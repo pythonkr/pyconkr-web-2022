@@ -1,13 +1,27 @@
 import React from 'react'
-import type { NextPage } from 'next'
+import type { NextPage, GetServerSideProps } from 'next'
 import { useTranslation } from 'react-i18next'
+import { PageName } from '../../data/enums/PageName'
+import PageTitle from '../../components/core/PageTitle'
+import { PageProps } from '../../interfaces/PageProps'
 
-const Home: NextPage = () => {
+const Contribute: NextPage = (props: PageProps) => {
     const { t } = useTranslation()
 
     return (
-        <div>{t('label:preparing')}</div>
+        <div>
+            <PageTitle title={props.pageName} />
+            {t('label:preparing')}
+        </div>
     )
 }
 
-export default Home
+export const getServerSideProps: GetServerSideProps = async () => {
+    return {
+        props: {
+            title: PageName.Contribute
+        }
+    }
+}
+
+export default Contribute

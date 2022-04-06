@@ -1,46 +1,72 @@
 import React from 'react'
-import Routes from '../../routes/routes'
+import { routes, RouteType } from '../../routes/routes'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 import { useRouter } from 'next/router'
+import { media } from '../../assets/styles/mixin'
+
+const Container = styled.nav`
+    ${media.mobile(`
+        display: none;
+    `)}
+`
 
 const List = styled.ul`
     display: flex;
     align-items: center;
     justify-content: space-between;
 `
-const ListItem = styled.li<{active?: boolean}>`
-    cursor: pointer;
+const ListItem = styled.li<{ active?: boolean }>`
     padding: 1.3rem 0;
-    font-weight: ${props => props.active ? 'bold' : 'normal'};
-    color: ${props => props.theme.colors.white};
+    text-decoration: ${(props) => (props.active ? 'underline' : 'none')};
+    color: ${(props) => props.theme.colors.white};
 `
 const Link = styled.a`
     display: block;
+    cursor: pointer;
 `
 
+interface NavProps {
+    locale: string
+}
 
-const NavBar = () => {
+const NavBar = (props: NavProps) => {
     const { t } = useTranslation()
     const router = useRouter()
 
+    const isActive = (route: RouteType) => {
+        return route.path !== routes[0].path && router.pathname === route.path
+    }
+
+    const getPath = (routePath: string) => {
+        return props.locale === 'ko'
+            ? routePath
+            : `/${props.locale}${routePath}`
+    }
+
     return (
-        <nav>
+        <Container>
             <List>
-            {Routes.map((route, index) => {
-                return (
-                    <ListItem
-                        key={index}
-                        active={router.pathname === route.path}
-                    >
-                        <Link href={route.path}>
-                            {t(`pageTitle:${route.name}`)}
-                        </Link>
+                {routes.map((route, index) => {
+                    return (
+                        <ListItem key={index} active={isActive(route)}>
+                            <Link href={getPath(route.path)}>
+                                {t(`pageTitle:${route.name}`)}
+                            </Link>
+                        </ListItem>
+                    )
+                })}
+                {props.locale === 'ko' ? (
+                    <ListItem>
+                        <Link href="/en">English</Link>
                     </ListItem>
-                )
-            })}
+                ) : (
+                    <ListItem>
+                        <Link href="/">한국어</Link>
+                    </ListItem>
+                )}
             </List>
-        </nav>
+        </Container>
     )
 }
 
