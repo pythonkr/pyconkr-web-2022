@@ -1,11 +1,11 @@
-django
-pytest
+django~=4.0.2
+pytest~=7.0.1
 pytest-django
 zappa
 django-s3-sqlite
 mysql-connector-python
 mysqlclient
-djangorestframework
+djangorestframework~=3.13.1
 markdown
 django-filter
 django-import-export
@@ -15,3 +15,4 @@ Pillow
 boto3
 Werkzeug
 zappa-django-utils
+martor

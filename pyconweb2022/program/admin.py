@@ -7,16 +7,28 @@ from .models import Proposal, ProgramCategory
 
 
 class ProgramCategoryAdmin(admin.ModelAdmin):
-    list_display = ('name',)
+    list_display = ("name",)
 
 
 admin.site.register(ProgramCategory, ProgramCategoryAdmin)
 
 
 class ProgramAdmin(admin.ModelAdmin):
-    list_display = ('title', 'user_name', 'difficulty', 'duration', 'language', 'category', 'video_open_at', 'track_num',)
-    ordering = ('video_open_at', 'track_num',)
-    search_fields = ('title',)
+    list_display = (
+        "title",
+        "user_name",
+        "difficulty",
+        "duration",
+        "language",
+        "category",
+        "video_open_at",
+        "track_num",
+    )
+    ordering = (
+        "video_open_at",
+        "track_num",
+    )
+    search_fields = ("title",)
 
     def get_queryset(self, request):
         if request.user.is_superuser:
@@ -32,9 +44,20 @@ class ProgramAdmin(admin.ModelAdmin):
 
     def get_form(self, request, obj=None, change=False, **kwargs):
         if not request.user.is_superuser:
-            kwargs['exclude'] = ['user', 'difficulty', 'duration', 'language', 'category',
-                                 'accepted', 'introduction', 'video_url', 'slide_url', 'video_open_at',
-                                 'track_num', 'title']
+            kwargs["exclude"] = [
+                "user",
+                "difficulty",
+                "duration",
+                "language",
+                "category",
+                "accepted",
+                "introduction",
+                "video_url",
+                "slide_url",
+                "video_open_at",
+                "track_num",
+                "title",
+            ]
 
         return super().get_form(request, obj=None, change=False, **kwargs)
 
