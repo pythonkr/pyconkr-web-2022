@@ -13,9 +13,9 @@ class ProposalViewSet(ReadOnlyModelViewSet):
 
 
 class ProposalDetailViewSet(ModelViewSet):
-    queryset = Proposal.objects.none()      # 각 Viewset 메서드에서 쿼리셋 작성
+    queryset = Proposal.objects.none()  # 각 Viewset 메서드에서 쿼리셋 작성
     serializer_class = ProposalDetailSerializer
-    permission_classes = [IsAuthenticated]      # TODO: DjangoModelPermission 적용
+    permission_classes = [IsAuthenticated]  # TODO: DjangoModelPermission 적용
 
     def retrieve(self, request, *args, **kwargs):
         queryset = Proposal.objects.get(user=request.user)

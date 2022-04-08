@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     "news",
     "pyconemailer",
     "zappa_django_utils",
-    "mdeditor",
     "martor",
 ]
 
