@@ -50,6 +50,8 @@ jobs:
 
         - run: yarn install
 
+        - run: npm install serverless@2.72.3
+
         - uses: aws-actions/configure-aws-credentials@v1
           with:
             aws-access-key-id: ${{ secrets.PYCON_DEV_2021_AWS_KEY }}
