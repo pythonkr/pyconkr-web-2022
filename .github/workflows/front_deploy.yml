@@ -27,7 +27,7 @@ name: Deploy Next.js App
 
 on:
   push:
-    branches: [serverless]
+    branches: [main]
 
 
 jobs:
