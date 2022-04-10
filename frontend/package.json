@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@sls-next/serverless-component": "^3.7.0",
     "babel-plugin-styled-components": "^2.0.6",
     "i18next": "^21.6.14",
     "next": "12.1.0",
