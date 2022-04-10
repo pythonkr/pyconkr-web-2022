@@ -1,4 +1,4 @@
-name: Testing pyconweb2022
+name: Deploy Django with zappa
 
 on:
   push:
