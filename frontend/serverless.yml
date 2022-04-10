@@ -1,0 +1,8 @@
+# serverless.yml
+
+frontend:
+  component: "@sls-next/serverless-component@3.7.0" # it is recommended you pin the latest stable version of serverless-next.js
+  inputs:
+    # domain: "pycondev2022web.pycon.kr"
+    bucketName: "pyconkr-web-2022"
+    bucketRegion: "ap-northeast-2"
