@@ -4,13 +4,24 @@ import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 import { useRouter } from 'next/router'
 import { media } from '../../assets/styles/mixin'
-import Theme from '../../assets/styles/theme'
+import theme from '../../assets/styles/theme'
 
 const Container = styled.div`
     display: none;
     ${media.mobile(`
         display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        height: 3.75rem;
     `)}
+    ${(props) => {
+        if (props.isTransparent) {
+            return `background: transparent;`
+        }
+        return `background-image: ${theme.gradient};`
+    }}
 `
 
 const ToggleMenu = styled.input`
@@ -28,7 +39,7 @@ const ToggleMenuLabel = styled.label`
 `
 
 const ToggleMenuIcon = styled.span`
-    background: ${(props) => props.theme.colors.white};
+    background: ${theme.colors.white};
     display: block;
     height: 0.125rem;
     position: relative;
@@ -37,7 +48,7 @@ const ToggleMenuIcon = styled.span`
     margin-top: 0.5rem;
     &:before,
     &:after {
-        background: ${(props) => props.theme.colors.white};
+        background: ${theme.colors.white};
         content: '';
         display: block;
         height: 100%;
@@ -74,7 +85,7 @@ const Navigation = styled.nav`
     right: 0;
     bottom: 0;
     z-index: 1;
-    background-color: ${Theme.colors.primary0};
+    background-color: ${theme.colors.primary0};
 `
 
 const List = styled.ul`
@@ -87,7 +98,7 @@ const List = styled.ul`
 const ListItem = styled.li<{ active?: boolean }>`
     padding: 1.3rem 0;
     text-decoration: ${(props) => (props.active ? 'underline' : 'none')};
-    color: ${(props) => props.theme.colors.white};
+    color: ${theme.colors.white};
 `
 const Link = styled.a`
     display: block;
@@ -110,6 +121,7 @@ const NavBarMobile = (props: NavProps) => {
     const toggleMenu = () => {
         setIsMenuOpen((isMenuOpen) => !isMenuOpen)
     }
+    const isHome = router.pathname === routes[0].path
 
     const getPath = (routePath: string) => {
         return props.locale === 'ko'
@@ -118,7 +130,7 @@ const NavBarMobile = (props: NavProps) => {
     }
 
     return (
-        <Container>
+        <Container isTransparent={isHome}>
             <ToggleMenu
                 type="checkbox"
                 id="menu-btn"
