@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 import { useRouter } from 'next/router'
 import { media } from '../../assets/styles/mixin'
-import theme from '../../assets/styles/theme'
 
 const Container = styled.nav`
     ${media.mobile(`
@@ -14,7 +13,7 @@ const Container = styled.nav`
         if (props.isTransparent) {
             return `background: transparent;`
         }
-        return `background-image: ${theme.gradient};`
+        return `background-image: ${props.theme.gradient};`
     }}
 `
 

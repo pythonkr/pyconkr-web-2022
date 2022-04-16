@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 import { useRouter } from 'next/router'
 import { media } from '../../assets/styles/mixin'
-import theme from '../../assets/styles/theme'
 
 const Container = styled.div`
     display: none;
@@ -20,7 +19,7 @@ const Container = styled.div`
         if (props.isTransparent) {
             return `background: transparent;`
         }
-        return `background-image: ${theme.gradient};`
+        return `background-image: ${props.theme.gradient};`
     }}
 `
 
@@ -39,7 +38,7 @@ const ToggleMenuLabel = styled.label`
 `
 
 const ToggleMenuIcon = styled.span`
-    background: ${theme.colors.white};
+    background: ${(props) => props.theme.colors.white};
     display: block;
     height: 0.125rem;
     position: relative;
@@ -48,7 +47,7 @@ const ToggleMenuIcon = styled.span`
     margin-top: 0.5rem;
     &:before,
     &:after {
-        background: ${theme.colors.white};
+        background: ${(props) => props.theme.colors.white};
         content: '';
         display: block;
         height: 100%;
@@ -85,7 +84,7 @@ const Navigation = styled.nav`
     right: 0;
     bottom: 0;
     z-index: 1;
-    background-color: ${theme.colors.primary0};
+    background-color: ${(props) => props.theme.colors.primary0};
 `
 
 const List = styled.ul`
@@ -98,7 +97,7 @@ const List = styled.ul`
 const ListItem = styled.li<{ active?: boolean }>`
     padding: 1.3rem 0;
     text-decoration: ${(props) => (props.active ? 'underline' : 'none')};
-    color: ${theme.colors.white};
+    color: ${(props) => props.theme.colors.white};
 `
 const Link = styled.a`
     display: block;
