@@ -28,8 +28,8 @@ const App = ({
                     content="width=device-width, initial-scale=1"
                 />
             </Head>
+            <GlobalStyle />
             <I18nextProvider i18n={i18n}>
-                <GlobalStyle />
                 <ThemeProvider theme={Theme}>
                     <Layout locale={locale}>
                         <Component pageName={pageName} {...pageProps} />
