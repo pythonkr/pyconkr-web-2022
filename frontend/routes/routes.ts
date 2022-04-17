@@ -17,11 +17,11 @@ export const routes: RouteType[] = [
         subMenu: [
             {
                 path: '/about/pyconkr',
-                name: PageName.PyconKr2022
+                name: PageName.Pyconkr2022
             },
             {
                 path: '/about/previous-pyconkr',
-                name: PageName.PreviousPyconKr
+                name: PageName.PreviousPyconkr
             }
         ]
     },

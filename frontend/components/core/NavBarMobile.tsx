@@ -130,6 +130,8 @@ const MobileSubMenuList = styled(SubMenuList)`
     background: inherit;
     color: inherit;
     padding: 0;
+    box-shadow: none;
+    border: 0;
     ${MobileSubMenuToggleCheckbox}:checked ~ & {
         padding: 1rem 0;
     }
