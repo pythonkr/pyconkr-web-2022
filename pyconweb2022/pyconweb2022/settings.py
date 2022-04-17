@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "program",
     "news",
     "pyconemailer",
+    "content",
     "zappa_django_utils",
     "martor",
 ]
@@ -65,6 +66,7 @@ TEMPLATES = [
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [
             "pyconemailer/templates",
+            "content/templates",
         ],
         "APP_DIRS": True,
         "OPTIONS": {
