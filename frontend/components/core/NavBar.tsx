@@ -30,7 +30,7 @@ const ListItem = styled.li<{ active?: boolean }>`
     color: ${(props) => props.theme.colors.white};
     position: relative;
 `
-const Link = styled.a`
+export const Link = styled.a`
     display: block;
     cursor: pointer;
 `
@@ -57,7 +57,7 @@ export const SubMenuToggleIcon = styled.span`
         transform: rotate(180deg);
     }
 `
-const SubMenuList = styled.ul`
+export const SubMenuList = styled.ul`
     visibility: hidden;
     height: 0;
     display: flex;
@@ -69,7 +69,7 @@ const SubMenuList = styled.ul`
     left: 0;
     right: 0;
     top: 3.4rem;
-    width: 10rem;
+    width: 11.5rem;
     border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 4px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
@@ -78,7 +78,7 @@ const SubMenuList = styled.ul`
         height: auto;
     }
 `
-const SubMenuListItem = styled.li`
+export const SubMenuListItem = styled.li`
     padding: 0 1rem;
     & + & {
         padding-top: 0.6rem;
