@@ -13,12 +13,12 @@ from django.template import Template, Context
 
 
 class ContentViewSet(ReadOnlyModelViewSet):
-    queryset = Content.objects.all().order_by('created_at').reverse()
+    queryset = Content.objects.all().order_by("created_at").reverse()
     serializer_class = ContentSerializer
     permission_classes = [AllowAny]
 
     def retrieve(self, request, *args, **kwargs):
-        queryset = Content.objects.get(slug=kwargs['pk'])
+        queryset = Content.objects.get(slug=kwargs["pk"])
         serializer = self.serializer_class(queryset, many=False)
 
         return Response(serializer.data)

@@ -7,7 +7,10 @@ from martor.widgets import AdminMartorWidget
 
 
 class ContentAdmin(admin.ModelAdmin):
-    list_display = ("slug", "title",)
+    list_display = (
+        "slug",
+        "title",
+    )
     formfield_overrides = {models.TextField: {"widget": AdminMartorWidget}}
 
 
