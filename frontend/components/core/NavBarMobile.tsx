@@ -4,13 +4,23 @@ import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 import { useRouter } from 'next/router'
 import { media } from '../../assets/styles/mixin'
-import Theme from '../../assets/styles/theme'
 
 const Container = styled.div`
     display: none;
     ${media.mobile(`
         display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        height: 3.75rem;
     `)}
+    ${(props) => {
+        if (props.isTransparent) {
+            return `background: transparent;`
+        }
+        return `background-image: ${props.theme.gradient};`
+    }}
 `
 
 const ToggleMenu = styled.input`
@@ -74,7 +84,7 @@ const Navigation = styled.nav`
     right: 0;
     bottom: 0;
     z-index: 1;
-    background-color: ${Theme.colors.primary0};
+    background-color: ${(props) => props.theme.colors.primary0};
 `
 
 const List = styled.ul`
@@ -110,6 +120,7 @@ const NavBarMobile = (props: NavProps) => {
     const toggleMenu = () => {
         setIsMenuOpen((isMenuOpen) => !isMenuOpen)
     }
+    const isHome = router.pathname === routes[0].path
 
     const getPath = (routePath: string) => {
         return props.locale === 'ko'
@@ -118,7 +129,7 @@ const NavBarMobile = (props: NavProps) => {
     }
 
     return (
-        <Container>
+        <Container isTransparent={isHome}>
             <ToggleMenu
                 type="checkbox"
                 id="menu-btn"

@@ -19,7 +19,7 @@ const Container = styled.div`
 const Body = styled.div`
     margin-top: 3.5rem;
     ${media.mobile(`
-        margin-top: 4rem;
+        margin-top: 6rem;
         padding: 0 1.25rem;
     `)}
 `

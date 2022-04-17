@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next'
 import { Paragraph } from '../../../assets/styles/typo'
 import styled, { keyframes } from 'styled-components'
 import { media } from '../../../assets/styles/mixin'
-import theme from '../../../assets/styles/theme'
 
 const Container = styled.div`
     text-align: center;
@@ -48,7 +47,7 @@ const Background = styled.div`
     overflow: hidden;
     background-size: 200%;
     background-position: 0 0;
-    background-image: ${theme.gradient};
+    background-image: ${(props) => props.theme.gradient};
     animation: ${Gradients} 10s infinite;
 `
 

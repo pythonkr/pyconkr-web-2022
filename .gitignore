@@ -143,3 +143,4 @@ Pipfile
 Pipfile.lock
 .DS_Store
 settings_local.py
+pyconweb2022/.idea
