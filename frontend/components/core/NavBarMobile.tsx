@@ -4,6 +4,15 @@ import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 import { useRouter } from 'next/router'
 import { media } from '../../assets/styles/mixin'
+import {
+    Link,
+    SubMenuList,
+    SubMenuListItem,
+    SubMenuToggleCheckbox,
+    SubMenuToggleIcon,
+    SubMenuToggleLabel,
+    SubMenuToggleSpan
+} from './NavBar'
 
 const Container = styled.div`
     display: none;
@@ -90,19 +99,44 @@ const Navigation = styled.nav`
 const List = styled.ul`
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 2.5rem 0;
+    padding: 2.5rem 2rem;
 `
 
 const ListItem = styled.li<{ active?: boolean }>`
     padding: 1.3rem 0;
     text-decoration: ${(props) => (props.active ? 'underline' : 'none')};
     color: ${(props) => props.theme.colors.white};
+    line-height: 2rem;
+    position: relative;
 `
-const Link = styled.a`
-    display: block;
-    cursor: pointer;
+
+const MobileSubMenuToggleCheckbox = styled(SubMenuToggleCheckbox)``
+const MobileSubMenuToggleLabel = styled(SubMenuToggleLabel)`
+    padding: 0;
+    width: 100%;
 `
+const MobileSubMenuToggleSpan = styled(SubMenuToggleSpan)``
+const MobileSubMenuToggleIcon = styled(SubMenuToggleIcon)`
+    position: absolute;
+    right: 0;
+    top: 2.3rem;
+`
+const MobileSubMenuList = styled(SubMenuList)`
+    position: relative;
+    left: initial;
+    right: initial;
+    top: initial;
+    width: auto;
+    background: inherit;
+    color: inherit;
+    padding: 0;
+    box-shadow: none;
+    border: 0;
+    ${MobileSubMenuToggleCheckbox}:checked ~ & {
+        padding: 1rem 0;
+    }
+`
+const MobileSubMenuListItem = styled(SubMenuListItem)``
 
 interface NavProps {
     locale: string
@@ -113,14 +147,19 @@ const NavBarMobile = (props: NavProps) => {
     const router = useRouter()
 
     const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const [openedSubMenu, setOpenedSubMenu] = useState('')
 
     const isActive = (route: RouteType) => {
         return route.path !== routes[0].path && router.pathname === route.path
     }
+    const isHome = router.pathname === routes[0].path
+
     const toggleMenu = () => {
         setIsMenuOpen((isMenuOpen) => !isMenuOpen)
     }
-    const isHome = router.pathname === routes[0].path
+    const toggleSubMenu = (menuName: string) => {
+        setOpenedSubMenu(openedSubMenu === menuName ? null : menuName)
+    }
 
     const getPath = (routePath: string) => {
         return props.locale === 'ko'
@@ -143,7 +182,39 @@ const NavBarMobile = (props: NavProps) => {
                 <Navigation>
                     <List>
                         {routes.map((route, index) => {
-                            return (
+                            return route.subMenu ? (
+                                <ListItem key={index} active={isActive(route)}>
+                                    <MobileSubMenuToggleCheckbox
+                                        type="checkbox"
+                                        id={route.name}
+                                        checked={openedSubMenu === route.name}
+                                        onChange={() =>
+                                            toggleSubMenu(route.name)
+                                        }
+                                    />
+                                    <MobileSubMenuToggleLabel
+                                        htmlFor={route.name}
+                                    >
+                                        <MobileSubMenuToggleSpan>
+                                            {t(`pageTitle:${route.name}`)}
+                                        </MobileSubMenuToggleSpan>
+                                    </MobileSubMenuToggleLabel>
+                                    <MobileSubMenuToggleIcon />
+                                    <MobileSubMenuList>
+                                        {route.subMenu.map((subMenu, index) => (
+                                            <MobileSubMenuListItem key={index}>
+                                                <Link
+                                                    href={getPath(subMenu.path)}
+                                                >
+                                                    {t(
+                                                        `pageTitle:${subMenu.name}`
+                                                    )}
+                                                </Link>
+                                            </MobileSubMenuListItem>
+                                        ))}
+                                    </MobileSubMenuList>
+                                </ListItem>
+                            ) : (
                                 <ListItem key={index} active={isActive(route)}>
                                     <Link href={getPath(route.path)}>
                                         {t(`pageTitle:${route.name}`)}

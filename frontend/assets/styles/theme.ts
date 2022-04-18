@@ -5,7 +5,10 @@ const Theme = {
         primary2: '#0070f3',
         black: '#000000',
         white: '#FFFFFF',
-        grey0: '#FAFAFA'
+        grey0: '#FAFAFA',
+        grey1: '#999999',
+        grey2: '#666666',
+        grey3: '#333333'
     },
     gradient:
         'linear-gradient(115deg, rgb(12, 0, 96), rgb(98, 89, 156), rgb(255, 247, 53))'

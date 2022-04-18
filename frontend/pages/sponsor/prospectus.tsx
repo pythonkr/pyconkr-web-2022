@@ -1,11 +1,11 @@
 import React from 'react'
-import type { NextPage, GetServerSideProps } from 'next'
+import { GetServerSideProps, NextPage } from 'next'
+import { PageProps } from '../../interfaces/PageProps'
 import { useTranslation } from 'react-i18next'
 import { PageName } from '../../data/enums/PageName'
-import { PageProps } from '../../interfaces/PageProps'
 import PageTitle from '../../components/core/PageTitle'
 
-const Home: NextPage = (props: PageProps) => {
+const SponsorProspectus: NextPage = (props: PageProps) => {
     const { t } = useTranslation()
 
     return (
@@ -19,9 +19,9 @@ const Home: NextPage = (props: PageProps) => {
 export const getServerSideProps: GetServerSideProps = async () => {
     return {
         props: {
-            title: PageName.Support
+            title: PageName.SponsorProspectus
         }
     }
 }
 
-export default Home
+export default SponsorProspectus
