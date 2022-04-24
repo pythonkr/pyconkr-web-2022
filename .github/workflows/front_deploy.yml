@@ -52,9 +52,11 @@ jobs:
 
         - run: npm install serverless@2.72.3
 
+        - run: npm install env-cmd
+
         - uses: aws-actions/configure-aws-credentials@v1
           with:
             aws-access-key-id: ${{ secrets.PYCON_DEV_2021_AWS_KEY }}
             aws-secret-access-key: ${{ secrets.PYCON_DEV_2021_AWS_SECRET }}
             aws-region: ap-northeast-2
-        - run: npx serverless
+        - run: env-cmd -e prod npx serverless
