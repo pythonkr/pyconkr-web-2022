@@ -89,4 +89,4 @@ jobs:
           source ./pyconweb2022-zappa/bin/activate
           cd pyconweb2022
           zappa update production
-          zappa manage production collectstatic
+#          zappa manage production collectstatic
