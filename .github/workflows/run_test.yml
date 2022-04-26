@@ -2,7 +2,7 @@ name: Testing pyconweb2022
 
 on:
   pull_request:
-    branches: [main]
+    branches: [devdev]
 
 
 jobs:

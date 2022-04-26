@@ -1,8 +1,8 @@
-name: Deploy Django with zappa on PRODUCTION stage
+name: Deploy Django with zappa on DEV stage
 
 on:
   push:
-    branches: [main]
+    branches: [devdev]
 
 
 jobs:
@@ -88,5 +88,5 @@ jobs:
         run: |
           source ./pyconweb2022-zappa/bin/activate
           cd pyconweb2022
-          zappa update production
-          zappa manage production collectstatic
+          zappa update dev
+          zappa manage dev collectstatic

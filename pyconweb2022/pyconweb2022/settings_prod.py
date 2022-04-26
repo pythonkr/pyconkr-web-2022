@@ -6,11 +6,11 @@ from pyconweb2022.settings import *
 DATABASES = {
     "default": {
         "ENGINE": "mysql.connector.django",
-        "NAME": "pyconkrweb2022dev",
-        "USER": "pyconkrweb2022dev",
-        "PASSWORD": "devdevdev2022##2022",
-        "HOST": "pyconkr2022-dev.cluster-c3lemconopmq.ap-northeast-2.rds.amazonaws.com",
-        "PORT": "3306",
+        "NAME": os.getenv("AWS_RDS_DATABASE"),
+        "USER": os.getenv("AWS_RDS_USER_ID"),
+        "PASSWORD": os.getenv("AWS_RDS_PW"),
+        "HOST": os.getenv("AWS_RDS_HOST"),
+        "PORT": os.getenv("AWS_RDS_PORT"),
     }
 }
 
