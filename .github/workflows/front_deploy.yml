@@ -52,7 +52,7 @@ jobs:
 
         - run: npm install serverless@2.72.3
 
-        - run: npm install env-cmd
+        - run: npm install -g env-cmd
 
         - uses: aws-actions/configure-aws-credentials@v1
           with:
