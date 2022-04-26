@@ -6,21 +6,20 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('sponsor', '0002_sponsor_exported'),
+        ("sponsor", "0002_sponsor_exported"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='SponsorProxyModel',
-            fields=[
-            ],
+            name="SponsorProxyModel",
+            fields=[],
             options={
-                'verbose_name': 'To Be Send ModuSign',
-                'verbose_name_plural': 'To Be Send ModuSign',
-                'proxy': True,
-                'indexes': [],
-                'constraints': [],
+                "verbose_name": "To Be Send ModuSign",
+                "verbose_name_plural": "To Be Send ModuSign",
+                "proxy": True,
+                "indexes": [],
+                "constraints": [],
             },
-            bases=('sponsor.sponsor',),
+            bases=("sponsor.sponsor",),
         ),
     ]
