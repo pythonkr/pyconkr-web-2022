@@ -21,13 +21,6 @@ const App = ({
 
     return (
         <>
-            <Head>
-                <title>{t(`label:siteTitle`)}</title>
-                <meta
-                    name="viewport"
-                    content="width=device-width, initial-scale=1"
-                />
-            </Head>
             <I18nextProvider i18n={i18n}>
                 <ThemeProvider theme={Theme}>
                     <Layout locale={locale} pageName={pageName}>
