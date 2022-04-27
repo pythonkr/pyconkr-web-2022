@@ -43,12 +43,8 @@ const Layout = (props: LayoutProps) => {
                 openGraph={{
                     type: 'website',
                     url: 'https://pycon.kr',
-                    title: `${t(`pageTitle:${props.pageName}`)} : ${t(
-                        `label:siteTitle`
-                    )}`,
-                    site_name: `${t(`pageTitle:${props.pageName}`)} : ${t(
-                        `label:siteTitle`
-                    )}`
+                    title: title,
+                    site_name: title
                 }}
             />
             <NavBarMobile locale={props.locale} />
