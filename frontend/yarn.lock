@@ -1672,6 +1672,13 @@
   resolved "https://registry.yarnpkg.com/@types/ms/-/ms-0.7.31.tgz#31b7ca6407128a3d2bbc27fe2d21b345397f6197"
   integrity sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==
 
+"@types/next-seo@^2.1.2":
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/@types/next-seo/-/next-seo-2.1.2.tgz#ca666805eb21ca120551868b9a29fce6c65a3bf7"
+  integrity sha512-vn6nCBli9++YeGaP//bzekTYaRntbT1q3lEcwtaVU/qECuAfWFClX9NvgWZvKVibYzAhKc8AKQ9xE70/GySQLw==
+  dependencies:
+    next-seo "*"
+
 "@types/node@*":
   version "17.0.29"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.29.tgz#7f2e1159231d4a077bb660edab0fde373e375a3d"
@@ -5607,7 +5614,7 @@ neo-async@^2.6.2:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
-next-seo@^5.4.0:
+next-seo@*, next-seo@^5.4.0:
   version "5.4.0"
   resolved "https://registry.yarnpkg.com/next-seo/-/next-seo-5.4.0.tgz#37a7784b30b3f70cec3fa0d77f9dde5990822d24"
   integrity sha512-R9DhajPwJnR/lsF2hZ8cN8uqr5CVITsRrCG1AF5+ufcaybKYOvnH8sH9MaH4/hpkps3PQ9H71S7J7SPYixAYzQ==

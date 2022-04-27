@@ -30,13 +30,15 @@ const Body = styled.div`
 const Layout = (props: LayoutProps) => {
     const { t } = useTranslation()
 
+    const title = props.pageName
+        ? `${t(`pageTitle:${props.pageName}`)} : ${t(`label:siteTitle`)}`
+        : `${t(`label:siteTitle`)}`
+
     // TODO: locale을 context로 관리
     return (
         <>
             <NextSeo
-                title={`${t(`pageTitle:${props.pageName}`)} : ${t(
-                    `label:siteTitle`
-                )}`}
+                title={title}
                 description=""
                 openGraph={{
                     type: 'website',
