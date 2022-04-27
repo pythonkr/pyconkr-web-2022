@@ -1,6 +1,16 @@
 import { PreviousPyconkr } from '../../data/enums/PreviousPyconkr'
 
 export default {
+    [PreviousPyconkr.PYCONKR_2021]: {
+        title: 'PyCon Korea 2021',
+        paragraph: 'TBU',
+        url: 'https://2021.pycon.kr'
+    },
+    [PreviousPyconkr.PYCONKR_2020]: {
+        title: 'PyCon Korea 2020',
+        paragraph: 'TBU',
+        url: 'https://archive.pycon.kr/2020'
+    },
     [PreviousPyconkr.PYCONKR_2019]: {
         title: 'PyCon Korea 2019',
         paragraph:
