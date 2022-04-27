@@ -30,7 +30,7 @@ const App = ({
             </Head>
             <I18nextProvider i18n={i18n}>
                 <ThemeProvider theme={Theme}>
-                    <Layout locale={locale}>
+                    <Layout locale={locale} pageName={pageName}>
                         <Component pageName={pageName} {...pageProps} />
                     </Layout>
                 </ThemeProvider>
