@@ -7,7 +7,6 @@ import { I18nextProvider, useTranslation } from 'react-i18next'
 import { ThemeProvider } from 'styled-components'
 import '../assets/styles/global.css'
 import Theme from '../assets/styles/theme'
-import Head from 'next/head'
 
 const App = ({
     Component,
