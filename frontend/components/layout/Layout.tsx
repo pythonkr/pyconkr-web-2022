@@ -3,9 +3,12 @@ import NavBar from '../core/NavBar'
 import NavBarMobile from '../core/NavBarMobile'
 import styled from 'styled-components'
 import { media } from '../../assets/styles/mixin'
+import { NextSeo } from 'next-seo'
+import { useTranslation } from 'react-i18next'
 
 interface LayoutProps {
     locale: string
+    pageName: string
     children: ReactNode
 }
 
@@ -25,9 +28,26 @@ const Body = styled.div`
 `
 
 const Layout = (props: LayoutProps) => {
+    const { t } = useTranslation()
+
+    const title =
+        props.pageName !== ''
+            ? `${t(`pageTitle:${props.pageName}`)} : ${t(`label:siteTitle`)}`
+            : `${t(`label:siteTitle`)}`
+
     // TODO: locale을 context로 관리
     return (
         <>
+            <NextSeo
+                title={title}
+                description=""
+                openGraph={{
+                    type: 'website',
+                    url: 'https://pycon.kr',
+                    title: title,
+                    site_name: title
+                }}
+            />
             <NavBarMobile locale={props.locale} />
             <NavBar locale={props.locale} />
             <Container>
