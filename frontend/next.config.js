@@ -6,8 +6,16 @@ const nextConfig = {
     },
     i18n: {
         locales: ['ko', 'en'],
-        defaultLocale: 'ko'
+        defaultLocale: 'ko',
+        localeDetection: false
     },
+    webpack: (config) => {
+        config.module.rules.push({
+            test: /\.md$/,
+            use: 'raw-loader'
+        })
+        return config
+    }
     // experimental: {
     //     outputStandalone: true,
     // }
