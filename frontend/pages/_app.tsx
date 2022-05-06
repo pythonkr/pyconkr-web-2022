@@ -7,7 +7,6 @@ import { I18nextProvider, useTranslation } from 'react-i18next'
 import { ThemeProvider } from 'styled-components'
 import '../assets/styles/global.css'
 import Theme from '../assets/styles/theme'
-import Head from 'next/head'
 
 const App = ({
     Component,
@@ -21,16 +20,9 @@ const App = ({
 
     return (
         <>
-            <Head>
-                <title>{t(`label:siteTitle`)}</title>
-                <meta
-                    name="viewport"
-                    content="width=device-width, initial-scale=1"
-                />
-            </Head>
             <I18nextProvider i18n={i18n}>
                 <ThemeProvider theme={Theme}>
-                    <Layout locale={locale}>
+                    <Layout locale={locale} pageName={pageName}>
                         <Component pageName={pageName} {...pageProps} />
                     </Layout>
                 </ThemeProvider>
