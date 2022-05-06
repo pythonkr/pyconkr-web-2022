@@ -3,12 +3,14 @@ import { PreviousPyconkr } from '../../data/enums/PreviousPyconkr'
 export default {
     [PreviousPyconkr.PYCONKR_2021]: {
         title: 'PyCon Korea 2021',
-        paragraph: 'TBU',
+        paragraph:
+            'PyCon Korea 2021 was held online from October 2nd to 3rd under the slogan "Stay Home, Stay Connected". 38 sessions were prepared with contributions from speakers. For Pythonistas who missed gathering due to the global pandemic, we prepared a virtual space on the online networking platform(Gather) where participants can watch sessions together and network freely.',
         url: 'https://2021.pycon.kr'
     },
     [PreviousPyconkr.PYCONKR_2020]: {
         title: 'PyCon Korea 2020',
-        paragraph: 'TBU',
+        paragraph:
+            'PyCon Korea 2020 was held online from September 26th to 27th under the slogan "We are Pythonistas". 3 keynotes and 35 sessions were prepared with contributions from speakers. As it was the first online event in PyCon Korea, tickets were provided free of charge for more participants to enjoy, and sponsors were provided with customized virtual booths on the PyCon Korea website.',
         url: 'https://archive.pycon.kr/2020'
     },
     [PreviousPyconkr.PYCONKR_2019]: {

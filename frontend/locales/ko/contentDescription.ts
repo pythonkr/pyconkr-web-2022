@@ -3,12 +3,14 @@ import { PreviousPyconkr } from '../../data/enums/PreviousPyconkr'
 export default {
     [PreviousPyconkr.PYCONKR_2021]: {
         title: '파이콘 한국 2021',
-        paragraph: 'TBU',
+        paragraph:
+            '파이콘 한국 2021은 10월 2일부터 3일까지 2일간 "Stay Home, Stay Connected" 를 주제로 온라인에서 개최되었습니다. 본 행사는 38개의 세션으로 구성되었으며, 이는 모두 발표자 및 진행자 분들의 기여로 준비되었습니다. 세계적인 팬데믹으로 오프라인 만남에 아쉬움을 느끼던 파이써니스타들을 위해 온라인 네트워킹 플랫폼인 게더(Gather)에서 함께 세션을 관람하고 자유롭게 네트워킹을 할 수 있는 환경을 구축했습니다.',
         url: 'https://2021.pycon.kr'
     },
     [PreviousPyconkr.PYCONKR_2020]: {
         title: '파이콘 한국 2020',
-        paragraph: 'TBU',
+        paragraph:
+            '파이콘 한국 2020은 9월 26일부터 27일까지 2일간 "We are Pythonistas" 를 주제로 온라인에서 개최되었습니다. 본 행사는 3개의 키노트와 35개의 세션으로 구성되었으며, 이는 모두 발표자 및 진행자 분들의 기여로 준비되었습니다. 파이콘 한국의 첫 온라인 행사로, 보다 많은 참가자들이 즐길 수 있도록 티켓을 무료로 전환하였고, 후원사들에게는 홈페이지에서 커스터마이징을 할 수 있는 버추얼 부스를 제공하여 진행했습니다.',
         url: 'https://archive.pycon.kr/2020'
     },
     [PreviousPyconkr.PYCONKR_2019]: {
