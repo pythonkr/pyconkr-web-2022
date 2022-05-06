@@ -69,7 +69,7 @@ export const SubMenuList = styled.ul`
     left: 0;
     right: 0;
     top: 3.4rem;
-    width: 11.5rem;
+    width: 13rem;
     border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 4px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
