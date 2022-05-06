@@ -1,25 +1,40 @@
 import React from 'react'
-import { GetServerSideProps, NextPage } from 'next'
-import { PageProps } from '../../interfaces/PageProps'
+import { GetServerSideProps, GetServerSidePropsContext, NextPage } from 'next'
+import { SponsorPage } from '../../interfaces/PageProps'
 import { useTranslation } from 'react-i18next'
 import { PageName } from '../../data/enums/PageName'
-import PageTitle from '../../components/core/PageTitle'
+import { getSponsorTerms } from '../api/sponsor'
+import MarkdownStyle from '../../assets/styles/markdown'
+import ReactMarkdown from 'react-markdown'
+import HeadingComponents from '../../components/core/MarkdownHeadings'
 
-const SponsorTerms: NextPage = (props: PageProps) => {
+interface TermsOfSponsorPage extends SponsorPage {
+    locale: string
+}
+
+const SponsorTerms: NextPage = (props: TermsOfSponsorPage) => {
     const { t } = useTranslation()
 
     return (
-        <>
-            <PageTitle title={props.pageName} />
-            <div>{t('label:preparing')}</div>
-        </>
+        <MarkdownStyle>
+            <ReactMarkdown components={HeadingComponents}>
+                {props.content[props.locale]}
+            </ReactMarkdown>
+        </MarkdownStyle>
     )
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async (
+    context: GetServerSidePropsContext
+) => {
+    const content = await getSponsorTerms()
+    const { locale } = context
+
     return {
         props: {
-            title: PageName.SponsorTerms
+            title: PageName.SponsorTerms,
+            locale,
+            ...content
         }
     }
 }
