@@ -8,6 +8,7 @@ export default {
     [PageName.Contribute]: '기여하기',
     [PageName.Sponsor]: '후원하기',
     [PageName.SponsorProspectus]: '후원사 안내',
+    [PageName.SponsorBenefit]: '후원사 혜택',
     [PageName.SponsorTerms]: '후원사 약관',
     [PageName.CoC]: '행동 강령'
 }

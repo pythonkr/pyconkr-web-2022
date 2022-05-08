@@ -8,6 +8,7 @@ export default {
     [PageName.Contribute]: 'Contribution',
     [PageName.Sponsor]: 'Sponsor',
     [PageName.SponsorProspectus]: 'Prospectus',
+    [PageName.SponsorBenefit]: 'Benefit',
     [PageName.SponsorTerms]: 'Terms of Sponsor',
     [PageName.CoC]: 'CoC'
 }
