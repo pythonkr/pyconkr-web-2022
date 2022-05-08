@@ -11,7 +11,7 @@ export default {
         title: 'PyCon Korea 2020',
         paragraph:
             'PyCon Korea 2020 was held online from September 26th to 27th under the slogan "We are Pythonistas". 3 keynotes and 35 sessions were prepared with contributions from speakers. As it was the first online event in PyCon Korea, tickets were provided free of charge for more participants to enjoy, and sponsors were provided with customized virtual booths on the PyCon Korea website.',
-        url: 'https://archive.pycon.kr/2020'
+        url: 'https://pycon.kr/2020'
     },
     [PreviousPyconkr.PYCONKR_2019]: {
         title: 'PyCon Korea 2019',

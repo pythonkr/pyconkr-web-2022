@@ -1,5 +1,7 @@
 const Resources = {
     previousPyconkrImage: {
+        PYCONKR_2021_IMG: 'https://2022.pycon.kr/images/pyconkr2021.jpg',
+        PYCONKR_2020_IMG: 'https://2022.pycon.kr/images/pyconkr2020.png',
         PYCONKR_2019_IMG:
             'https://live.staticflickr.com/65535/48715744618_1e10fe2748_z.jpg',
         PYCONKR_2018_IMG:

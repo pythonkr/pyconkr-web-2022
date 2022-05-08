@@ -23,7 +23,7 @@ const Col = styled.div`
         width: 100%;
     `)}
     & + & {
-        margin-left: 1.2rem;
+        margin-left: 1.6rem;
         ${media.mobile(`
             margin-left: 0;
             margin-top: 1.2rem;
@@ -34,6 +34,9 @@ const Container = styled.div`
     padding-bottom: 2rem;
     & + & {
         padding-top: 5rem;
+        ${media.mobile(`
+            padding-top: 3rem;
+        `)}
     }
 `
 const ParagraphContainer = styled.div`
