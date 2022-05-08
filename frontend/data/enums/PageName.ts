@@ -6,6 +6,7 @@ export enum PageName {
     Contribute = 'Contribute',
     Sponsor = 'Sponsor',
     SponsorProspectus = 'SponsorProspectus',
+    SponsorBenefit = 'SponsorBenefit',
     SponsorTerms = 'SponsorTerms',
     CoC = 'CoC'
 }

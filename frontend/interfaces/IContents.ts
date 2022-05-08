@@ -1,4 +1,4 @@
-export interface ISponsorTerms {
+export interface IContents {
     content: {
         ko: string
         en: string

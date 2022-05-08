@@ -63,7 +63,7 @@ export const SubMenuList = styled.ul`
     display: flex;
     flex-direction: column;
     background: ${(props) => props.theme.colors.white};
-    color: ${(props) => props.theme.colors.grey2};
+    color: ${(props) => props.theme.colors.grey_66};
     padding: 1rem 0;
     position: absolute;
     left: 0;
