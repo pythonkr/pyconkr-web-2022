@@ -1,4 +1,4 @@
-export interface IApiSponsorTerms {
+export interface IApiContents {
     slug: string
     title: string
     content: string
