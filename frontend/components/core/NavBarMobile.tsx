@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { routes, RouteType } from '../../routes/routes'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
@@ -138,6 +138,14 @@ const MobileSubMenuList = styled(SubMenuList)`
 `
 const MobileSubMenuListItem = styled(SubMenuListItem)``
 
+const LanguageChangeButton = styled.button`
+    background: transparent;
+    border: 0;
+    color: inherit;
+    font-size: inherit;
+    cursor: pointer;
+`
+
 interface NavProps {
     locale: string
 }
@@ -165,6 +173,11 @@ const NavBarMobile = (props: NavProps) => {
         return props.locale === 'ko'
             ? routePath
             : `/${props.locale}${routePath}`
+    }
+
+    const onChangeLanguage = (lang) => (e) => {
+        e.preventDefault()
+        router.push(router.asPath, undefined, { locale: lang })
     }
 
     return (
@@ -224,11 +237,19 @@ const NavBarMobile = (props: NavProps) => {
                         })}
                         {props.locale === 'ko' ? (
                             <ListItem>
-                                <Link href="/en">English</Link>
+                                <LanguageChangeButton
+                                    onClick={onChangeLanguage('en')}
+                                >
+                                    English
+                                </LanguageChangeButton>
                             </ListItem>
                         ) : (
                             <ListItem>
-                                <Link href="/">한국어</Link>
+                                <LanguageChangeButton
+                                    onClick={onChangeLanguage('ko')}
+                                >
+                                    한국어
+                                </LanguageChangeButton>
                             </ListItem>
                         )}
                     </List>

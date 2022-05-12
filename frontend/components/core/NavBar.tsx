@@ -84,6 +84,13 @@ export const SubMenuListItem = styled.li`
         padding-top: 0.6rem;
     }
 `
+const LanguageChangeButton = styled.button`
+    background: transparent;
+    border: 0;
+    color: inherit;
+    font-size: inherit;
+    cursor: pointer;
+`
 
 interface NavProps {
     locale: string
@@ -107,6 +114,11 @@ const NavBar = (props: NavProps) => {
 
     const toggleSubMenu = (menuName: string) => {
         setOpenedSubMenu(openedSubMenu === menuName ? null : menuName)
+    }
+
+    const handleChangeLanguage = (lang) => (e) => {
+        e.preventDefault()
+        router.push(router.asPath, undefined, { locale: lang })
     }
 
     return (
@@ -147,11 +159,19 @@ const NavBar = (props: NavProps) => {
                 })}
                 {props.locale === 'ko' ? (
                     <ListItem>
-                        <Link href="/en">English</Link>
+                        <LanguageChangeButton
+                            onClick={handleChangeLanguage('en')}
+                        >
+                            English
+                        </LanguageChangeButton>
                     </ListItem>
                 ) : (
                     <ListItem>
-                        <Link href="/">한국어</Link>
+                        <LanguageChangeButton
+                            onClick={handleChangeLanguage('ko')}
+                        >
+                            한국어
+                        </LanguageChangeButton>
                     </ListItem>
                 )}
             </List>
