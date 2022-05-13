@@ -10,6 +10,7 @@ import matter from 'gray-matter'
 import ReactMarkdown from 'react-markdown'
 import HeadingComponents from '../../components/core/MarkdownHeadings'
 import MarkdownStyle from '../../assets/styles/markdown'
+import remarkGfm from 'remark-gfm'
 
 const CoC: NextPage = (props: any) => {
     const { t } = useTranslation()
@@ -17,7 +18,10 @@ const CoC: NextPage = (props: any) => {
     return (
         <div>
             <MarkdownStyle>
-                <ReactMarkdown components={HeadingComponents}>
+                <ReactMarkdown
+                    components={HeadingComponents}
+                    remarkPlugins={[remarkGfm]}
+                >
                     {props.content}
                 </ReactMarkdown>
             </MarkdownStyle>

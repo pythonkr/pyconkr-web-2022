@@ -8,6 +8,7 @@ import ReactMarkdown from 'react-markdown'
 import HeadingComponents from '../../components/core/MarkdownHeadings'
 import MarkdownStyle from '../../assets/styles/markdown'
 import PageTitle from '../../components/core/PageTitle'
+import remarkGfm from 'remark-gfm'
 
 interface SponsorSponsorFaqPage extends SponsorPage {
     locale: string
@@ -18,7 +19,10 @@ const SponsorFaq: NextPage = (props: SponsorSponsorFaqPage) => {
         <div>
             <PageTitle title={props.pageName} />
             <MarkdownStyle>
-                <ReactMarkdown components={HeadingComponents}>
+                <ReactMarkdown
+                    components={HeadingComponents}
+                    remarkPlugins={[remarkGfm]}
+                >
                     {props.content[props.locale]}
                 </ReactMarkdown>
             </MarkdownStyle>
