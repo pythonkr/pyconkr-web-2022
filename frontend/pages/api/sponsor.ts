@@ -30,6 +30,34 @@ export const getSponsorBenefit = async (): Promise<IContents> => {
     }
 }
 
+export const getSponsorJoin = async (): Promise<IContents> => {
+    const response = await axios.get(
+        `https://api.2022.pycon.kr/api/content/sponsor-join`
+    )
+    const data: IApiContents = response.data
+
+    return {
+        content: {
+            ko: data.content,
+            en: data.eng_content
+        }
+    }
+}
+
+export const getSponsorFaq = async (): Promise<IContents> => {
+    const response = await axios.get(
+        `https://api.2022.pycon.kr/api/content/sponsor-faq`
+    )
+    const data: IApiContents = response.data
+
+    return {
+        content: {
+            ko: data.content,
+            en: data.eng_content
+        }
+    }
+}
+
 export const getSponsorTerms = async (): Promise<IContents> => {
     const response = await axios.get(
         `https://api.2022.pycon.kr/api/content/terms-of-sponsor`
