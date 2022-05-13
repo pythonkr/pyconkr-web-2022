@@ -22,6 +22,11 @@ const MarkdownStyle = styled.div`
     li {
         margin: 0.3rem 0.6rem;
         padding: 0;
+    }
+    ol li {
+        list-style: numeric;
+    }
+    ul li {
         list-style: circle;
     }
     hr {

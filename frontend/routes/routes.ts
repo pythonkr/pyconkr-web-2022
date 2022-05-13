@@ -38,8 +38,16 @@ export const routes: RouteType[] = [
                 name: PageName.SponsorProspectus
             },
             {
+                path: '/sponsor/join',
+                name: PageName.SponsorJoin
+            },
+            {
                 path: '/sponsor/benefit',
                 name: PageName.SponsorBenefit
+            },
+            {
+                path: '/sponsor/faq',
+                name: PageName.SponsorFaq
             },
             {
                 path: '/sponsor/terms-of-sponsor',
