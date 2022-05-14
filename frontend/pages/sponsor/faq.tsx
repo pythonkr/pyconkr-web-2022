@@ -3,7 +3,7 @@ import type { NextPage, GetServerSideProps } from 'next'
 import { PageName } from '../../data/enums/PageName'
 import { SponsorPage } from '../../interfaces/PageProps'
 import { GetServerSidePropsContext } from 'next'
-import { getSponsorFaq } from '../api/sponsor'
+import { getSponsorData } from '../api/sponsor'
 import ReactMarkdown from 'react-markdown'
 import HeadingComponents from '../../components/core/MarkdownHeadings'
 import MarkdownStyle from '../../assets/styles/markdown'
@@ -34,7 +34,7 @@ export const getServerSideProps: GetServerSideProps = async (
     context: GetServerSidePropsContext
 ) => {
     const { locale } = context
-    const content = await getSponsorFaq()
+    const content = await getSponsorData('sponsor-faq')
 
     return {
         props: {

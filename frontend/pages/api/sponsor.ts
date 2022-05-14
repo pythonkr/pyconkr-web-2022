@@ -1,73 +1,26 @@
 import axios from 'axios'
 import { IContents } from '../../interfaces/IContents'
 import { IApiContents } from '../../interfaces/api/IApiContents'
+import { API_SERVER } from '../../data/constants/config';
 
-export const getSponsorProspectus = async (): Promise<IContents> => {
-    const response = await axios.get(
-        `https://api.2022.pycon.kr/api/content/prospectus`
-    )
-    const data: IApiContents = response.data
+type GetSponsorDataProps = 'prospectus' | 'sporsor-benefit' | 'sponsor-join' | 'sponsor-faq' | 'terms-of-sponsor';
 
-    return {
-        content: {
-            ko: data.content,
-            en: data.eng_content
+export const getSponsorData = async (endPoint: GetSponsorDataProps): Promise<IContents> => {
+    try {
+        const response = await axios.get(
+            `${API_SERVER}/content/${endPoint}`
+        )
+        const data: IApiContents = response.data
+    
+        return {
+            content: {
+                ko: data.content,
+                en: data.eng_content
+            }
         }
+    } catch (error) {
+        window?.alert('일시적인 오류가 발생하였습니다. 잠시 후 다시 시도해 주세요.')
     }
+    
 }
 
-export const getSponsorBenefit = async (): Promise<IContents> => {
-    const response = await axios.get(
-        `https://api.2022.pycon.kr/api/content/sporsor-benefit`
-    )
-    const data: IApiContents = response.data
-
-    return {
-        content: {
-            ko: data.content,
-            en: data.eng_content
-        }
-    }
-}
-
-export const getSponsorJoin = async (): Promise<IContents> => {
-    const response = await axios.get(
-        `https://api.2022.pycon.kr/api/content/sponsor-join`
-    )
-    const data: IApiContents = response.data
-
-    return {
-        content: {
-            ko: data.content,
-            en: data.eng_content
-        }
-    }
-}
-
-export const getSponsorFaq = async (): Promise<IContents> => {
-    const response = await axios.get(
-        `https://api.2022.pycon.kr/api/content/sponsor-faq`
-    )
-    const data: IApiContents = response.data
-
-    return {
-        content: {
-            ko: data.content,
-            en: data.eng_content
-        }
-    }
-}
-
-export const getSponsorTerms = async (): Promise<IContents> => {
-    const response = await axios.get(
-        `https://api.2022.pycon.kr/api/content/terms-of-sponsor`
-    )
-    const data: IApiContents = response.data
-
-    return {
-        content: {
-            ko: data.content,
-            en: data.eng_content
-        }
-    }
-}
