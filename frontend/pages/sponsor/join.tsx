@@ -9,6 +9,13 @@ import MarkdownStyle from '../../assets/styles/markdown'
 import PageTitle from '../../components/core/PageTitle'
 import { getSponsorJoin } from '../api/sponsor'
 import remarkGfm from 'remark-gfm'
+import styled from 'styled-components'
+
+const SponsorJoinPageStyle = styled.div`
+    h2 + p {
+        margin-bottom: 1rem;
+    }
+`
 
 interface SponsorSponsorJoinPage extends SponsorPage {
     locale: string
@@ -19,12 +26,14 @@ const SponsorJoin: NextPage = (props: SponsorSponsorJoinPage) => {
         <div>
             <PageTitle title={props.pageName} />
             <MarkdownStyle>
-                <ReactMarkdown
-                    components={HeadingComponents}
-                    remarkPlugins={[remarkGfm]}
-                >
-                    {props.content[props.locale]}
-                </ReactMarkdown>
+                <SponsorJoinPageStyle>
+                    <ReactMarkdown
+                        components={HeadingComponents}
+                        remarkPlugins={[remarkGfm]}
+                    >
+                        {props.content[props.locale]}
+                    </ReactMarkdown>
+                </SponsorJoinPageStyle>
             </MarkdownStyle>
         </div>
     )
