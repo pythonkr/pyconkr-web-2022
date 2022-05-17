@@ -2,7 +2,7 @@ export default {
     siteTitle: '파이콘 한국 2022',
     preparing: '준비 중입니다.',
     pyconkrTitle: 'PYCON KOREA 2022',
-    comingSoon: 'Coming Soon',
+    pyconkrDate: '2022년 10월 1일 ~ 10월 2일',
     about: {
         main: {
             title: '파이콘 한국이란',

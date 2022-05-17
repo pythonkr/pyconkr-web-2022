@@ -18,7 +18,9 @@ const Resources = {
 
         PYCONKR_2014_IMG:
             'https://live.staticflickr.com/3912/14958407280_c7e9e6717e_z.jpg'
-    }
+    },
+    pyconkrFacebook: 'https://www.facebook.com/pyconkorea',
+    pyconkrTwitter: 'https://twitter.com/PyConKR'
 }
 
 export default Resources

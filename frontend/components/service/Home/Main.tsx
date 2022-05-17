@@ -58,7 +58,7 @@ const MainBackground = () => {
         <>
             <Container>
                 <Title>{t(`label:pyconkrTitle`)}</Title>
-                <BodyText>{t(`label:comingSoon`)}</BodyText>
+                <BodyText>{t(`label:pyconkrDate`)}</BodyText>
             </Container>
             <Background />
         </>

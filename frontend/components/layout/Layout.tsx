@@ -35,17 +35,25 @@ const Layout = (props: LayoutProps) => {
             ? `${t(`pageTitle:${props.pageName}`)} : ${t(`label:siteTitle`)}`
             : `${t(`label:siteTitle`)}`
 
+    const description = `${t(`label:pyconkrTitle`)}: ${t(`label:pyconkrDate`)}`
+
     // TODO: locale을 context로 관리
     return (
         <>
             <NextSeo
                 title={title}
-                description=""
+                description={description}
                 openGraph={{
                     type: 'website',
                     url: 'https://pycon.kr',
                     title: title,
-                    site_name: title
+                    site_name: title,
+                    description: description,
+                    images: [
+                        {
+                            url: `https://2022.pycon.kr/images/og-temp.jpg`
+                        }
+                    ]
                 }}
             />
             <NavBarMobile locale={props.locale} />

@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 import { useRouter } from 'next/router'
 import { media } from '../../assets/styles/mixin'
+import SnsLink from './SnsLink'
 
 const Container = styled.nav`
     ${media.mobile(`
@@ -174,6 +175,7 @@ const NavBar = (props: NavProps) => {
                         </LanguageChangeButton>
                     </ListItem>
                 )}
+                <SnsLink />
             </List>
         </Container>
     )
