@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mdi/font": "^6.7.96",
+    "@mdi/js": "^6.7.96",
+    "@mdi/react": "^1.6.0",
     "@sls-next/serverless-component": "^3.7.0",
     "axios": "^0.27.2",
     "babel-plugin-styled-components": "^2.0.6",
