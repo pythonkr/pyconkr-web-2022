@@ -148,3 +148,5 @@ pyconweb2022/.idea
 
 /frontend/.serverless_nextjs
 /frontend/.serverless
+
+node_modules/
