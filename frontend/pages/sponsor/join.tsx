@@ -7,7 +7,7 @@ import ReactMarkdown from 'react-markdown'
 import HeadingComponents from '../../components/core/MarkdownHeadings'
 import MarkdownStyle from '../../assets/styles/markdown'
 import PageTitle from '../../components/core/PageTitle'
-import { getSponsorJoin } from '../api/sponsor'
+import { getSponsorData } from '../api/sponsor'
 import remarkGfm from 'remark-gfm'
 
 interface SponsorSponsorJoinPage extends SponsorPage {
@@ -34,7 +34,7 @@ export const getServerSideProps: GetServerSideProps = async (
     context: GetServerSidePropsContext
 ) => {
     const { locale } = context
-    const content = await getSponsorJoin()
+    const content = await getSponsorData('sponsor-join')
 
     return {
         props: {
