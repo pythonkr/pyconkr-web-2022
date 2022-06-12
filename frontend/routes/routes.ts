@@ -27,7 +27,17 @@ export const routes: RouteType[] = [
     },
     {
         path: '/contribute',
-        name: PageName.Contribute
+        name: PageName.Contribute,
+        subMenu: [
+            {
+                path: '/contribute/cfp',
+                name: PageName.Cfp
+            },
+            {
+                path: '/contribute/cfp/guide',
+                name: PageName.CfpGuide
+            }
+        ]
     },
     {
         path: '/sponsor',

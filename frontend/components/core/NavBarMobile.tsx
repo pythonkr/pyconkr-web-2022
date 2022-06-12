@@ -13,6 +13,7 @@ import {
     SubMenuToggleLabel,
     SubMenuToggleSpan
 } from './NavBar'
+import SnsLink from './SnsLink'
 
 const Container = styled.div`
     display: none;
@@ -252,6 +253,7 @@ const NavBarMobile = (props: NavProps) => {
                                 </LanguageChangeButton>
                             </ListItem>
                         )}
+                        <SnsLink />
                     </List>
                 </Navigation>
             )}

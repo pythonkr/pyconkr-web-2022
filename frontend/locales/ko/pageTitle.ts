@@ -6,6 +6,8 @@ export default {
     [PageName.Pyconkr2022]: '파이콘 한국 2022',
     [PageName.PreviousPyconkr]: '지난 파이콘 한국',
     [PageName.Contribute]: '기여하기',
+    [PageName.Cfp]: '발표 제안하기',
+    [PageName.CfpGuide]: '발표안 작성 가이드',
     [PageName.Sponsor]: '후원하기',
     [PageName.SponsorProspectus]: '후원사 안내',
     [PageName.SponsorJoin]: '후원사로 참여하기',

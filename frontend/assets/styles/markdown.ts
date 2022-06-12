@@ -18,16 +18,20 @@ const MarkdownStyle = styled.div`
     h2 ~ h2 {
         margin: 3rem 0 1.2rem;
     }
+    ol,
+    ul {
+        margin-left: 2rem;
+    }
     ul,
     li {
-        margin: 0.3rem 0.6rem;
         padding: 0;
+        line-height: 1.6;
     }
     ol li {
-        list-style: numeric;
+        list-style: decimal !important;
     }
     ul li {
-        list-style: circle;
+        list-style: disc !important;
     }
     hr {
         margin: 1rem 0;
@@ -62,6 +66,9 @@ const MarkdownStyle = styled.div`
     }
     td {
         padding: 0.6rem;
+    }
+    p {
+        margin-top: 1rem;
     }
 `
 
