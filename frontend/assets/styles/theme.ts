@@ -3,6 +3,7 @@ const Theme = {
         primary0: '#1F1A24',
         primary1: '#62599C',
         primary2: '#0070f3',
+        violet0: '#4c0097', // TODO: temporary color
         black: '#000000',
         white: '#ffffff',
         grey_f9: '#f9f9f9',

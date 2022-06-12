@@ -6,6 +6,8 @@ export default {
     [PageName.Pyconkr2022]: 'Pycon Korea 2022',
     [PageName.PreviousPyconkr]: 'Previous PyCon Korea',
     [PageName.Contribute]: 'Contribution',
+    [PageName.Cfp]: 'Call for Proposal',
+    [PageName.CfpGuide]: 'How to Submit a Proposal',
     [PageName.Sponsor]: 'Sponsor',
     [PageName.SponsorProspectus]: 'Prospectus',
     [PageName.SponsorJoin]: 'Join as Sponsor',
