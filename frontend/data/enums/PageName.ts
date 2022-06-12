@@ -4,6 +4,8 @@ export enum PageName {
     Pyconkr2022 = 'Pyconkr2022',
     PreviousPyconkr = 'PreviousPyconkr',
     Contribute = 'Contribute',
+    Cfp = 'Cfp',
+    CfpGuide = 'CfpGuide',
     Sponsor = 'Sponsor',
     SponsorProspectus = 'SponsorProspectus',
     SponsorJoin = 'SponsorJoin',
