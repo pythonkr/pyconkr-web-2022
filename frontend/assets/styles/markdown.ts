@@ -28,10 +28,10 @@ const MarkdownStyle = styled.div`
         line-height: 1.6;
     }
     ol li {
-        list-style: numeric;
+        list-style: decimal !important;
     }
     ul li {
-        list-style: circle;
+        list-style: disc !important;
     }
     hr {
         margin: 1rem 0;
