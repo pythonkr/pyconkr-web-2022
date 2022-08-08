@@ -23,7 +23,7 @@
 #    See the documentation for each action used below for the recommended IAM policies for this IAM user,
 #    and best practices on handling the access key credentials.
 
-name: Deploy Next.js App
+name: Deploy Next.js App on PRODUCTION stage
 
 on:
   push:
@@ -50,58 +50,13 @@ jobs:
 
         - run: yarn install
 
-        - run: npm install serverless@2.72.3
+        - run: yarn add serverless@2.72.3
+
+        - run: npm install -g env-cmd
 
         - uses: aws-actions/configure-aws-credentials@v1
           with:
             aws-access-key-id: ${{ secrets.PYCON_DEV_2021_AWS_KEY }}
             aws-secret-access-key: ${{ secrets.PYCON_DEV_2021_AWS_SECRET }}
             aws-region: ap-northeast-2
-        - run: npx serverless
-
-    # steps:
-    # - name: Checkout
-    #   uses: actions/checkout@v2
-
-    # - name: Configure AWS credentials
-    #   uses: aws-actions/configure-aws-credentials@v1
-    #   with:
-    #     aws-access-key-id: ${{ secrets.PYCON_DEV_2021_AWS_KEY }}
-    #     aws-secret-access-key: ${{ secrets.PYCON_DEV_2021_AWS_SECRET }}
-    #     aws-region: ap-northeast-2
-
-    # - name: Login to Amazon ECR
-    #   id: login-ecr
-    #   uses: aws-actions/amazon-ecr-login@v1
-
-    # - name: Build, tag, and push image to Amazon ECR
-    #   id: build-image
-    #   env:
-    #     ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-    #     ECR_REPOSITORY: pyconkr-2022/frontend
-    #     IMAGE_TAG: ${{ github.sha }}
-    #   run: |
-    #     # Build a docker container and
-    #     # push it to ECR so that it can
-    #     # be deployed to ECS.
-    #     cd frontend
-    #     docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPOSITORY:latest .
-    #     docker push --all-tags $ECR_REGISTRY/$ECR_REPOSITORY
-    #     echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
-
-#     - name: Fill in the new image ID in the Amazon ECS task definition
-#       id: task-def
-#       uses: aws-actions/amazon-ecs-render-task-definition@v1
-#       with:
-#         task-definition: task-definition.json
-#         container-name: sample-app
-#         image: ${{ steps.build-image.outputs.image }}
-
-#     - name: Deploy Amazon ECS task definition
-#       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
-#       with:
-#         task-definition: ${{ steps.task-def.outputs.task-definition }}
-#         service: sample-app-service
-#         cluster: default
-#         wait-for-service-stability: true
-
+        - run: env-cmd -e prod npx serverless

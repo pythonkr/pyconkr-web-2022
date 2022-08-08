@@ -10,8 +10,8 @@ interface Props {
 const createI18n = ({ locale }: Props): I18n => {
     i18n.use(initReactI18next).init({
         resources: { ko, en },
-        lng: locale,
         fallbackLng: 'ko',
+        lng: locale,
         interpolation: {
             escapeValue: false
         }

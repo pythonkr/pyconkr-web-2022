@@ -3,9 +3,12 @@ import NavBar from '../core/NavBar'
 import NavBarMobile from '../core/NavBarMobile'
 import styled from 'styled-components'
 import { media } from '../../assets/styles/mixin'
+import { NextSeo } from 'next-seo'
+import { useTranslation } from 'react-i18next'
 
 interface LayoutProps {
     locale: string
+    pageName: string
     children: ReactNode
 }
 
@@ -17,9 +20,9 @@ const Container = styled.div`
     `)}
 `
 const Body = styled.div`
-    margin-top: 3.5rem;
+    margin: 3.5rem 0 6rem;
     ${media.mobile(`
-        margin-top: 6rem;
+        margin: 6rem 0;
         padding: 0 1.25rem;
     `)}
 `

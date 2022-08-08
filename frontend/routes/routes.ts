@@ -17,17 +17,27 @@ export const routes: RouteType[] = [
         subMenu: [
             {
                 path: '/about/pyconkr',
-                name: PageName.PyconKr2022
+                name: PageName.Pyconkr2022
             },
             {
                 path: '/about/previous-pyconkr',
-                name: PageName.PreviousPyconKr
+                name: PageName.PreviousPyconkr
             }
         ]
     },
     {
         path: '/contribute',
-        name: PageName.Contribute
+        name: PageName.Contribute,
+        subMenu: [
+            {
+                path: '/contribute/cfp',
+                name: PageName.Cfp
+            },
+            {
+                path: '/contribute/cfp/guide',
+                name: PageName.CfpGuide
+            }
+        ]
     },
     {
         path: '/sponsor',
@@ -36,6 +46,18 @@ export const routes: RouteType[] = [
             {
                 path: '/sponsor/prospectus',
                 name: PageName.SponsorProspectus
+            },
+            {
+                path: '/sponsor/join',
+                name: PageName.SponsorJoin
+            },
+            {
+                path: '/sponsor/benefit',
+                name: PageName.SponsorBenefit
+            },
+            {
+                path: '/sponsor/faq',
+                name: PageName.SponsorFaq
             },
             {
                 path: '/sponsor/terms-of-sponsor',

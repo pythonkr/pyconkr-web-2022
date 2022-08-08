@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import theme from './theme'
 
 const Heading1 = styled.h1`
     font-size: 2.4rem;
@@ -28,4 +29,8 @@ const Caption = styled.div`
     font-size: 0.8rem;
 `
 
-export { Heading1, Heading2, Heading3, Heading4, Paragraph, Caption }
+const ColorLink = styled.a`
+    color: ${theme.colors.primary2};
+`
+
+export { Heading1, Heading2, Heading3, Heading4, Paragraph, Caption, ColorLink }
