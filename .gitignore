@@ -130,6 +130,18 @@ dmypy.json
 /.idea/
 /requirements_dev.txt
 
+# to use pyconkr-secrets
+/pyconweb2022/zappa_settings.json
+
+
+Pipfile
+Pipfile.lock
+.DS_Store
+settings_local.py
+pyconweb2022/.idea
+
+/frontend/.serverless_nextjs
+/frontend/.serverless
 # Migrations
 /pyconweb2022/sponsor/migrations/
 /pyconweb2022/program/migrations/

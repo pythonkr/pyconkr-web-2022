@@ -1,0 +1,92 @@
+name: Deploy Django with zappa on DEV stage
+
+on:
+  push:
+    branches: [devdev]
+
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.8]
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: psf/black@stable
+        with: 
+          options: "--check --verbose"
+          src: "./pyconweb2022"
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install mysql common
+        run: |
+          sudo apt-get install -y mysql-common
+
+      # - name: Install python version
+      #   uses: gabrielfalcao/pyenv-action@v9
+      #   with:
+      #     default: "${{ matrix.python }}"
+      #     command: |
+      #       python -m pip install --upgrade pip
+      #       pip install pytest
+      #       if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Setup Virtualenv
+        run: |
+          pip install virtualenv
+
+      - name: Create Virtualenv
+        run: |
+          virtualenv pyconweb2022-zappa
+
+      # - name: Activate Virtualenv
+      #   run: |
+      #     source ./pyconweb2022-zappa/bin/activate
+
+      - name: Install dependencies
+        run: |
+          source ./pyconweb2022-zappa/bin/activate
+          python -m pip install --upgrade pip
+          pip install pytest
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      # Pull request dose not get the gitub action secrets
+      # this section will be applied to the deploy workflow
+      - name: Setup Auth for Private Repo
+        uses: webfactory/ssh-agent@v0.5.4
+        with:
+            ssh-private-key: ${{ secrets.SSH_SECRET_GOLONY }}
+          #  ssh-private-key: ${{ secrets.GH_PYCONKR_SECRETS }}
+
+      - name: update pyconkr-secretes
+        run: |
+         ./update_secrets.sh
+
+      - name: Test with pytest
+        run: |
+          source ./pyconweb2022-zappa/bin/activate
+          pytest pyconweb2022
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.PYCON_DEV_2021_AWS_KEY }}
+          aws-secret-access-key: ${{ secrets.PYCON_DEV_2021_AWS_SECRET }}
+          aws-region: ap-northeast-2
+
+      - name: Zappa Deploy(Update)
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.PYCON_DEV_2021_AWS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.PYCON_DEV_2021_AWS_SECRET }}
+        run: |
+          source ./pyconweb2022-zappa/bin/activate
+          cd pyconweb2022
+          zappa update dev
+#          zappa manage dev collectstatic

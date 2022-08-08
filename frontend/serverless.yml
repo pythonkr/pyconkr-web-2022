@@ -1,0 +1,9 @@
+  frontend:
+    component: "@sls-next/serverless-component@3.7.0" # it is recommended you pin the latest stable version of serverless-next.js
+    inputs:
+      domain: ["${env.subDomain}", "pycon.kr"]
+      bucketName: "${env.bucketName}"
+      bucketRegion: "ap-northeast-2"
+      enableS3Acceleration: "false"
+      cloudfront:
+        distributionId: ${env.cloudfront_id}
