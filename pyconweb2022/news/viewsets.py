@@ -8,4 +8,6 @@ from .serializers import NewsSerializer
 
 class NewsViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = NewsSerializer
-    queryset = News.objects.filter(visible_at__lte=datetime.now(tz=timezone(timedelta(hours=9))))
+    queryset = News.objects.filter(
+        visible_at__lte=datetime.now(tz=timezone(timedelta(hours=9)))
+    )
