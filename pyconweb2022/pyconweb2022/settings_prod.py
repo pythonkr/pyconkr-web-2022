@@ -10,7 +10,7 @@ DATABASES = {
         "USER": os.getenv("AWS_RDS_USER_ID"),
         "PASSWORD": os.getenv("AWS_RDS_PW"),
         "HOST": os.getenv("AWS_RDS_HOST"),
-        "PORT": os.getenv("AWS_RDS_PORT")
+        "PORT": os.getenv("AWS_RDS_PORT"),
     }
 }
 
