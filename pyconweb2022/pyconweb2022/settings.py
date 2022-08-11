@@ -123,7 +123,7 @@ TIME_ZONE = "Asia/Seoul"
 
 USE_I18N = True
 
-USE_TZ = True
+# USE_TZ = True     # 임시 주석처리
 
 
 # Static files (CSS, JavaScript, Images)
