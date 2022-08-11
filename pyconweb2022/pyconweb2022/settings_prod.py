@@ -11,9 +11,7 @@ DATABASES = {
         "PASSWORD": os.getenv("AWS_RDS_PW"),
         "HOST": os.getenv("AWS_RDS_HOST"),
         "PORT": os.getenv("AWS_RDS_PORT"),
-        "OPTIONS": {
-            "charset": "utf8bm4"
-        }
+        "OPTIONS": {"charset": "utf8bm4"},
     }
 }
 
