@@ -28,7 +28,8 @@
     "react-markdown": "^8.0.3",
     "remark-gfm": "^3.0.1",
     "serverless": "^2.72.3",
-    "styled-components": "^5.3.3"
+    "styled-components": "^5.3.3",
+    "typescript": "^4.7.4"
   },
   "devDependencies": {
     "@mdi/font": "^6.7.96",
@@ -50,6 +51,7 @@
     "react-markdown": "^8.0.3",
     "remark-gfm": "^3.0.1",
     "serverless": "^2.72.3",
-    "styled-components": "^5.3.3"
+    "styled-components": "^5.3.3",
+    "typescript": "^4.7.4"
   }
 }
