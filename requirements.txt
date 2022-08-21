@@ -16,3 +16,4 @@ boto3
 Werkzeug
 zappa-django-utils
 martor
+drf-spectacular
