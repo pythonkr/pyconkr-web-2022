@@ -19,6 +19,7 @@ class ProposalSerializer(ModelSerializer):
             "slide_url",
             "video_open_at",
             "track_num",
+            "introduction",
         ]
 
 
