@@ -1,6 +1,11 @@
 from rest_framework.routers import DefaultRouter
 
-from program.viewsets import ProposalViewSet, ProposalDay1ViewSet, ProposalDay2ViewSet, ProposalDetailViewSet
+from program.viewsets import (
+    ProposalViewSet,
+    ProposalDay1ViewSet,
+    ProposalDay2ViewSet,
+    ProposalDetailViewSet,
+)
 
 
 def get_router():

@@ -6,9 +6,7 @@ from program.models import Proposal, ProgramCategory
 # 홈페이지 출력용
 class ProposalSerializer(serializers.ModelSerializer):
     category = serializers.SlugRelatedField(
-        many=False,
-        read_only=True,
-        slug_field="name"
+        many=False, read_only=True, slug_field="name"
     )
 
     difficulty = serializers.SerializerMethodField()
@@ -28,10 +26,10 @@ class ProposalSerializer(serializers.ModelSerializer):
             "slide_url",
             "video_open_at",
             "track_num",
-            "category"
+            "category",
         ]
 
-    def get_difficulty(self, obj:Proposal):
+    def get_difficulty(self, obj: Proposal):
         if obj.difficulty == "B":
             return "초급"
 
@@ -41,7 +39,7 @@ class ProposalSerializer(serializers.ModelSerializer):
         if obj.difficulty == "E":
             return "고급"
 
-    def get_language(self, obj:Proposal):
+    def get_language(self, obj: Proposal):
         if obj.language == "":
             return ""
 
