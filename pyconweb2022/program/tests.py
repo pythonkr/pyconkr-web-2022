@@ -15,10 +15,7 @@ class ProgramApiTest(TestCase):
         user.email = "gdhong@pycon.kr"
         user.save()
 
-        category = ProgramCategory(
-            name="임시",
-            slug="temp"
-        )
+        category = ProgramCategory(name="임시", slug="temp")
         category.save()
 
         Proposal(
@@ -33,7 +30,9 @@ class ProgramApiTest(TestCase):
             language="K",
             category=category,
             accepted=True,
-            video_open_at=datetime.datetime.strptime(config.PYCON_KR_2022_DATE1, "%Y%m%d")
+            video_open_at=datetime.datetime.strptime(
+                config.PYCON_KR_2022_DATE1, "%Y%m%d"
+            ),
         ).save()
 
         Proposal(
@@ -48,7 +47,9 @@ class ProgramApiTest(TestCase):
             language="K",
             category=category,
             accepted=True,
-            video_open_at=datetime.datetime.strptime(config.PYCON_KR_2022_DATE2, "%Y%m%d")
+            video_open_at=datetime.datetime.strptime(
+                config.PYCON_KR_2022_DATE2, "%Y%m%d"
+            ),
         ).save()
 
         Proposal(
@@ -63,7 +64,9 @@ class ProgramApiTest(TestCase):
             language="K",
             category=category,
             accepted=False,
-            video_open_at=datetime.datetime.strptime(config.PYCON_KR_2022_DATE2, "%Y%m%d")
+            video_open_at=datetime.datetime.strptime(
+                config.PYCON_KR_2022_DATE2, "%Y%m%d"
+            ),
         ).save()
 
     def test_get_all_session(self):

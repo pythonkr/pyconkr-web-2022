@@ -14,11 +14,15 @@ class ProposalViewSet(ReadOnlyModelViewSet):
 
 
 class ProposalDay1ViewSet(ProposalViewSet):
-    queryset = ProposalViewSet.queryset.filter(video_open_at__day=config.PYCON_KR_2022_DAY1)
+    queryset = ProposalViewSet.queryset.filter(
+        video_open_at__day=config.PYCON_KR_2022_DAY1
+    )
 
 
 class ProposalDay2ViewSet(ProposalViewSet):
-    queryset = ProposalViewSet.queryset.filter(video_open_at__day=config.PYCON_KR_2022_DAY2)
+    queryset = ProposalViewSet.queryset.filter(
+        video_open_at__day=config.PYCON_KR_2022_DAY2
+    )
 
 
 class ProposalDetailViewSet(ReadOnlyModelViewSet):
