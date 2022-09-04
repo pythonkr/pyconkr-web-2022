@@ -2,6 +2,9 @@ from django.test import TestCase, Client
 from django.contrib.auth.models import User
 
 from program.models import ProgramCategory, Proposal
+from pyconweb2022 import config
+
+import datetime
 
 
 class ProgramApiTest(TestCase):
@@ -29,7 +32,8 @@ class ProgramApiTest(TestCase):
             duration="L",
             language="K",
             category=category,
-            accepted=True
+            accepted=True,
+            video_open_at=datetime.datetime.strptime(config.PYCON_KR_2022_DATE1, "%Y%m%d")
         ).save()
 
         Proposal(
@@ -43,7 +47,8 @@ class ProgramApiTest(TestCase):
             duration="L",
             language="K",
             category=category,
-            accepted=True
+            accepted=True,
+            video_open_at=datetime.datetime.strptime(config.PYCON_KR_2022_DATE2, "%Y%m%d")
         ).save()
 
         Proposal(
@@ -57,7 +62,8 @@ class ProgramApiTest(TestCase):
             duration="L",
             language="K",
             category=category,
-            accepted=False
+            accepted=False,
+            video_open_at=datetime.datetime.strptime(config.PYCON_KR_2022_DATE2, "%Y%m%d")
         ).save()
 
     def test_get_all_session(self):
@@ -66,3 +72,17 @@ class ProgramApiTest(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(response.data), 2)
+
+    def test_get_day1_session(self):
+        c = Client()
+        response = c.get("/api/program/list/day1/", {})
+
+        # self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(response.data), 1)
+
+    def test_get_day2_session(self):
+        c = Client()
+        response = c.get("/api/program/list/day2/", {})
+
+        # self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(response.data), 1)
