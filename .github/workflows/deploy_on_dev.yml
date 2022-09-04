@@ -69,6 +69,12 @@ jobs:
         run: |
          ./update_secrets.sh
 
+      - name: Test with Django Test
+        run: |
+          source ./pyconweb2022-zappa/bin/activate
+          cd pyconweb2022
+          python manage.py test
+
       - name: Test with pytest
         run: |
           source ./pyconweb2022-zappa/bin/activate
