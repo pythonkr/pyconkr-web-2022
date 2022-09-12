@@ -13,8 +13,8 @@ export const getSponsorData = async (endPoint: SponsorDataEndPointType): Promise
     
     return {
         content: {
-            ko: data.content,
-            en: data.eng_content
+            ko: data.content || '',
+            en: data.eng_content || ''
         }
     }
 }
