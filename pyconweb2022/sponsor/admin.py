@@ -1,9 +1,11 @@
 from django.contrib import admin
 from django.db import models
-from import_export.admin import ImportExportModelAdmin
-from .models import Sponsor, SponsorLevel
 
+from sponsor.models import Sponsor, SponsorLevel
 from sponsor.resources import SponsorResource
+
+from import_export.admin import ImportExportModelAdmin
+from martor.widgets import AdminMartorWidget
 
 
 class SponsorAdmin(ImportExportModelAdmin):
@@ -18,6 +20,7 @@ class SponsorAdmin(ImportExportModelAdmin):
     )
     list_filter = ("accepted",)
     ordering = ("-created_at",)
+    formfield_overrides = {models.TextField: {"widget": AdminMartorWidget}}
 
 
 admin.site.register(Sponsor, SponsorAdmin)
