@@ -4,6 +4,7 @@ from rest_framework.response import Response
 
 from program.models import Proposal
 from program.serializers import ProposalSerializer, ProposalDetailSerializer
+from pyconweb2022 import config
 
 
 class ProposalViewSet(ReadOnlyModelViewSet):
@@ -12,7 +13,19 @@ class ProposalViewSet(ReadOnlyModelViewSet):
     permission_classes = [AllowAny]
 
 
-class ProposalDetailViewSet(ModelViewSet):
+class ProposalDay1ViewSet(ProposalViewSet):
+    queryset = ProposalViewSet.queryset.filter(
+        video_open_at__day=config.PYCON_KR_2022_DAY1
+    )
+
+
+class ProposalDay2ViewSet(ProposalViewSet):
+    queryset = ProposalViewSet.queryset.filter(
+        video_open_at__day=config.PYCON_KR_2022_DAY2
+    )
+
+
+class ProposalDetailViewSet(ReadOnlyModelViewSet):
     queryset = Proposal.objects.none()  # 각 Viewset 메서드에서 쿼리셋 작성
     serializer_class = ProposalDetailSerializer
     permission_classes = [IsAuthenticated]  # TODO: DjangoModelPermission 적용
