@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "content",
     "zappa_django_utils",
     "martor",
+    "drf_spectacular",
 ]
 
 MIDDLEWARE = [
@@ -123,7 +124,7 @@ TIME_ZONE = "Asia/Seoul"
 
 USE_I18N = True
 
-# USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
@@ -146,7 +147,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.IsAuthenticated",
-    ]
+    ],
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
 # Amazon SES

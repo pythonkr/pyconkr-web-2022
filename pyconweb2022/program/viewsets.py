@@ -12,7 +12,7 @@ class ProposalViewSet(ReadOnlyModelViewSet):
     permission_classes = [AllowAny]
 
 
-class ProposalDetailViewSet(ModelViewSet):
+class ProposalDetailViewSet(ReadOnlyModelViewSet):
     queryset = Proposal.objects.none()  # 각 Viewset 메서드에서 쿼리셋 작성
     serializer_class = ProposalDetailSerializer
     permission_classes = [IsAuthenticated]  # TODO: DjangoModelPermission 적용

@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404
 from django.core.exceptions import PermissionDenied
 
-from rest_framework.viewsets import ModelViewSet
+from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, AllowAny
 from rest_framework.response import Response
 
@@ -9,7 +9,7 @@ from sponsor.serializers import SponsorSerializer, SponsorListSerializer
 from sponsor.models import Sponsor
 
 
-class SponsorViewSet(ModelViewSet):
+class SponsorViewSet(ReadOnlyModelViewSet):
     serializer_class = SponsorSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]  # 로그인된 사용자에게만 허용
 
