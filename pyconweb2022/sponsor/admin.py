@@ -7,17 +7,11 @@ from sponsor.resources import SponsorResource
 
 
 class SponsorAdmin(ImportExportModelAdmin):
-    autocomplete_fields = (
-        "creator",
-        "manager_id",
-    )
     list_display = (
-        "creator",
         "name",
         "level",
         "manager_name",
         "manager_email",
-        "manager_id",
         "submitted",
         "accepted",
         "paid_at",
@@ -59,13 +53,7 @@ class SponsorProxyModel(Sponsor):
 
 
 class SponsorAdmin4Modusign(SponsorAdmin):
-    autocomplete_fields = (
-        "creator",
-        "manager_id",
-    )
     list_display = (
-        "creator",
-        "manager_id",
         "manager_name",
         "manager_email",
         "exported",
@@ -78,4 +66,4 @@ class SponsorAdmin4Modusign(SponsorAdmin):
         return Sponsor.objects.filter(exported=False)
 
 
-admin.site.register(SponsorProxyModel, SponsorAdmin4Modusign)
+# admin.site.register(SponsorProxyModel, SponsorAdmin4Modusign)

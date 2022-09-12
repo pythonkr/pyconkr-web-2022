@@ -70,12 +70,6 @@ class Sponsor(models.Model):
     slug = models.SlugField(
         max_length=100, null=True, blank=True, help_text="후원사 상세 페이지의 path로 사용됩니다."
     )
-    creator = models.ForeignKey(
-        User,
-        on_delete=models.CASCADE,
-        help_text=("후원사를 등록한 유저"),
-        related_name="sponsor_creator",
-    )
     name = models.CharField(
         max_length=255, help_text=("후원사의 이름입니다. 서비스나 회사 이름이 될 수 있습니다.")
     )
@@ -95,14 +89,6 @@ class Sponsor(models.Model):
     manager_email = models.CharField(
         max_length=100,
         help_text=("입력하신 메일로 후원과 관련된 안내 메일이나 문의를 보낼 예정입니다. 후원 담당자의 이메일 주소를 입력해주십시오."),
-    )
-    manager_id = models.ForeignKey(
-        User,
-        null=True,
-        blank=True,
-        on_delete=models.CASCADE,
-        help_text=("후원사를 위한 추가 아이디"),
-        related_name="sponsor_temp_id",
     )
     business_registration_number = models.CharField(
         max_length=100,

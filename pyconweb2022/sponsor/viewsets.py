@@ -25,8 +25,5 @@ class SponsorViewSet(ReadOnlyModelViewSet):
         pk = kwargs["pk"]
         sponsor_data = get_object_or_404(Sponsor, pk=pk)
 
-        if sponsor_data.creator != request.user:
-            raise PermissionDenied
-
         serializer = SponsorSerializer(sponsor_data)
         return Response(serializer.data)

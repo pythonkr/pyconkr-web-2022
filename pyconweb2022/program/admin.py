@@ -3,17 +3,20 @@ from django.db import models
 
 from import_export.admin import ImportExportModelAdmin
 
-from .models import Proposal, ProgramCategory
+from program.models import Proposal, ProgramCategory
+from program.resources import ProgramCategoryResource, ProposalResource
 
 
-class ProgramCategoryAdmin(admin.ModelAdmin):
+class ProgramCategoryAdmin(ImportExportModelAdmin):
+    resource_class = ProgramCategoryResource
     list_display = ("name",)
 
 
 admin.site.register(ProgramCategory, ProgramCategoryAdmin)
 
 
-class ProgramAdmin(admin.ModelAdmin):
+class ProgramAdmin(ImportExportModelAdmin):
+    resource_class = ProposalResource
     list_display = (
         "title",
         "user_name",
