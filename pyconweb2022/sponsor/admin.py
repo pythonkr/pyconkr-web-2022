@@ -66,4 +66,4 @@ class SponsorAdmin4Modusign(SponsorAdmin):
         return Sponsor.objects.filter(exported=False)
 
 
-admin.site.register(SponsorProxyModel, SponsorAdmin4Modusign)
+# admin.site.register(SponsorProxyModel, SponsorAdmin4Modusign)
