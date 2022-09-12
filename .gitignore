@@ -148,6 +148,5 @@ pyconweb2022/.idea
 
 /frontend/.serverless_nextjs
 /frontend/.serverless
-# Migrations
-/pyconweb2022/sponsor/migrations/
-/pyconweb2022/program/migrations/
+
+node_modules/

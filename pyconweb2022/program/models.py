@@ -45,7 +45,7 @@ class Proposal(models.Model):
 
     # TODO: 다국어 기능 추가
     language = models.CharField(
-        max_length=1,
+        max_length=2,
         choices=(
             ("", "---------"),
             ("K", "한글"),

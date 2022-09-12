@@ -1,3 +1,11 @@
+from django.test import TestCase, Client
+from django.contrib.auth.models import User
+
+from program.models import ProgramCategory, Proposal
+from pyconweb2022 import config
+
+import datetime
+
 from django.contrib.auth import get_user_model
 from django.test import TestCase
 from rest_framework.test import APIRequestFactory
