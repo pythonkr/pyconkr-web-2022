@@ -54,8 +54,7 @@ class ProgramTest(TestCase):
             new_proposal.save()
 
     def test_ProposalViewSet(self):
-        req_body = {
-        }
+        req_body = {}
 
         request = APIRequestFactory().get("/api/program/list", req_body)
         response = ProposalViewSet().list(request=request)

@@ -8,7 +8,11 @@ from pyconweb2022 import config
 
 
 class ProposalViewSet(ReadOnlyModelViewSet):
-    queryset = Proposal.objects.filter(accepted=True).order_by("track_num").order_by("video_open_at")
+    queryset = (
+        Proposal.objects.filter(accepted=True)
+        .order_by("track_num")
+        .order_by("video_open_at")
+    )
     serializer_class = ProposalSerializer
     permission_classes = [AllowAny]
 
