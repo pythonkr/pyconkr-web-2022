@@ -133,7 +133,7 @@ USE_TZ = False
 STATIC_URL = "static/"
 
 # S3
-DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+DEFAULT_FILE_STORAGE = "pyconweb2022.customBoto3Storage.SecurityTokenWorkaroundS3Boto3Storage"
 STATICFILES_STORAGE = "storages.backends.s3boto3.S3StaticStorage"
 AWS_S3_SESSION_PROFILE = "pycon"
 AWS_STORAGE_BUCKET_NAME = os.getenv("AWS_STATIC_S3_BUCKET")
