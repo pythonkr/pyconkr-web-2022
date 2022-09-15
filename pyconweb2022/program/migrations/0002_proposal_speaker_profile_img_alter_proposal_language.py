@@ -7,18 +7,27 @@ import program.models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('program', '0001_initial'),
+        ("program", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='proposal',
-            name='speaker_profile_img',
-            field=models.ImageField(blank=True, help_text='발표자님 프로필 사진', null=True, upload_to=program.models.profile_img_upload_to),
+            model_name="proposal",
+            name="speaker_profile_img",
+            field=models.ImageField(
+                blank=True,
+                help_text="발표자님 프로필 사진",
+                null=True,
+                upload_to=program.models.profile_img_upload_to,
+            ),
         ),
         migrations.AlterField(
-            model_name='proposal',
-            name='language',
-            field=models.CharField(choices=[('', '---------'), ('K', '한글'), ('E', '영어')], default='', max_length=2),
+            model_name="proposal",
+            name="language",
+            field=models.CharField(
+                choices=[("", "---------"), ("K", "한글"), ("E", "영어")],
+                default="",
+                max_length=2,
+            ),
         ),
     ]
