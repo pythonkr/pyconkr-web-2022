@@ -15,6 +15,10 @@ class ProgramCategory(models.Model):
         return self.name
 
 
+def profile_img_upload_to(instance, filename):
+    return f"program/speaker_profile_img/{instance.id}/{filename}"
+
+
 class Proposal(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     user_name = models.CharField(max_length=100, default="")
@@ -74,6 +78,9 @@ class Proposal(models.Model):
         null=True, blank=True, help_text="파이콘 한국 유튜브에 공개되는 시간"
     )
     track_num = models.IntegerField(null=True, blank=True, help_text="트랙 번호")
+    speaker_profile_img = models.ImageField(
+        null=True, blank=True, help_text="발표자님 프로필 사진", upload_to=profile_img_upload_to
+    )
 
     # 이력관리용 필드
     created_at = models.DateTimeField(auto_now_add=True)
