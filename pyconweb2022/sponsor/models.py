@@ -83,6 +83,9 @@ class Sponsor(models.Model):
     desc = models.TextField(
         null=True, blank=True, help_text=("후원사 설명입니다. 이 설명은 홈페이지에 게시됩니다.")
     )
+    eng_desc = models.TextField(
+        null=True, blank=True, help_text=("후원사 영문설명입니다. 이 설명은 홈페이지에 게시됩니다.")
+    )
     manager_name = models.CharField(
         max_length=100, help_text=("준비위원회와 후원과 관련된 논의를 진행할 담당자의 이름을 입력해주십시오.")
     )
