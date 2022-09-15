@@ -6,16 +6,16 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('sponsor', '0003_sponsorproxymodel'),
+        ("sponsor", "0003_sponsorproxymodel"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='sponsor',
-            name='creator',
+            model_name="sponsor",
+            name="creator",
         ),
         migrations.RemoveField(
-            model_name='sponsor',
-            name='manager_id',
+            model_name="sponsor",
+            name="manager_id",
         ),
     ]
