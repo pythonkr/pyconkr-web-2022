@@ -10,7 +10,7 @@ from sponsor.serializers import (
     SponsorListSerializer,
     PersonalSponsorship,
 )
-from sponsor.models import Sponsor
+from sponsor.models import Sponsor, PersonalSponsorship
 
 
 class SponsorViewSet(ReadOnlyModelViewSet):
@@ -36,3 +36,6 @@ class SponsorViewSet(ReadOnlyModelViewSet):
 class PersonalSponsorshipViewSet(ReadOnlyModelViewSet):
     serializer_class = PersonalSponsorship
     permission_classes = [AllowAny]
+
+    def get_queryset(self):
+        return PersonalSponsorship.objects.all().order_by("-amount")
