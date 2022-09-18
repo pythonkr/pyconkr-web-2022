@@ -9,7 +9,7 @@ from pyconweb2022 import config
 
 class ProposalViewSet(ReadOnlyModelViewSet):
     queryset = (
-        Proposal.objects.filter(accepted=True)
+        Proposal.objects.all()
         .order_by("track_num")
         .order_by("video_open_at")
     )
