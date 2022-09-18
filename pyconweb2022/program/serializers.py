@@ -29,6 +29,7 @@ class ProposalSerializer(serializers.ModelSerializer):
             "introduction",
             "category",
             "speaker_profile_img",
+            "id",
         ]
 
     def get_difficulty(self, obj: Proposal):
