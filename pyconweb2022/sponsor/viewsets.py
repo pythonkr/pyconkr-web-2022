@@ -5,7 +5,7 @@ from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, AllowAny
 from rest_framework.response import Response
 
-from sponsor.serializers import SponsorSerializer, SponsorListSerializer
+from sponsor.serializers import SponsorSerializer, SponsorListSerializer, PersonalSponsorship
 from sponsor.models import Sponsor
 
 
@@ -27,3 +27,8 @@ class SponsorViewSet(ReadOnlyModelViewSet):
 
         serializer = SponsorSerializer(sponsor_data)
         return Response(serializer.data)
+
+
+class PersonalSponsorshipViewSet(ReadOnlyModelViewSet):
+    serializer_class = PersonalSponsorship
+    permission_classes = [AllowAny]

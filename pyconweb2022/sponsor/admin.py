@@ -70,3 +70,7 @@ class SponsorAdmin4Modusign(SponsorAdmin):
 
 
 # admin.site.register(SponsorProxyModel, SponsorAdmin4Modusign)
+
+class PersonalSponsorship(ImportExportModelAdmin):
+    list_display = ("name", "amount",)
+    ordering = ("-amount",)
