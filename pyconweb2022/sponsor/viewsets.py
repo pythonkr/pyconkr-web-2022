@@ -8,7 +8,7 @@ from rest_framework.response import Response
 from sponsor.serializers import (
     SponsorSerializer,
     SponsorListSerializer,
-    PersonalSponsorship,
+    PersonalSponsorshipSerializer,
 )
 from sponsor.models import Sponsor, PersonalSponsorship
 
@@ -34,7 +34,7 @@ class SponsorViewSet(ReadOnlyModelViewSet):
 
 
 class PersonalSponsorshipViewSet(ReadOnlyModelViewSet):
-    serializer_class = PersonalSponsorship
+    serializer_class = PersonalSponsorshipSerializer
     permission_classes = [AllowAny]
 
     def get_queryset(self):
