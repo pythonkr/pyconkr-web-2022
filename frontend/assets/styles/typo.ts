@@ -9,6 +9,13 @@ const Heading1 = styled.h1`
 const Heading2 = styled.h2`
     font-size: 1.9rem;
     line-height: 1.3;
+    ${(props) => {
+        if (props.useGradient) {
+            return `background: ${props.theme.gradient_violet};
+                  -webkit-background-clip: text;
+                  -webkit-text-fill-color: transparent;`
+        }
+    }}
 `
 
 const Heading3 = styled.h3`

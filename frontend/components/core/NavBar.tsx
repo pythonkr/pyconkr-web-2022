@@ -11,15 +11,16 @@ import PyconLogoWhite from '../../public/images/pyconkr_2022_logo_white.png'
 const Container = styled.nav`
     display: flex;
     justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background: ${(props) =>
+        `linear-gradient(to bottom, ${props.theme.colors.black_10}, transparent)`};
     ${media.mobile(`
         display: none;
     `)}
-    ${(props) => {
-        if (props.isTransparent) {
-            return `background: transparent;`
-        }
-        return `background-image: ${props.theme.gradient};`
-    }}
 `
 
 const HomeLink = styled.a`

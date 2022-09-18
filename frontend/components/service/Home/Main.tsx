@@ -3,8 +3,24 @@ import { useTranslation } from 'react-i18next'
 import { Paragraph } from '../../../assets/styles/typo'
 import styled, { useTheme } from 'styled-components'
 import { media } from '../../../assets/styles/mixin'
+import MainSlogan from './MainSlogan'
+import MainTalkList from './MainTalkList'
+import MainContact from './MainContact'
 
 const Container = styled.div`
+    & + & {
+        margin: 7rem 0;
+        ${media.mobile(`
+            margin: 3rem 0;
+        `)}
+    }
+`
+
+const MainTheme = styled.div`
+    height: 100vh;
+`
+
+const ThemeContainer = styled.div`
     text-align: center;
     position: absolute;
     left: 0;
@@ -12,9 +28,6 @@ const Container = styled.div`
     top: 50%;
     transform: translateY(-50%);
     color: ${(props) => props.theme.colors.white};
-    ${media.mobile(`
-        transform: translateY(-55%);
-    `)}
 `
 
 const Title = styled.div`
@@ -95,23 +108,34 @@ const MainBackground = () => {
 
     return (
         <>
+            <MainTheme>
+                <ThemeContainer>
+                    <div>
+                        <FirstTitle color={theme.colors.violet0}>
+                            {t(`label:pycon`)}
+                        </FirstTitle>
+                    </div>
+                    <div>
+                        <SecondTitle color={theme.colors.violet1}>
+                            {t(`label:korea`)}
+                        </SecondTitle>
+                    </div>
+                    <div>
+                        <ThirdTitle color={theme.colors.yellow0}>
+                            {t(`label:thisYear`)}
+                        </ThirdTitle>
+                    </div>
+                    <MainText>{t(`label:pyconkrDate`)}</MainText>
+                </ThemeContainer>
+            </MainTheme>
             <Container>
-                <div>
-                    <FirstTitle color={theme.colors.violet0}>
-                        {t(`label:pycon`)}
-                    </FirstTitle>
-                </div>
-                <div>
-                    <SecondTitle color={theme.colors.violet1}>
-                        {t(`label:korea`)}
-                    </SecondTitle>
-                </div>
-                <div>
-                    <ThirdTitle color={theme.colors.yellow0}>
-                        {t(`label:thisYear`)}
-                    </ThirdTitle>
-                </div>
-                <MainText>{t(`label:pyconkrDate`)}</MainText>
+                <MainSlogan />
+            </Container>
+            <Container>
+                <MainTalkList />
+            </Container>
+            <Container>
+                <MainContact />
             </Container>
         </>
     )

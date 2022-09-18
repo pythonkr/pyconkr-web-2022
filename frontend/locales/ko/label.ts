@@ -6,6 +6,7 @@ export default {
     korea: 'KOREA',
     thisYear: '2022',
     pyconkrDate: '10.01 - 10.02',
+    slogan: '슬로건',
     about: {
         main: {
             title: '파이콘 한국이란',
@@ -24,5 +25,16 @@ export default {
             title: '파이콘은 다른 개발자 행사와 무엇이 다른가요?',
             desc: '파이콘 한국은 커뮤니티 주관으로 이뤄지는 비영리 개발자 대상 행사로, 타 기업 및 기관에서 개최하는 개발자 행사와는 성격이 다릅니다. 발표자와 튜토리얼 진행자를 포함하여, 자원봉사자와 준비위원회 담당자 등 모든 인원이 금전적 이득 없이 순수히 오픈소스 프로그래밍 언어인 파이썬의 저변 확대와 커뮤니티 활성화를 위해 진행하는 행사입니다.'
         }
+    },
+    talk: '발표',
+    talkSchedule: '발표 시간표',
+    contactAndOfficial: '문의 및 공식 계정',
+    contactInfo:
+        '파이콘 한국 2022에 대한 모든 문의는 아래의 공식 연락처로 주시기 바랍니다.',
+    email: '이메일',
+    sponsor: '후원사',
+    contact: {
+        email: 'pyconkr@pycon.kr',
+        sponsor: 'sponsor@pycon.kr'
     }
 }

@@ -17,8 +17,7 @@ const Theme = {
         grey_66: '#666666',
         grey_33: '#333333'
     },
-    gradient_violet:
-        'linear-gradient(96.32deg, #7B61FF 0%, #A863FF 99.41%)'
+    gradient_violet: `linear-gradient(96.32deg, #7B61FF 0%, #C5C5F2 100%)`
 }
 
 export default Theme

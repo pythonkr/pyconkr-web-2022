@@ -3,13 +3,14 @@ import React from 'react'
 import { LocalePage } from '../../../interfaces/PageProps'
 import { ITalkItem } from '../../../interfaces/IProgram'
 import { getTalkById } from '../../api/program'
+import PageTitle from '../../../components/core/PageTitle'
 
 interface TalkListDetailProps extends LocalePage<ITalkItem> {
     locale: string
 }
 
 const TalkListDetail: NextPage = (props: TalkListDetailProps) => {
-    return <div>{props.ko.title}</div>
+    return <PageTitle title={props.ko.title} />
 }
 
 export const getServerSideProps: GetServerSideProps = async (

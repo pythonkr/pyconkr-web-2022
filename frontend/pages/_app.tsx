@@ -1,5 +1,4 @@
 import React from 'react'
-import '../styles/globals.css'
 import type { AppContext, AppProps } from 'next/app'
 import Layout from '../components/layout/Layout'
 import createI18n from '../locales/i18n'
