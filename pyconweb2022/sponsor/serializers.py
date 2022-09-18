@@ -1,6 +1,6 @@
 from rest_framework.serializers import ModelSerializer
 
-from sponsor.models import Sponsor
+from sponsor.models import Sponsor, PersonalSponsorship
 
 
 class SponsorSerializer(ModelSerializer):
@@ -22,3 +22,9 @@ class SponsorListSerializer(ModelSerializer):
             "logo_image",
             "id",
         ]
+
+
+class PersonalSponsorship(ModelSerializer):
+    class Meta:
+        model = PersonalSponsorship
+        fields = ["name"]
