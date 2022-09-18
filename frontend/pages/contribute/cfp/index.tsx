@@ -23,7 +23,7 @@ const CfpIndexStyle = styled.div`
         a {
             display: inline-block;
             padding: 0.9rem 1.4rem;
-            background-color: ${(props) => props.theme.colors.violet0};
+            background-color: ${(props) => props.theme.colors.violet1};
             border-radius: 8px;
             text-decoration: none;
             font-weight: bold;

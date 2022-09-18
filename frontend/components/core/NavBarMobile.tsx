@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { routes, RouteType } from '../../routes/routes'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
@@ -14,6 +14,8 @@ import {
     SubMenuToggleSpan
 } from './NavBar'
 import SnsLink from './SnsLink'
+import PyconLogoWhite from '../../public/images/pyconkr_2022_logo_white.png'
+import Image from 'next/image'
 
 const Container = styled.div`
     display: none;
@@ -29,8 +31,13 @@ const Container = styled.div`
         if (props.isTransparent) {
             return `background: transparent;`
         }
-        return `background-image: ${props.theme.gradient};`
+        return `background-image: ${props.theme.black_10};`
     }}
+`
+
+const HomeLink = styled.a`
+    display: block;
+    padding: 1.3rem;
 `
 
 const ToggleMenu = styled.input`
@@ -183,6 +190,14 @@ const NavBarMobile = (props: NavProps) => {
 
     return (
         <Container isTransparent={isHome}>
+            <HomeLink href="/">
+                <Image
+                    src={PyconLogoWhite}
+                    alt="Pycon Korea 2022"
+                    width={140}
+                    height={40}
+                />
+            </HomeLink>
             <ToggleMenu
                 type="checkbox"
                 id="menu-btn"

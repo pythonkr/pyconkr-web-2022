@@ -30,7 +30,7 @@ const Caption = styled.div`
 `
 
 const ColorLink = styled.a`
-    color: ${theme.colors.primary2};
+    color: ${theme.colors.blue0};
 `
 
 export { Heading1, Heading2, Heading3, Heading4, Paragraph, Caption, ColorLink }

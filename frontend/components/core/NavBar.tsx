@@ -3,10 +3,14 @@ import { routes, RouteType } from '../../routes/routes'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 import { useRouter } from 'next/router'
+import Image from 'next/image'
 import { media } from '../../assets/styles/mixin'
 import SnsLink from './SnsLink'
+import PyconLogoWhite from '../../public/images/pyconkr_2022_logo_white.png'
 
 const Container = styled.nav`
+    display: flex;
+    justify-content: space-between;
     ${media.mobile(`
         display: none;
     `)}
@@ -18,15 +22,19 @@ const Container = styled.nav`
     }}
 `
 
+const HomeLink = styled.a`
+    display: block;
+    padding: 1.3rem;
+`
+
 const List = styled.ul`
-    width: 1080px;
-    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-right: 1.5rem;
 `
 const ListItem = styled.li<{ active?: boolean }>`
-    padding: 1.3rem;
+    padding: 0 1.3rem;
     font-weight: ${(props) => (props.active ? 'bold' : 'normal')};
     color: ${(props) => props.theme.colors.white};
     position: relative;
@@ -69,7 +77,7 @@ export const SubMenuList = styled.ul`
     position: absolute;
     left: 0;
     right: 0;
-    top: 3.4rem;
+    top: 2.5rem;
     width: 13rem;
     border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 4px;
@@ -124,6 +132,14 @@ const NavBar = (props: NavProps) => {
 
     return (
         <Container isTransparent={isHome}>
+            <HomeLink href="/">
+                <Image
+                    src={PyconLogoWhite}
+                    alt="Pycon Korea 2022"
+                    width={140}
+                    height={40}
+                />
+            </HomeLink>
             <List>
                 {routes.map((route, index) => {
                     return route.subMenu ? (

@@ -2,7 +2,10 @@ export default {
     siteTitle: 'PyCon Korea 2022',
     preparing: 'Under Construction',
     pyconkrTitle: 'PYCON KOREA 2022',
-    pyconkrDate: 'October 1-2, 2022',
+    pycon: 'PYCON',
+    korea: 'KOREA',
+    thisYear: '2022',
+    pyconkrDate: '10.01 - 10.02',
     about: {
         main: {
             title: 'About PyCon Korea',

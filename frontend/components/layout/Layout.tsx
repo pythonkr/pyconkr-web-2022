@@ -3,8 +3,6 @@ import NavBar from '../core/NavBar'
 import NavBarMobile from '../core/NavBarMobile'
 import styled from 'styled-components'
 import { media } from '../../assets/styles/mixin'
-import { NextSeo } from 'next-seo'
-import { useTranslation } from 'react-i18next'
 
 interface LayoutProps {
     locale: string
@@ -13,7 +11,7 @@ interface LayoutProps {
 }
 
 const Container = styled.div`
-    width: 1080px;
+    width: 768px;
     margin: 0 auto;
     ${media.mobile(`
         width: 100%;
@@ -22,21 +20,26 @@ const Container = styled.div`
 const Body = styled.div`
     margin: 3.5rem 0 6rem;
     ${media.mobile(`
-        margin: 6rem 0;
-        padding: 0 1.25rem;
+        margin: 0;
+        padding: 6rem 1.25rem;
     `)}
+`
+
+export const Background = styled.div`
+    background-color: ${(props) => props.theme.colors.black_10};
+    height: 100%;
 `
 
 const Layout = (props: LayoutProps) => {
     // TODO: locale을 context로 관리
     return (
-        <>
+        <Background>
             <NavBarMobile locale={props.locale} />
             <NavBar locale={props.locale} />
             <Container>
                 <Body>{props.children}</Body>
             </Container>
-        </>
+        </Background>
     )
 }
 
