@@ -24,7 +24,7 @@ class SponsorListSerializer(ModelSerializer):
         ]
 
 
-class PersonalSponsorship(ModelSerializer):
+class PersonalSponsorshipSerializer(ModelSerializer):
     class Meta:
         model = PersonalSponsorship
         fields = ["name"]
