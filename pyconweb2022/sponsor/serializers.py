@@ -12,4 +12,4 @@ class SponsorSerializer(ModelSerializer):
 class SponsorListSerializer(ModelSerializer):
     class Meta:
         model = Sponsor
-        fields = ["slug", "name", "level", "desc", "eng_desc", "url", "logo_image"]
+        fields = ["slug", "name", "level", "desc", "eng_desc", "url", "logo_image", "id"]
