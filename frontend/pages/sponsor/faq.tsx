@@ -1,7 +1,7 @@
 import React from 'react'
 import type { NextPage, GetServerSideProps } from 'next'
 import { PageName } from '../../data/enums/PageName'
-import { SponsorPage } from '../../interfaces/PageProps'
+import { ContentPage } from '../../interfaces/PageProps'
 import { GetServerSidePropsContext } from 'next'
 import { getSponsorData } from '../api/sponsor'
 import ReactMarkdown from 'react-markdown'
@@ -10,7 +10,7 @@ import MarkdownStyle from '../../assets/styles/markdown'
 import PageTitle from '../../components/core/PageTitle'
 import remarkGfm from 'remark-gfm'
 
-interface SponsorSponsorFaqPage extends SponsorPage {
+interface SponsorSponsorFaqPage extends ContentPage {
     locale: string
 }
 

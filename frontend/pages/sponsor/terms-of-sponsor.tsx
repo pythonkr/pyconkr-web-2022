@@ -1,6 +1,6 @@
 import React from 'react'
 import { GetServerSideProps, GetServerSidePropsContext, NextPage } from 'next'
-import { SponsorPage } from '../../interfaces/PageProps'
+import { ContentPage } from '../../interfaces/PageProps'
 import { useTranslation } from 'react-i18next'
 import { PageName } from '../../data/enums/PageName'
 import { getSponsorData } from '../api/sponsor'
@@ -10,7 +10,7 @@ import HeadingComponents from '../../components/core/MarkdownHeadings'
 import PageTitle from '../../components/core/PageTitle'
 import remarkGfm from 'remark-gfm'
 
-interface TermsOfSponsorPage extends SponsorPage {
+interface TermsOfSponsorPage extends ContentPage {
     locale: string
 }
 

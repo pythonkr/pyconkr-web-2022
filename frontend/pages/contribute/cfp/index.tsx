@@ -1,7 +1,7 @@
 import React from 'react'
 import type { NextPage, GetServerSideProps } from 'next'
 import { PageName } from '../../../data/enums/PageName'
-import { SponsorPage } from '../../../interfaces/PageProps'
+import { ContentPage } from '../../../interfaces/PageProps'
 import { GetServerSidePropsContext } from 'next'
 import { getCfp } from '../../api/contribute'
 import ReactMarkdown from 'react-markdown'
@@ -11,7 +11,7 @@ import PageTitle from '../../../components/core/PageTitle'
 import remarkGfm from 'remark-gfm'
 import styled from 'styled-components'
 
-interface SponsorSponsorFaqPage extends SponsorPage {
+interface CfpPage extends ContentPage {
     locale: string
 }
 
@@ -23,7 +23,7 @@ const CfpIndexStyle = styled.div`
         a {
             display: inline-block;
             padding: 0.9rem 1.4rem;
-            background-color: ${(props) => props.theme.colors.violet1};
+            background-color: ${(props) => props.theme.colors.violet0};
             border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
@@ -32,7 +32,7 @@ const CfpIndexStyle = styled.div`
     }
 `
 
-const CfpIndex: NextPage = (props: SponsorSponsorFaqPage) => {
+const CfpIndex: NextPage = (props: CfpPage) => {
     return (
         <div>
             <PageTitle title={props.pageName} />

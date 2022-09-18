@@ -27,7 +27,6 @@ const Body = styled.div`
 
 export const Background = styled.div`
     background-color: ${(props) => props.theme.colors.black_10};
-    height: 100%;
 `
 
 const Layout = (props: LayoutProps) => {

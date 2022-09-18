@@ -1,7 +1,7 @@
 import React from 'react'
 import type { NextPage, GetServerSideProps } from 'next'
 import { PageName } from '../../data/enums/PageName'
-import { SponsorPage } from '../../interfaces/PageProps'
+import { ContentPage } from '../../interfaces/PageProps'
 import { GetServerSidePropsContext } from 'next'
 import ReactMarkdown from 'react-markdown'
 import HeadingComponents from '../../components/core/MarkdownHeadings'
@@ -17,7 +17,7 @@ const SponsorJoinPageStyle = styled.div`
     }
 `
 
-interface SponsorSponsorJoinPage extends SponsorPage {
+interface SponsorSponsorJoinPage extends ContentPage {
     locale: string
 }
 

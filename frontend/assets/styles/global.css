@@ -8,14 +8,6 @@
     word-break: keep-all;
 }
 
-html, body {
-    height: 100%;
-}
-
-#__next {
-    height: 100%;
-}
-
 ul, li {
     margin: 0;
     padding: 0;
@@ -32,4 +24,5 @@ textarea {
 body {
     line-height: 1.45;
     color: #fff;
+    background-color: #100F0F;
 }
