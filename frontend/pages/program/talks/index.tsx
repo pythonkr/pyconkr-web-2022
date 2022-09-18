@@ -9,14 +9,15 @@ import { getTalkList } from '../../api/program'
 import { ITalkList } from '../../../interfaces/IProgram'
 
 interface TalkListProps extends PageProps {
-    list: ITalkList
+    data: ITalkList
 }
 
 const TalkListPage: NextPage = (props: TalkListProps) => {
+    const { pageName, data } = props
     return (
         <div>
-            <PageTitle title={props.pageName} />
-            <TalkList list={props.list} />
+            <PageTitle title={pageName} />
+            <TalkList list={data.list} />
         </div>
     )
 }
@@ -32,7 +33,7 @@ export const getServerSideProps: GetServerSideProps = async (
             props: {
                 title: PageName.Talks,
                 locale,
-                ...data
+                data
             }
         }
     } catch (error) {
