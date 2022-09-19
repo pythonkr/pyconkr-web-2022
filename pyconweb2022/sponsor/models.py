@@ -141,3 +141,11 @@ class Sponsor(models.Model):
 
     def get_absolute_url(self):
         return reverse("sponsor", args=[self.pk])
+
+
+class PersonalSponsorship(models.Model):
+    class Meta:
+        ordering = ["amount"]
+
+    name = models.CharField(max_length=50)
+    amount = models.IntegerField()
