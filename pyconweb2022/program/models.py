@@ -25,6 +25,7 @@ class Proposal(models.Model):
     title = models.CharField(max_length=255)
     brief = models.TextField(max_length=1000)
     desc = models.TextField(max_length=4000)
+    eng_desc = models.TextField(max_length=4000, null=True, blank=True)
     comment = models.TextField(max_length=4000, null=True, blank=True)
 
     # TODO: 다국어 기능 추가
