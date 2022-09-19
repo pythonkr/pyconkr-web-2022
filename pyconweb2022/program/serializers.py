@@ -19,6 +19,7 @@ class ProposalSerializer(serializers.ModelSerializer):
             "title",
             "brief",
             "desc",
+            "eng_desc",
             "difficulty",
             "duration",
             "language",
