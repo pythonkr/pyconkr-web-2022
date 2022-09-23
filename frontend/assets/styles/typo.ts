@@ -19,13 +19,20 @@ const Heading2 = styled.h2`
 `
 
 const Heading3 = styled.h3`
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     line-height: 1.3;
+    ${(props) => {
+        if (props.useGradient) {
+            return `background: ${props.theme.gradient_violet};
+                  -webkit-background-clip: text;
+                  -webkit-text-fill-color: transparent;`
+        }
+    }}
 `
 
 const Heading4 = styled.h4`
-    font-size: 1.25rem;
-    line-height: 1.3;
+    font-size: 1.1rem;
+    line-height: 1.4;
 `
 
 const Paragraph = styled.p`

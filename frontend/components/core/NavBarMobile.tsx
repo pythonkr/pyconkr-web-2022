@@ -31,7 +31,7 @@ const Container = styled.div`
         if (props.isTransparent) {
             return `background: transparent;`
         }
-        return `background-image: ${props.theme.black_10};`
+        return `background: ${props.theme.black_10};`
     }}
 `
 
