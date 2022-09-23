@@ -2,7 +2,7 @@ import React from 'react'
 import type { NextPage, GetServerSideProps } from 'next'
 import { useTranslation } from 'react-i18next'
 import { PageName } from '../../data/enums/PageName'
-import { Heading2, Paragraph } from '../../assets/styles/typo'
+import { Heading2, Heading3, Paragraph } from '../../assets/styles/typo'
 import styled from 'styled-components'
 
 const Block = styled.div`
@@ -27,11 +27,15 @@ const About: NextPage = () => {
                 <Content>{t('label:about.main.desc')}</Content>
             </Block>
             <Block>
-                <Heading2>{t('label:about.slogan.title')}</Heading2>
+                <Heading3 useGradient={true}>
+                    {t('label:about.slogan.title')}
+                </Heading3>
                 <Content>{t('label:about.slogan.desc')}</Content>
             </Block>
             <Block>
-                <Heading2>{t('label:about.diff.title')}</Heading2>
+                <Heading3 useGradient={true}>
+                    {t('label:about.diff.title')}
+                </Heading3>
                 <Content>{t('label:about.diff.desc')}</Content>
             </Block>
         </div>
