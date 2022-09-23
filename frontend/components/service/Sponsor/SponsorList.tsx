@@ -2,11 +2,8 @@ import { Link } from '../../core/SnsLink'
 import React from 'react'
 import styled from 'styled-components'
 import { ISponsorLevelItem, ISponsorList } from '../../../interfaces/ISponsor'
-import categoryList from '../Program/CategoryList'
-import Sponsor from '../../../pages/sponsor/list'
 import { useTranslation } from 'react-i18next'
 import { Heading3 } from '../../../assets/styles/typo'
-import sponsorLevel from '../../../locales/ko/sponsorLevel'
 import { DEFAULT_PROFILE_PATH } from '../../../data/constants/config'
 
 const SponsorLevel = styled.div`
@@ -75,7 +72,7 @@ const SponsorList = (props: { list: ISponsorList }) => {
                                 {item.list.map((sponsor) => (
                                     <SponsorItem key={sponsor.slug}>
                                         <Link
-                                            href={`/sponsor/list/${sponsor.slug}`}
+                                            href={`/sponsor/list/${sponsor.id}`}
                                         >
                                             <a>
                                                 <SponsorImage

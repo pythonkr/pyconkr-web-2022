@@ -2,8 +2,11 @@ import axios from 'axios'
 import { IContents } from '../../interfaces/IContents'
 import { IApiContents } from '../../interfaces/api/IApiContents'
 import { API_SERVER } from '../../data/constants/config'
-import { IApiSponsorListItem } from '../../interfaces/api/IApiSponsor'
-import { ISponsorList } from '../../interfaces/ISponsor'
+import {
+    IApiSponsorDetail,
+    IApiSponsorListItem
+} from '../../interfaces/api/IApiSponsor'
+import { ISponsorDetail, ISponsorList } from '../../interfaces/ISponsor'
 
 type SponsorDataEndPointType =
     | 'prospectus'
@@ -18,6 +21,15 @@ export const getSponsorList = async (): Promise<ISponsorList> => {
 
     return {
         list: data
+    }
+}
+
+export const getSponsorDetail = async (id: string): Promise<ISponsorDetail> => {
+    const response = await axios.get(`${API_SERVER}/sponsor/${id}`)
+    const data: IApiSponsorDetail = response.data
+
+    return {
+        ...data
     }
 }
 

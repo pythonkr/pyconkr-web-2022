@@ -1,4 +1,4 @@
-import { IApiSponsorListItem } from './api/IApiSponsor'
+import { IApiSponsorDetail, IApiSponsorListItem } from './api/IApiSponsor'
 
 export interface ISponsorListItem extends IApiSponsorListItem {}
 
@@ -11,3 +11,5 @@ export interface ISponsorLevelItem {
     name: string
     list: ISponsorListItem[]
 }
+
+export interface ISponsorDetail extends IApiSponsorDetail {}
