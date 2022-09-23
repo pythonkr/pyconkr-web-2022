@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { routes, RouteType } from '../../routes/routes'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
@@ -7,6 +7,7 @@ import Image from 'next/image'
 import { media } from '../../assets/styles/mixin'
 import SnsLink from './SnsLink'
 import PyconLogoWhite from '../../public/images/pyconkr_2022_logo_white.png'
+import Link from 'next/link'
 
 const Container = styled.nav`
     display: flex;
@@ -40,7 +41,7 @@ const ListItem = styled.li<{ active?: boolean }>`
     color: ${(props) => props.theme.colors.white};
     position: relative;
 `
-export const Link = styled.a`
+export const BlockLink = styled(Link)`
     display: block;
     cursor: pointer;
 `
@@ -131,6 +132,10 @@ const NavBar = (props: NavProps) => {
         router.push(router.asPath, undefined, { locale: lang })
     }
 
+    useEffect(() => {
+        setOpenedSubMenu('')
+    }, [router.pathname])
+
     return (
         <Container isTransparent={isHome}>
             <HomeLink href="/">
@@ -160,18 +165,18 @@ const NavBar = (props: NavProps) => {
                             <SubMenuList>
                                 {route.subMenu.map((subMenu, index) => (
                                     <SubMenuListItem key={index}>
-                                        <Link href={getPath(subMenu.path)}>
+                                        <BlockLink href={getPath(subMenu.path)}>
                                             {t(`pageTitle:${subMenu.name}`)}
-                                        </Link>
+                                        </BlockLink>
                                     </SubMenuListItem>
                                 ))}
                             </SubMenuList>
                         </ListItem>
                     ) : (
                         <ListItem key={index} active={isActive(route)}>
-                            <Link href={getPath(route.path)}>
+                            <BlockLink href={getPath(route.path)}>
                                 {t(`pageTitle:${route.name}`)}
-                            </Link>
+                            </BlockLink>
                         </ListItem>
                     )
                 })}

@@ -20,7 +20,6 @@ const CategoryList = (props: { list: ITalkList }) => {
         categoryList[talk.category].talkList.push(talk)
     })
 
-    console.log(categoryList)
     return (
         <>
             {Object.keys(categoryList).map((key, index) => (
