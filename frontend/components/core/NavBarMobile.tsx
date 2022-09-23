@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { routes, RouteType } from '../../routes/routes'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
@@ -191,6 +191,10 @@ const NavBarMobile = (props: NavProps) => {
         e.preventDefault()
         router.push(router.asPath, undefined, { locale: lang })
     }
+
+    useEffect(() => {
+        setIsMenuOpen(false)
+    }, [router.pathname])
 
     return (
         <Container isTransparent={isHome}>
