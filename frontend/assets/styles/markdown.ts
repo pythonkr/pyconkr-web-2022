@@ -55,7 +55,8 @@ const MarkdownStyle = styled.div`
         font-weight: bold;
     }
     tr {
-        border-bottom: solid 1px ${theme.colors.grey_d9};
+        border-bottom: solid 1px ${theme.colors.white};
+        background-color: ${theme.colors.grey_e9};
         height: 3rem;
     }
     tbody > tr:nth-of-type(odd) {

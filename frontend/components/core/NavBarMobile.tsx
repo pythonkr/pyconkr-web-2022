@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next'
 import { useRouter } from 'next/router'
 import { media } from '../../assets/styles/mixin'
 import {
-    Link,
     SubMenuList,
     SubMenuListItem,
     SubMenuToggleCheckbox,
@@ -16,6 +15,7 @@ import {
 import SnsLink from './SnsLink'
 import PyconLogoWhite from '../../public/images/pyconkr_2022_logo_white.png'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const Container = styled.div`
     display: none;
@@ -33,6 +33,10 @@ const Container = styled.div`
         }
         return `background: ${props.theme.black_10};`
     }}
+`
+export const BlockLink = styled(Link)`
+    display: block;
+    cursor: pointer;
 `
 
 const HomeLink = styled.a`
@@ -232,22 +236,22 @@ const NavBarMobile = (props: NavProps) => {
                                     <MobileSubMenuList>
                                         {route.subMenu.map((subMenu, index) => (
                                             <MobileSubMenuListItem key={index}>
-                                                <Link
+                                                <BlockLink
                                                     href={getPath(subMenu.path)}
                                                 >
                                                     {t(
                                                         `pageTitle:${subMenu.name}`
                                                     )}
-                                                </Link>
+                                                </BlockLink>
                                             </MobileSubMenuListItem>
                                         ))}
                                     </MobileSubMenuList>
                                 </ListItem>
                             ) : (
                                 <ListItem key={index} active={isActive(route)}>
-                                    <Link href={getPath(route.path)}>
+                                    <BlockLink href={getPath(route.path)}>
                                         {t(`pageTitle:${route.name}`)}
-                                    </Link>
+                                    </BlockLink>
                                 </ListItem>
                             )
                         })}

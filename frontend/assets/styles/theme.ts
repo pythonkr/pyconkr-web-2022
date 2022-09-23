@@ -12,12 +12,13 @@ const Theme = {
         black_10: '#100F0F',
         white: '#ffffff',
         grey_f9: '#f9f9f9',
+        grey_e9: '#e9e9e9',
         grey_d9: '#d9d9d9',
         grey_99: '#999999',
         grey_66: '#666666',
         grey_33: '#333333'
     },
-    gradient_violet: `linear-gradient(96.32deg, #7B61FF 0%, #C5C5F2 100%)`
+    gradient_violet: `linear-gradient(96.32deg, #9884fc 0%, #C5C5F2 100%)`
 }
 
 export default Theme
