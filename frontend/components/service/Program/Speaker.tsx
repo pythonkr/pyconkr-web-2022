@@ -33,9 +33,6 @@ const SpeakerName = styled.div`
 const SpeakerIntro = styled.p`
     margin-top: 0.8rem;
     white-space: pre-wrap;
-    a {
-        color: ${(props) => props.theme.colors.blue0};
-    }
 `
 
 const Speaker = (props: { item: ISpeaker }) => {

@@ -40,6 +40,7 @@ const SpeakerProfile = styled.div`
     height: 6rem;
     background-image: url(${(props) => props.image});
     background-size: cover;
+    background-position: center;
     border-radius: 50%;
 `
 

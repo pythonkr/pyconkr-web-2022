@@ -5,6 +5,7 @@ import { ISponsorLevelItem, ISponsorList } from '../../../interfaces/ISponsor'
 import { useTranslation } from 'react-i18next'
 import { Heading3 } from '../../../assets/styles/typo'
 import { DEFAULT_PROFILE_PATH } from '../../../data/constants/config'
+import { media } from '../../../assets/styles/mixin'
 
 const SponsorLevel = styled.div`
     margin-bottom: 6rem;
@@ -12,29 +13,20 @@ const SponsorLevel = styled.div`
 const SponsorGroup = styled.ul`
     display: flex;
     align-items: center;
-    margin: 0;
-    padding: 0;
-    margin-top: 3rem;
-    @media (max-width: 768px) {
+    flex-wrap: wrap;
+    flex: auto;
+    gap: 2rem;
+    ${media.mobile(`
         flex-direction: column;
-    }
+    `)}
 `
 
 const SponsorItem = styled.li`
-    min-height: 100px;
     max-width: 200px;
-    margin: 0;
-    padding: 0;
+    height: 200px;
     list-style: none;
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    & + & {
-        margin-left: 1.6rem;
-        @media (max-width: 768px) {
-            margin-left: 0;
-            margin-top: 2rem;
-        }
-    }
 `
 
 const SponsorImage = styled.img`

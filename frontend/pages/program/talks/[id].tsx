@@ -9,13 +9,21 @@ import Speaker from '../../../components/service/Program/Speaker'
 import { DEFAULT_PROFILE_PATH } from '../../../data/constants/config'
 import styled from 'styled-components'
 import { Heading3 } from '../../../assets/styles/typo'
+import Linkify from 'react-linkify'
 
 interface TalkListDetailProps extends LocalePage<ITalkItem> {
     locale: string
 }
 
+const DetailContainer = styled.div`
+    a {
+        color: ${(props) => props.theme.colors.blue0};
+    }
+`
+
 const Description = styled.div`
     margin-top: 2rem;
+    white-space: pre-line;
 `
 
 const SpeakerContainer = styled.div`
@@ -33,7 +41,7 @@ const TalkListDetail: NextPage = (props: TalkListDetailProps) => {
     }
 
     return (
-        <>
+        <DetailContainer>
             <PageTitle title={item.title} />
             <div>
                 {t('label:category')}: {item.category}
@@ -49,7 +57,7 @@ const TalkListDetail: NextPage = (props: TalkListDetailProps) => {
             </div>
             <Description>
                 <Heading3 useGradient={true}>{t('label:description')}</Heading3>
-                {item.desc}
+                <Linkify>{item.desc}</Linkify>
             </Description>
             <SpeakerContainer>
                 <Heading3 useGradient={true}>
@@ -57,7 +65,7 @@ const TalkListDetail: NextPage = (props: TalkListDetailProps) => {
                 </Heading3>
                 <Speaker item={speaker} />
             </SpeakerContainer>
-        </>
+        </DetailContainer>
     )
 }
 
