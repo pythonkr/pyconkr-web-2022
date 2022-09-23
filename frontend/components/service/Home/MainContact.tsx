@@ -17,7 +17,12 @@ const ContactListItem = styled.li`
 const ContactListLabel = styled.span`
     font-weight: bold;
     display: inline-block;
-    margin-right: 0.25rem;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+`
+
+const MailLink = styled.a`
+    color: ${(props) => props.theme.colors.blue0};
 `
 
 const MainSlogan = () => {
@@ -33,17 +38,17 @@ const MainSlogan = () => {
                 <ContactList>
                     <ContactListItem>
                         <ContactListLabel>{t('label:email')}</ContactListLabel>
-                        <a href={`mailto:${t('label:contact.email')}`}>
+                        <MailLink href={`mailto:${t('label:contact.email')}`}>
                             {t('label:contact.email')}
-                        </a>
+                        </MailLink>
                     </ContactListItem>
                     <ContactListItem>
                         <ContactListLabel>
                             {t('label:sponsor')}
                         </ContactListLabel>
-                        <a href={`mailto:${t('label:contact.sponsor')}`}>
+                        <MailLink href={`mailto:${t('label:contact.sponsor')}`}>
                             {t('label:contact.sponsor')}
-                        </a>
+                        </MailLink>
                     </ContactListItem>
                 </ContactList>
             </Content>

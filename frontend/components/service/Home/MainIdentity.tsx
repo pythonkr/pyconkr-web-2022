@@ -10,8 +10,8 @@ const MainTheme = styled.div`
 
 const Window = styled.div`
     position: absolute;
-    left: 20%;
-    right: 20%;
+    left: 25%;
+    right: 25%;
     top: 50%;
     transform: translateY(-50%);
     border: 2px solid ${(props) => props.theme.colors.white};
@@ -19,6 +19,7 @@ const Window = styled.div`
     ${media.mobile(`
         left: 10%;
         right: 10%;
+        padding: 1rem 2rem;
     `)}
 
     &:after {
@@ -57,15 +58,6 @@ const WindowButton = styled.div`
     }
 `
 
-const typing = keyframes`
-    0% {
-        width: 0;
-    }
-    100% {
-        width: 100%;
-    }
-`
-
 const TitleContainer = styled.div`
     margin-top: 4rem;
     overflow: hidden;
@@ -77,25 +69,15 @@ const Title = styled.div`
     display: inline-block;
     color: ${(props) => props.color || props.theme.colors.white};
     white-space: nowrap;
-    animation: ${typing} 5s linear;
-    animation-fill-mode: both;
-    &:nth-child(2) {
-        animation-delay: 2s;
-    }
-    &:nth-child(3) {
-        animation-delay: 4s;
-    }
+    ${media.mobile(`
+        font-size: 3rem;
+    `)}
 `
 
 const MainText = styled.div`
     font-size: 1.7rem;
     font-weight: normal;
-    margin-top: 2rem;
-    margin-left: 12rem;
-    ${media.mobile(`
-        margin-top: 3rem;
-        margin-left: 6rem;
-    `)}
+    margin-top: 3rem;
 `
 
 const MainIdentity = () => {

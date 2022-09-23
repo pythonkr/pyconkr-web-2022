@@ -14,7 +14,7 @@ const MainTalkList = () => {
     return (
         <div>
             <Heading2 useGradient={true}>{t('label:talk')}</Heading2>
-            <Content>발표목록</Content>
+            <Content></Content>
         </div>
     )
 }
