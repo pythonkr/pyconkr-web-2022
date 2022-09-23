@@ -14,13 +14,13 @@ interface TalkListDetailProps extends LocalePage<ITalkItem> {
     locale: string
 }
 
+const Description = styled.div`
+    margin-top: 2rem;
+`
+
 const SpeakerContainer = styled.div`
     margin-top: 4rem;
 `
-const Description = styled.div`
-    margin-top: 1rem;
-`
-
 
 const TalkListDetail: NextPage = (props: TalkListDetailProps) => {
     const { t } = useTranslation()
@@ -38,15 +38,23 @@ const TalkListDetail: NextPage = (props: TalkListDetailProps) => {
             <div>
                 {t('label:category')}: {item.category}
             </div>
-            <div>{t('label:difficulty')}: {item.difficulty}</div>
-            <div>{t('label:duration')}: {item.duration}</div>
-            <div>{t('label:language')}: {item.language}</div>
+            <div>
+                {t('label:difficulty')}: {item.difficulty}
+            </div>
+            <div>
+                {t('label:duration')}: {t(`enum:TalkDuration.${item.duration}`)}
+            </div>
+            <div>
+                {t('label:language')}: {t(`enum:TalkLanguage.${item.language}`)}
+            </div>
             <Description>
-                <Heading3 useGradient={true}>설명</Heading3>
+                <Heading3 useGradient={true}>{t('label:description')}</Heading3>
                 {item.desc}
             </Description>
             <SpeakerContainer>
-                <Heading3 useGradient={true}>발표자 소개</Heading3>
+                <Heading3 useGradient={true}>
+                    {t('label:speakerIntro')}
+                </Heading3>
                 <Speaker item={speaker} />
             </SpeakerContainer>
         </>
