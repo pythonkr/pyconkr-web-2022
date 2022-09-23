@@ -41,4 +41,6 @@ export default {
     difficulty: '난이도',
     duration: '발표 시간',
     language: '언어',
+    description: '설명',
+    speakerIntro: '발표자 소개'
 }
