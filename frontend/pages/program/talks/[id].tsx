@@ -16,6 +16,7 @@ interface TalkListDetailProps extends LocalePage<ITalkItem> {
 
 const Description = styled.div`
     margin-top: 2rem;
+    white-space: pre-line;
 `
 
 const SpeakerContainer = styled.div`
