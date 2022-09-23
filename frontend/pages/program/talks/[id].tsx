@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next'
 import Speaker from '../../../components/service/Program/Speaker'
 import { DEFAULT_PROFILE_PATH } from '../../../data/constants/config'
 import styled from 'styled-components'
-import { media } from '../../../assets/styles/mixin'
+import { Heading3 } from '../../../assets/styles/typo'
 
 interface TalkListDetailProps extends LocalePage<ITalkItem> {
     locale: string
@@ -16,9 +16,6 @@ interface TalkListDetailProps extends LocalePage<ITalkItem> {
 
 const SpeakerContainer = styled.div`
     margin-top: 4rem;
-    ${media.mobile(`
-        margin-top: 6rem;
-    `)}
 `
 const Description = styled.div`
     margin-top: 1rem;
@@ -44,8 +41,12 @@ const TalkListDetail: NextPage = (props: TalkListDetailProps) => {
             <div>{t('label:difficulty')}: {item.difficulty}</div>
             <div>{t('label:duration')}: {item.duration}</div>
             <div>{t('label:language')}: {item.language}</div>
-            <Description>{item.desc}</Description>
+            <Description>
+                <Heading3 useGradient={true}>설명</Heading3>
+                {item.desc}
+            </Description>
             <SpeakerContainer>
+                <Heading3 useGradient={true}>발표자 소개</Heading3>
                 <Speaker item={speaker} />
             </SpeakerContainer>
         </>

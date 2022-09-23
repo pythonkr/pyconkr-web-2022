@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import theme from './theme'
+import { media } from './mixin'
 
 const Heading1 = styled.h1`
     font-size: 2.4rem;
@@ -21,6 +22,10 @@ const Heading2 = styled.h2`
 const Heading3 = styled.h3`
     font-size: 1.6rem;
     line-height: 1.3;
+    margin: 1.4rem 0;
+    ${media.mobile(`
+        margin: 1rem 0;
+    `)}
     ${(props) => {
         if (props.useGradient) {
             return `background: ${props.theme.gradient_violet};

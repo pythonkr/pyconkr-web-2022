@@ -11,6 +11,7 @@ export enum PageName {
     Cfp = 'Cfp',
     CfpGuide = 'CfpGuide',
     Sponsor = 'Sponsor',
+    SponsorList = 'SponsorList',
     SponsorProspectus = 'SponsorProspectus',
     SponsorJoin = 'SponsorJoin',
     SponsorBenefit = 'SponsorBenefit',

@@ -13,6 +13,7 @@ export default {
     [PageName.Cfp]: '발표 제안하기',
     [PageName.CfpGuide]: '발표안 작성 가이드',
     [PageName.Sponsor]: '후원하기',
+    [PageName.SponsorList]: '후원사',
     [PageName.SponsorProspectus]: '후원사 안내',
     [PageName.SponsorJoin]: '후원사로 참여하기',
     [PageName.SponsorBenefit]: '후원사 혜택 설명',

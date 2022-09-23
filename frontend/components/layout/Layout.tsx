@@ -3,10 +3,12 @@ import NavBar from '../core/NavBar'
 import NavBarMobile from '../core/NavBarMobile'
 import styled from 'styled-components'
 import { media } from '../../assets/styles/mixin'
+import LayoutSponsorList from './LayoutSponsorList'
 
 interface LayoutProps {
     locale: string
     pageName: string
+    hideSponsor: boolean
     children: ReactNode
 }
 
@@ -36,7 +38,10 @@ const Layout = (props: LayoutProps) => {
             <NavBarMobile locale={props.locale} />
             <NavBar locale={props.locale} />
             <Container>
-                <Body>{props.children}</Body>
+                <Body>
+                    {props.children}
+                    {props.hideSponsor ?? <LayoutSponsorList />}
+                </Body>
             </Container>
         </Background>
     )

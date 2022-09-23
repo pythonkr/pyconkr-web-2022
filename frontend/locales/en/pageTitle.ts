@@ -13,6 +13,7 @@ export default {
     [PageName.Cfp]: 'Call for Proposal',
     [PageName.CfpGuide]: 'How to Submit a Proposal',
     [PageName.Sponsor]: 'Sponsor',
+    [PageName.SponsorList]: 'Sponsors',
     [PageName.SponsorProspectus]: 'Prospectus',
     [PageName.SponsorJoin]: 'Join as Sponsor',
     [PageName.SponsorBenefit]: 'Benefit',

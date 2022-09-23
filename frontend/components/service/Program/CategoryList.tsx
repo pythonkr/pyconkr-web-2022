@@ -11,7 +11,7 @@ const CategoryBlock = styled.ul`
 `
 
 const CategoryList = (props: { list: ITalkList }) => {
-    const categoryList: ICategoryListItem[] = []
+    const categoryList: { [key: string]: ICategoryListItem } = {}
 
     props.list.list.forEach((talk) => {
         if (!categoryList.hasOwnProperty(talk.category)) {
