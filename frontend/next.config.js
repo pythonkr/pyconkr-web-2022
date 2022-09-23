@@ -15,6 +15,9 @@ const nextConfig = {
             use: 'raw-loader'
         })
         return config
+    },
+    images: {
+        domains: ['pyconweb2022-static.s3.amazonaws.com']
     }
     // experimental: {
     //     outputStandalone: true,

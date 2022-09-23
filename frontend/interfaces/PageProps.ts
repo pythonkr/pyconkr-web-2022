@@ -5,9 +5,14 @@ export interface PageProps {
     children: ReactNode
 }
 
-export interface SponsorPage extends PageProps {
+export interface ContentPage extends PageProps {
     content: {
         ko: string
         en: string
     }
+}
+
+export interface LocalePage<T> extends PageProps {
+    ko: T
+    en: T
 }

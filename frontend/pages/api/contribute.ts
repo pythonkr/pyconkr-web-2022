@@ -3,6 +3,7 @@ import { IContents } from '../../interfaces/IContents'
 import { IApiContents } from '../../interfaces/api/IApiContents'
 
 export const getCfp = async (): Promise<IContents> => {
+    // fix: try catch
     const response = await axios.get(
         `https://api.2022.pycon.kr/api/content/cfp`
     )
@@ -10,8 +11,8 @@ export const getCfp = async (): Promise<IContents> => {
 
     return {
         content: {
-            ko: data.content,
-            en: data.eng_content
+            ko: data.content || '',
+            en: data.eng_content || ''
         }
     }
 }
@@ -24,8 +25,8 @@ export const getCfpGuide = async (): Promise<IContents> => {
 
     return {
         content: {
-            ko: data.content,
-            en: data.eng_content
+            ko: data.content || '',
+            en: data.eng_content || ''
         }
     }
 }

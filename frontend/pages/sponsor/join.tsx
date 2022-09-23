@@ -1,13 +1,13 @@
 import React from 'react'
 import type { NextPage, GetServerSideProps } from 'next'
 import { PageName } from '../../data/enums/PageName'
-import { SponsorPage } from '../../interfaces/PageProps'
+import { ContentPage } from '../../interfaces/PageProps'
 import { GetServerSidePropsContext } from 'next'
 import ReactMarkdown from 'react-markdown'
 import HeadingComponents from '../../components/core/MarkdownHeadings'
 import MarkdownStyle from '../../assets/styles/markdown'
 import PageTitle from '../../components/core/PageTitle'
-import { getSponsorData } from '../api/sponsor'
+import { getSponsorContentData } from '../api/sponsor'
 import remarkGfm from 'remark-gfm'
 import styled from 'styled-components'
 
@@ -17,7 +17,7 @@ const SponsorJoinPageStyle = styled.div`
     }
 `
 
-interface SponsorSponsorJoinPage extends SponsorPage {
+interface SponsorSponsorJoinPage extends ContentPage {
     locale: string
 }
 
@@ -43,7 +43,7 @@ export const getServerSideProps: GetServerSideProps = async (
     context: GetServerSidePropsContext
 ) => {
     const { locale } = context
-    const content = await getSponsorData('sponsor-join')
+    const content = await getSponsorContentData('sponsor-join')
 
     return {
         props: {

@@ -1,5 +1,4 @@
 import React from 'react'
-import '../styles/globals.css'
 import type { AppContext, AppProps } from 'next/app'
 import Layout from '../components/layout/Layout'
 import createI18n from '../locales/i18n'
@@ -12,10 +11,12 @@ import { NextSeo } from 'next-seo'
 const App = ({
     Component,
     pageProps,
-    locale
+    locale,
+    router
 }: AppProps & { locale: string }) => {
     const i18n = React.useMemo(() => createI18n({ locale }), [locale])
     const { t } = useTranslation()
+    const { pathname } = router
 
     const pageName = pageProps?.title ?? ''
     const pageTitle =
@@ -23,6 +24,8 @@ const App = ({
             ? `${t(`pageTitle:${pageName}`)} : ${t(`label:siteTitle`)}`
             : `${t(`label:siteTitle`)}`
     const description = `${t(`label:pyconkrTitle`)}: ${t(`label:pyconkrDate`)}`
+
+    const hideSponsor = pathname === '/sponsor'
 
     return (
         <>
@@ -44,7 +47,11 @@ const App = ({
                             ]
                         }}
                     />
-                    <Layout locale={locale} pageName={pageName}>
+                    <Layout
+                        locale={locale}
+                        pageName={pageName}
+                        hideSponsor={hideSponsor}
+                    >
                         <Component pageName={pageName} {...pageProps} />
                     </Layout>
                 </ThemeProvider>

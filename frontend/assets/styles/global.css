@@ -23,4 +23,11 @@ textarea {
 
 body {
     line-height: 1.45;
+    color: #fff;
+    background-color: #100F0F;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
 }
