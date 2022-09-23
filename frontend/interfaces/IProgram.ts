@@ -10,3 +10,9 @@ export interface ICategoryListItem {
 export interface ITalkList {
     list: ITalkItem[]
 }
+
+export interface ISpeaker {
+    imageUrl: string
+    name: string
+    introduction: string
+}

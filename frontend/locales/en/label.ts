@@ -36,5 +36,9 @@ export default {
     contact: {
         email: 'pyconkr@pycon.kr',
         sponsor: 'sponsor@pycon.kr'
-    }
+    },
+    category: 'Category',
+    difficulty: 'Difficulty',
+    duration: 'Duration',
+    language: 'Language',
 }

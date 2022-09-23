@@ -36,5 +36,9 @@ export default {
     contact: {
         email: 'pyconkr@pycon.kr',
         sponsor: 'sponsor@pycon.kr'
-    }
+    },
+    category: '카테고리',
+    difficulty: '난이도',
+    duration: '발표 시간',
+    language: '언어',
 }

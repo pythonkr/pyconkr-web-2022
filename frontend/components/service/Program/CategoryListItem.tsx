@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import { ITalkItem } from '../../../interfaces/IProgram'
 import { media } from '../../../assets/styles/mixin'
 import { Heading4 } from '../../../assets/styles/typo'
-
-const DEFAULT_PROFILE_PATH = '/images/pyconkr2022-profile.png'
+import Link from 'next/link'
+import { DEFAULT_PROFILE_PATH } from '../../../data/constants/config'
 
 const TalkList = styled.ul`
     margin-top: 1.5rem;
@@ -17,8 +17,8 @@ const TalkListItem = styled.li`
         `)}
     }
 `
-const TalkLink = styled.a`
-    display: inline-block;
+const TalkLink = styled(Link)`
+    display: block;
 `
 const TalkBlock = styled.div`
     display: flex;
@@ -49,18 +49,20 @@ const CategoryListItem = (props: { list: ITalkItem[] }) => {
             {props.list.map((talk, index) => (
                 <TalkListItem key={talk.id}>
                     <TalkLink href={`/program/talks/${talk.id}`}>
-                        <TalkBlock>
-                            <SpeakerProfile
-                                image={
-                                    talk.speaker_profile_img ??
-                                    DEFAULT_PROFILE_PATH
-                                }
-                            />
-                            <PersonBlock>
-                                <Title>{talk.title}</Title>
-                                <Speaker>{talk.user_name}</Speaker>
-                            </PersonBlock>
-                        </TalkBlock>
+                        <a>
+                            <TalkBlock>
+                                <SpeakerProfile
+                                    image={
+                                        talk.speaker_profile_img ??
+                                        DEFAULT_PROFILE_PATH
+                                    }
+                                />
+                                <PersonBlock>
+                                    <Title>{talk.title}</Title>
+                                    <Speaker>{talk.user_name}</Speaker>
+                                </PersonBlock>
+                            </TalkBlock>
+                        </a>
                     </TalkLink>
                 </TalkListItem>
             ))}

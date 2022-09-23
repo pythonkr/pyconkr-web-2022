@@ -13,5 +13,5 @@ export interface IApiTalkItem {
     track_num: number | null
     introduction: string
     category: string
-    speaker_profile_img: string | null
+    speaker_profile_img: string
 }
