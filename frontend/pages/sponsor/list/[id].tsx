@@ -10,6 +10,7 @@ import { useTranslation } from 'react-i18next'
 import { media } from '../../../assets/styles/mixin'
 
 interface SponsorDetailProps extends LocalePage<ISponsorDetail> {
+    title: string
     locale: string
 }
 
@@ -70,6 +71,7 @@ export const getServerSideProps: GetServerSideProps = async (
         return {
             props: {
                 locale,
+                title: data.name,
                 ko: data,
                 en: data
             }

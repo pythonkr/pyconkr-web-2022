@@ -80,6 +80,7 @@ export const getServerSideProps: GetServerSideProps = async (
         return {
             props: {
                 locale,
+                title: data.title,
                 ko: data,
                 en: data
             }
