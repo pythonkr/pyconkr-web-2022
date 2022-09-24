@@ -3,6 +3,7 @@ import { ICategoryListItem, ITalkList } from '../../../interfaces/IProgram'
 import styled from 'styled-components'
 import { Heading3 } from '../../../assets/styles/typo'
 import CategoryListItem from './CategoryListItem'
+import Resources from '../../../data/constants/resources'
 
 const CategoryBlock = styled.ul`
     & + & {
@@ -14,10 +15,15 @@ const CategoryList = (props: { list: ITalkList }) => {
     const categoryList: { [key: string]: ICategoryListItem } = {}
 
     props.list.list.forEach((talk) => {
-        if (!categoryList.hasOwnProperty(talk.category)) {
-            categoryList[talk.category] = { name: talk.category, talkList: [] }
+        if (talk.category !== Resources.KEYNOTE_CATEGORY) {
+            if (!categoryList.hasOwnProperty(talk.category)) {
+                categoryList[talk.category] = {
+                    name: talk.category,
+                    talkList: []
+                }
+            }
+            categoryList[talk.category].talkList.push(talk)
         }
-        categoryList[talk.category].talkList.push(talk)
     })
 
     return (

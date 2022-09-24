@@ -20,7 +20,8 @@ const Resources = {
             'https://live.staticflickr.com/3912/14958407280_c7e9e6717e_z.jpg'
     },
     pyconkrFacebook: 'https://www.facebook.com/pyconkorea',
-    pyconkrTwitter: 'https://twitter.com/PyConKR'
+    pyconkrTwitter: 'https://twitter.com/PyConKR',
+    KEYNOTE_CATEGORY: '키노트 (Keynote)'
 }
 
 export default Resources
