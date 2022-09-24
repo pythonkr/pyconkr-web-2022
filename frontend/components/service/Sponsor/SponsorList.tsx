@@ -1,6 +1,6 @@
 import { Link } from '../../core/SnsLink'
 import React from 'react'
-import styled from 'styled-components'
+import styled, { useTheme } from 'styled-components'
 import { ISponsorLevelItem, ISponsorList } from '../../../interfaces/ISponsor'
 import { useTranslation } from 'react-i18next'
 import { Heading3 } from '../../../assets/styles/typo'
@@ -22,6 +22,7 @@ const SponsorGroup = styled.ul`
 `
 
 const SponsorItem = styled.li`
+    background: ${(props) => props.color ?? props.theme.colors.white};
     max-width: 200px;
     height: 200px;
     list-style: none;
@@ -37,7 +38,9 @@ const SponsorImage = styled.img`
 
 const SponsorList = (props: { list: ISponsorList }) => {
     const { t } = useTranslation()
+    const theme = useTheme()
     const sponsorList: { [key: string]: ISponsorLevelItem } = {}
+    const blackBackgroundId = [3]
 
     props.list.list.forEach((sponsor) => {
         const key = `LEVEL_${sponsor.level}`
@@ -51,6 +54,13 @@ const SponsorList = (props: { list: ISponsorList }) => {
         sponsorList[key].list.push(sponsor)
     })
 
+    const backgroundColor = (id: number): string => {
+        if (blackBackgroundId.includes(id)) {
+            return theme.colors.black
+        }
+        return theme.colors.white
+    }
+
     return (
         <>
             {Object.keys(sponsorList)
@@ -62,7 +72,10 @@ const SponsorList = (props: { list: ISponsorList }) => {
                             <Heading3 useGradient={true}>{item.name}</Heading3>
                             <SponsorGroup>
                                 {item.list.map((sponsor) => (
-                                    <SponsorItem key={sponsor.slug}>
+                                    <SponsorItem
+                                        key={sponsor.slug}
+                                        color={backgroundColor(sponsor.id)}
+                                    >
                                         <Link
                                             href={`/sponsor/list/${sponsor.id}`}
                                         >
