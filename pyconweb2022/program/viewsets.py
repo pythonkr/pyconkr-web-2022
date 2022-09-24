@@ -49,6 +49,6 @@ class CategorySessionViewSet(ProposalViewSet):
     def get_queryset(self):
         pk = self.kwargs.get("pk")
         target_category = ProgramCategory.objects.get(id=pk)
-        sessions = Proposal.objects.filter(category=target_category)
+        sessions = Proposal.objects.filter(category=target_category).order_by("video_open_at")
 
         return sessions
