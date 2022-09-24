@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.db import models
 
-from sponsor.models import Sponsor, SponsorLevel
+from sponsor.models import Sponsor, SponsorLevel, PersonalSponsorship
 from sponsor.resources import SponsorResource
 
 from import_export.admin import ImportExportModelAdmin
@@ -72,9 +72,12 @@ class SponsorAdmin4Modusign(SponsorAdmin):
 # admin.site.register(SponsorProxyModel, SponsorAdmin4Modusign)
 
 
-class PersonalSponsorship(ImportExportModelAdmin):
+class PersonalSponsorshipAdmin(ImportExportModelAdmin):
     list_display = (
         "name",
         "amount",
     )
     ordering = ("-amount",)
+
+
+admin.site.register(PersonalSponsorship, PersonalSponsorshipAdmin)
