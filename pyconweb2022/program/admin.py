@@ -9,7 +9,10 @@ from program.resources import ProgramCategoryResource, ProposalResource
 
 class ProgramCategoryAdmin(ImportExportModelAdmin):
     resource_class = ProgramCategoryResource
-    list_display = ("id", "name",)
+    list_display = (
+        "id",
+        "name",
+    )
 
 
 admin.site.register(ProgramCategory, ProgramCategoryAdmin)
