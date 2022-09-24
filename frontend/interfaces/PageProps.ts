@@ -13,6 +13,7 @@ export interface ContentPage extends PageProps {
 }
 
 export interface LocalePage<T> extends PageProps {
+    title?: string
     ko: T
     en: T
 }

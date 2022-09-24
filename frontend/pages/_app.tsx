@@ -7,6 +7,7 @@ import { ThemeProvider } from 'styled-components'
 import '../assets/styles/global.css'
 import Theme from '../assets/styles/theme'
 import { NextSeo } from 'next-seo'
+import Head from 'next/head'
 
 const App = ({
     Component,
@@ -19,13 +20,19 @@ const App = ({
     const { pathname } = router
 
     const pageName = pageProps?.title ?? ''
-    const pageTitle =
-        pageName !== ''
-            ? `${t(`pageTitle:${pageName}`)} : ${t(`label:siteTitle`)}`
-            : `${t(`label:siteTitle`)}`
     const description = `${t(`label:pyconkrTitle`)}: ${t(`label:pyconkrDate`)}`
 
     const hideSponsor = pathname === '/sponsor'
+
+    const getPageTitle = (): string => {
+        if (i18n.exists(`pageTitle:${pageName}`)) {
+            return `${t(`pageTitle:${pageName}`)} : ${t(`label:siteTitle`)}`
+        } else if (pageProps?.title) {
+            return `${pageProps?.title} : ${t(`label:siteTitle`)}`
+        }
+        return `${t(`label:siteTitle`)}`
+    }
+    const pageTitle = getPageTitle()
 
     return (
         <>
@@ -47,6 +54,9 @@ const App = ({
                             ]
                         }}
                     />
+                    <Head>
+                        <title>{pageTitle}</title>
+                    </Head>
                     <Layout
                         locale={locale}
                         pageName={pageName}

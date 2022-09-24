@@ -14,6 +14,7 @@ export default {
     [PageName.CfpGuide]: 'How to Submit a Proposal',
     [PageName.Sponsor]: 'Sponsor',
     [PageName.SponsorList]: 'Sponsors',
+    [PageName.SponsorPatrons]: 'Patrons',
     [PageName.SponsorProspectus]: 'Prospectus',
     [PageName.SponsorJoin]: 'Join as Sponsor',
     [PageName.SponsorBenefit]: 'Benefit',
