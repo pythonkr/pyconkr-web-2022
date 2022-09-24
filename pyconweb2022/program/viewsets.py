@@ -1,8 +1,8 @@
-from rest_framework.viewsets import ReadOnlyModelViewSet, ModelViewSet
+from rest_framework.viewsets import ReadOnlyModelViewSet, ViewSet
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 
-from program.models import Proposal
+from program.models import Proposal, ProgramCategory
 from program.serializers import ProposalSerializer, ProposalDetailSerializer
 from pyconweb2022 import config
 
@@ -35,3 +35,22 @@ class ProposalDetailViewSet(ReadOnlyModelViewSet):
 
         serializer = self.get_serializer(queryset, many=False)
         return Response(serializer.data)
+
+
+class CategorySessionViewSet(ProposalViewSet):
+    queryset = Proposal.objects.none()
+
+    def retrieve(self, request, *args, **kwargs):
+        queryset = self.get_queryset()
+        serializer = self.get_serializer(queryset, many=True)
+
+        return Response(serializer.data)
+
+    def get_queryset(self):
+        pk = self.kwargs.get("pk")
+        target_category = ProgramCategory.objects.get(id=pk)
+        sessions = Proposal.objects.filter(category=target_category).order_by(
+            "video_open_at"
+        )
+
+        return sessions
