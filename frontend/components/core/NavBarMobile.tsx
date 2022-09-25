@@ -34,7 +34,7 @@ const Container = styled.div`
         return `background: ${props.theme.black_10};`
     }}
 `
-export const BlockLink = styled(Link)`
+export const BlockLink = styled.a`
     display: block;
     cursor: pointer;
 `
@@ -50,7 +50,7 @@ const ToggleMenu = styled.input`
 
 const ToggleMenuLabel = styled.label`
     cursor: pointer;
-    position: absolute;
+    position: fixed;
     right: 0;
     top: 0;
     padding: 1.25rem;
