@@ -6,11 +6,22 @@ import PageTitle from '../../components/core/PageTitle'
 import { PageProps } from '../../interfaces/PageProps'
 import Resources from '../../data/constants/resources'
 import styled from 'styled-components'
-import { Paragraph } from '../../assets/styles/typo'
+import Linkify from 'react-linkify'
 
-const TicketInfo = styled(Paragraph)`
+const TicketInfo = styled.div`
     margin: 2rem 0;
+`
+
+const InfoTitle = styled.div`
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 1rem 0;
+`
+const InfoContent = styled.div`
     white-space: pre-line;
+    a {
+        color: ${(props) => props.theme.colors.blue0};
+    }
 `
 
 const TicketLink = styled.a`
@@ -29,7 +40,18 @@ const Ticket: NextPage = (props: PageProps) => {
     return (
         <div>
             <PageTitle title={props.pageName} />
-            <TicketInfo>{t('label:ticketInfo')}</TicketInfo>
+            <TicketInfo>
+                <InfoTitle>{t('label:applyOnline')}</InfoTitle>
+                <InfoContent>
+                    <Linkify>{t('label:onlineTicketInfo')}</Linkify>
+                </InfoContent>
+            </TicketInfo>
+            <TicketInfo>
+                <InfoTitle>{t('label:applyOffline')}</InfoTitle>
+                <InfoContent>
+                    <Linkify>{t('label:offlineTicketInfo')}</Linkify>
+                </InfoContent>
+            </TicketInfo>
             <TicketLink
                 href={Resources.FESTA_TICKET_LINK}
                 target="_blank"

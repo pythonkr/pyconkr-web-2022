@@ -135,7 +135,7 @@ const MainIdentity = () => {
                 </TitleContainer>
                 <MainText>
                     <div>{t(`label:pyconkrDate`)}</div>
-                    <div>온라인 및 오프라인 진행</div>
+                    <div>{t(`label:locationInfo`)}</div>
                 </MainText>
             </Window>
         </MainTheme>

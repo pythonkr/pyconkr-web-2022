@@ -41,7 +41,12 @@ export default {
     difficulty: 'Difficulty',
     duration: 'Duration',
     language: 'Language',
-    ticketInfo:
-        'Tickets for PyCon Korea 2022 are available at Festa (festa.io).\nPyCon Korea 2022 regular ticket has limited quantities are sold and may be sold out early, so please purchase as soon as possible.',
-    buyTicket: 'Buy ticket'
+    applyOnline: 'Apply Online',
+    applyOffline: 'Apply Offline',
+    onlineTicketInfo:
+        'PyCon Korea 2022 will be held on PyCon Korea YouTube(https://www.youtube.com/c/PyConKRtube), so you can participate without a ticket.',
+    offlineTicketInfo:
+        'PyCon Korea 2022 merchandises and offline tickets are available at Festa (festa.io).\nOffline ticket has limited quantities are sold and may be sold out early, so please purchase as soon as possible.',
+    buyTicket: 'Buy ticket',
+    locationInfo: 'Simultaneous online-offline'
 }

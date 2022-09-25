@@ -43,7 +43,12 @@ export default {
     language: '언어',
     description: '설명',
     speakerIntro: '발표자 소개',
-    ticketInfo:
-        '파이콘 한국 2022 티켓은 페스타(festa.io)에서 구입할 수 있습니다.\n파이콘 한국 2022 일반 티켓은 한정된 수량만 판매되어 조기 매진이 될 가능성이 있으니 서둘러 구매해주시기 바랍니다.',
-    buyTicket: '티켓 구입하기'
+    applyOnline: '온라인 참가',
+    applyOffline: '오프라인 참가',
+    onlineTicketInfo:
+        '파이콘 한국 2022는 파이콘 한국 유튜브(https://www.youtube.com/c/PyConKRtube)에 송출되어 티켓 없이도 참가할 수 있습니다.',
+    offlineTicketInfo:
+        '파이콘 한국 2022 굿즈 및 오프라인 티켓은 페스타(festa.io)에서 구입할 수 있습니다.\n오프라인 티켓은 한정된 수량만 판매되어 조기 매진이 될 가능성이 있으니 서둘러 구매해주시기 바랍니다.',
+    buyTicket: '티켓 구입하기',
+    locationInfo: '온/오프라인 동시 진행'
 }
