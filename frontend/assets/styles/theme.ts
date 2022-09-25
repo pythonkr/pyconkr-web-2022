@@ -9,7 +9,7 @@ const Theme = {
         violet3: '#F4F5FE',
         yellow0: '#EEC371',
         black: '#000000',
-        black_10: '#100F0F',
+        black_10: '#171717',
         white: '#ffffff',
         grey_f9: '#f9f9f9',
         grey_e9: '#e9e9e9',
