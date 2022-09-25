@@ -1,11 +1,10 @@
 import React from 'react'
 import type { NextPage, GetServerSideProps } from 'next'
-import { useTranslation } from 'react-i18next'
 import { PageName } from '../../data/enums/PageName'
 import PageTitle from '../../components/core/PageTitle'
 import { PageProps } from '../../interfaces/PageProps'
 import { GetServerSidePropsContext } from 'next'
-import { getKeynoteList, getTalkList } from '../api/program'
+import { getKeynoteList } from '../api/program'
 import { ITalkList } from '../../interfaces/IProgram'
 import KeynoteListItem from '../../components/service/Program/KeynoteListItem'
 

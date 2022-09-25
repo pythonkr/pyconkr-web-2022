@@ -15,7 +15,7 @@ const CategoryList = (props: { list: ITalkList }) => {
     const categoryList: { [key: string]: ICategoryListItem } = {}
 
     props.list.list.forEach((talk) => {
-        if (talk.category !== Resources.KEYNOTE_CATEGORY) {
+        if (talk.category !== Resources.KEYNOTE_NAME) {
             if (!categoryList.hasOwnProperty(talk.category)) {
                 categoryList[talk.category] = {
                     name: talk.category,

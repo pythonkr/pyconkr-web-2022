@@ -48,5 +48,6 @@ export default {
     offlineTicketInfo:
         'PyCon Korea 2022 merchandises and offline tickets are available at Festa (festa.io).\nOffline ticket has limited quantities are sold and may be sold out early, so please purchase as soon as possible.',
     buyTicket: 'Buy ticket',
-    locationInfo: 'Simultaneous online-offline'
+    locationInfo: 'Simultaneous online-offline',
+    eventDetail: 'About Pycon Korea 2022'
 }

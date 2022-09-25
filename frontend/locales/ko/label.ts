@@ -50,5 +50,9 @@ export default {
     offlineTicketInfo:
         '파이콘 한국 2022 굿즈 및 오프라인 티켓은 페스타(festa.io)에서 구입할 수 있습니다.\n오프라인 티켓은 한정된 수량만 판매되어 조기 매진이 될 가능성이 있으니 서둘러 구매해주시기 바랍니다.',
     buyTicket: '티켓 구입하기',
-    locationInfo: '온/오프라인 동시 진행'
+    locationInfo: '온/오프라인 동시 진행',
+    eventDetail: '행사 상세',
+    aboutEvent:
+        '파이콘 한국은 한국의 파이썬 개발자들이 지식을 공유하고 만남을 갖기 위한 장입니다.\n파이콘 한국 2022은 온라인과 오프라인 동시에 진행됩니다.',
+    officialFacebook: '공식 페이스북(https://www.facebook.com)'
 }
