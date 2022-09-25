@@ -45,7 +45,7 @@ const SponsorImage = styled.img`
 
 const SponsorList = (props: {
     list: ISponsorList
-    useGradientTitle: boolean
+    useGradientTitle?: boolean
 }) => {
     const { t } = useTranslation()
     const theme = useTheme()
