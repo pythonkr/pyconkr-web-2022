@@ -5,7 +5,7 @@ import { PageName } from '../../data/enums/PageName'
 import PageTitle from '../../components/core/PageTitle'
 import { PageProps } from '../../interfaces/PageProps'
 import { GetServerSidePropsContext } from 'next'
-import { getTalkList } from '../api/program'
+import { getKeynoteList, getTalkList } from '../api/program'
 import { ITalkList } from '../../interfaces/IProgram'
 import KeynoteListItem from '../../components/service/Program/KeynoteListItem'
 
@@ -16,13 +16,10 @@ interface TalkListProps extends PageProps {
 const Keynote: NextPage = (props: TalkListProps) => {
     const { pageName, data } = props
 
-    const keynoteList = data.list.filter(
-        (item) => item.category === '키노트 (Keynote)'
-    )
     return (
         <div>
             <PageTitle title={pageName} />
-            {keynoteList.map((item) => (
+            {data.list.map((item) => (
                 <KeynoteListItem key={item.id} item={item} />
             ))}
         </div>
@@ -34,7 +31,7 @@ export const getServerSideProps: GetServerSideProps = async (
 ) => {
     const { locale } = context
     try {
-        const data = await getTalkList()
+        const data = await getKeynoteList()
 
         return {
             props: {

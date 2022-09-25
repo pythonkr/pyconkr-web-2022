@@ -21,7 +21,7 @@ const Resources = {
     },
     pyconkrFacebook: 'https://www.facebook.com/pyconkorea',
     pyconkrTwitter: 'https://twitter.com/PyConKR',
-    KEYNOTE_CATEGORY: '키노트 (Keynote)',
+    KEYNOTE_CATEGORY: 13,
     FESTA_TICKET_LINK: 'https://festa.io/events/2605'
 }
 
