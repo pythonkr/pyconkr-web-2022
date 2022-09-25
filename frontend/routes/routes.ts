@@ -16,16 +16,16 @@ export const routes: RouteType[] = [
                 name: PageName.Pyconkr2022
             },
             {
-                path: '/about/previous-pyconkr',
-                name: PageName.PreviousPyconkr
-            },
-            {
                 path: '/about/ticket',
                 name: PageName.Ticket
             },
             {
                 path: '/about/venue',
                 name: PageName.Venue
+            },
+            {
+                path: '/about/previous-pyconkr',
+                name: PageName.PreviousPyconkr
             }
         ]
     },
