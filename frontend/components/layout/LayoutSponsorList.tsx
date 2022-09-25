@@ -14,8 +14,8 @@ const LayoutSponsorList = (props: { list: ISponsorList }) => {
 
     return (
         <Container>
-            <Heading2 useGradient={true}>{t('label:sponsorList')}</Heading2>
-            <SponsorList list={props.list} useGradientTitle={false} />
+            <Heading2>{t('label:sponsorList')}</Heading2>
+            <SponsorList list={props.list} />
         </Container>
     )
 }
