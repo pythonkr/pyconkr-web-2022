@@ -22,7 +22,7 @@ const Heading2 = styled.h2`
 const Heading3 = styled.h3`
     font-size: 1.6rem;
     line-height: 1.3;
-    margin: 1.4rem 0;
+    margin: 1.4rem 0 2rem;
     ${media.mobile(`
         margin: 1rem 0;
     `)}
