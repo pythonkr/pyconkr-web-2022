@@ -66,7 +66,7 @@ export const routes: RouteType[] = [
                 name: PageName.SponsorList
             },
             {
-                path: '/sponsor/patron',
+                path: '/sponsor/patrons',
                 name: PageName.SponsorPatrons
             },
             {
