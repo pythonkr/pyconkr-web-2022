@@ -1,3 +1,4 @@
+import React from 'react'
 import { ISpeaker } from '../../../interfaces/IProgram'
 import styled from 'styled-components'
 import { media } from '../../../assets/styles/mixin'
