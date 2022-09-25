@@ -3,9 +3,10 @@ import { PageName } from '../../data/enums/PageName'
 export default {
     [PageName.Home]: 'PYCONKR 2022',
     [PageName.About]: 'About',
-    [PageName.Pyconkr2022]: 'Pycon Korea 2022',
+    [PageName.Pyconkr2022]: 'PyCon Korea 2022',
     [PageName.PreviousPyconkr]: 'Previous PyCon Korea',
-    [PageName.Ticket]: '티켓 구입',
+    [PageName.Ticket]: 'Buy Ticket',
+    [PageName.Venue]: 'Venue',
     [PageName.Program]: 'Program',
     [PageName.Keynote]: 'Keynote',
     [PageName.Talks]: 'Talks',

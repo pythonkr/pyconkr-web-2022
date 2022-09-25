@@ -4,6 +4,7 @@ export enum PageName {
     Pyconkr2022 = 'Pyconkr2022',
     PreviousPyconkr = 'PreviousPyconkr',
     Ticket = 'Ticket',
+    Venue = 'Venue',
     Program = 'Program',
     Keynote = 'Keynote',
     Talks = 'Talks',
