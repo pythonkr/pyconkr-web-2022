@@ -42,5 +42,8 @@ export default {
     duration: '발표 시간',
     language: '언어',
     description: '설명',
-    speakerIntro: '발표자 소개'
+    speakerIntro: '발표자 소개',
+    ticketInfo:
+        '파이콘 한국 2022 티켓은 페스타(festa.io)에서 구입할 수 있습니다.\n파이콘 한국 2022 일반 티켓은 한정된 수량만 판매되어 조기 매진이 될 가능성이 있으니 서둘러 구매해주시기 바랍니다.',
+    buyTicket: '티켓 구입하기'
 }

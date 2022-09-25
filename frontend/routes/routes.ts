@@ -18,6 +18,10 @@ export const routes: RouteType[] = [
             {
                 path: '/about/previous-pyconkr',
                 name: PageName.PreviousPyconkr
+            },
+            {
+                path: '/about/ticket',
+                name: PageName.Ticket
             }
         ]
     },

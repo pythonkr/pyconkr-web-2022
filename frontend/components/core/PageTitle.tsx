@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 
 const Title = styled(Heading2)`
-    margin: 2rem 0;
+    margin: 2rem 0 3rem;
 `
 
 interface PageTitleProps {

@@ -3,6 +3,7 @@ export enum PageName {
     About = 'About',
     Pyconkr2022 = 'Pyconkr2022',
     PreviousPyconkr = 'PreviousPyconkr',
+    Ticket = 'Ticket',
     Program = 'Program',
     Keynote = 'Keynote',
     Talks = 'Talks',

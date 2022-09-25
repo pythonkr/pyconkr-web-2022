@@ -41,4 +41,7 @@ export default {
     difficulty: 'Difficulty',
     duration: 'Duration',
     language: 'Language',
+    ticketInfo:
+        'Tickets for PyCon Korea 2022 are available at Festa (festa.io).\nPyCon Korea 2022 regular ticket has limited quantities are sold and may be sold out early, so please purchase as soon as possible.',
+    buyTicket: 'Buy ticket'
 }

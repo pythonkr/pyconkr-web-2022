@@ -5,6 +5,7 @@ export default {
     [PageName.About]: 'About',
     [PageName.Pyconkr2022]: 'Pycon Korea 2022',
     [PageName.PreviousPyconkr]: 'Previous PyCon Korea',
+    [PageName.Ticket]: '티켓 구입',
     [PageName.Program]: 'Program',
     [PageName.Keynote]: 'Keynote',
     [PageName.Talks]: 'Talks',
