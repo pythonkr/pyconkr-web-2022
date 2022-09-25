@@ -54,5 +54,5 @@ export default {
     eventDetail: '행사 상세',
     aboutEvent:
         '파이콘 한국은 한국의 파이썬 개발자들이 지식을 공유하고 만남을 갖기 위한 장입니다.\n파이콘 한국 2022은 온라인과 오프라인 동시에 진행됩니다.',
-    officialFacebook: '공식 페이스북(https://www.facebook.com)'
+    sponsorList: '후원사 목록'
 }

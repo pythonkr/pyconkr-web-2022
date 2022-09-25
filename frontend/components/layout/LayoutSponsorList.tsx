@@ -1,15 +1,21 @@
 import React from 'react'
-import { Heading3 } from '../../assets/styles/typo'
+import { Heading2 } from '../../assets/styles/typo'
 import styled from 'styled-components'
+import { useTranslation } from 'react-i18next'
+import SponsorList from '../service/Sponsor/SponsorList'
+import { ISponsorList } from '../../interfaces/ISponsor'
 
 const Container = styled.div`
     margin-top: 8rem;
 `
 
-const LayoutSponsorList = () => {
+const LayoutSponsorList = (props: { list: ISponsorList }) => {
+    const { t } = useTranslation()
+
     return (
         <Container>
-            <Heading3 useGradient={true}>후원사 목록</Heading3>
+            <Heading2 useGradient={true}>{t('label:sponsorList')}</Heading2>
+            <SponsorList list={props.list} useGradientTitle={false} />
         </Container>
     )
 }

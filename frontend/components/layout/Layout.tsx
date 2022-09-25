@@ -4,6 +4,7 @@ import NavBarMobile from '../core/NavBarMobile'
 import styled from 'styled-components'
 import { media } from '../../assets/styles/mixin'
 import LayoutSponsorList from './LayoutSponsorList'
+import { ISponsorList } from '../../interfaces/ISponsor'
 
 interface LayoutProps {
     locale: string
@@ -31,7 +32,7 @@ export const Background = styled.div`
     background-color: ${(props) => props.theme.colors.black_10};
 `
 
-const Layout = (props: LayoutProps) => {
+const Layout = (props: LayoutProps & { sponsorList?: ISponsorList }) => {
     // TODO: locale을 context로 관리
     return (
         <Background>
@@ -40,7 +41,9 @@ const Layout = (props: LayoutProps) => {
             <Container>
                 <Body>
                     {props.children}
-                    {props.hideSponsor ?? <LayoutSponsorList />}
+                    {!props.hideSponsor && (
+                        <LayoutSponsorList list={props.sponsorList} />
+                    )}
                 </Body>
             </Container>
         </Background>

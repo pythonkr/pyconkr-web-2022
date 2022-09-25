@@ -16,9 +16,6 @@ const SponsorGroup = styled.ul`
     flex-wrap: wrap;
     flex: auto;
     gap: 2rem;
-    ${media.mobile(`
-        flex-direction: column;
-    `)}
 `
 
 const SponsorItem = styled.li`
@@ -29,6 +26,10 @@ const SponsorItem = styled.li`
     list-style: none;
     display: inline-flex;
     align-items: center;
+    ${media.mobile(`
+        width: 140px;
+        height: 140px;
+    `)}
 `
 
 const SponsorLink = styled.a`
@@ -42,11 +43,15 @@ const SponsorImage = styled.img`
     vertical-align: top;
 `
 
-const SponsorList = (props: { list: ISponsorList }) => {
+const SponsorList = (props: {
+    list: ISponsorList
+    useGradientTitle: boolean
+}) => {
     const { t } = useTranslation()
     const theme = useTheme()
     const sponsorList: { [key: string]: ISponsorLevelItem } = {}
     const blackBackgroundId = [3]
+    const useGradient = props.useGradientTitle ?? true
 
     props.list.list.forEach((sponsor) => {
         const key = `LEVEL_${sponsor.level}`
@@ -75,7 +80,9 @@ const SponsorList = (props: { list: ISponsorList }) => {
                     const item = sponsorList[key]
                     return (
                         <SponsorLevel key={key}>
-                            <Heading3 useGradient={true}>{item.name}</Heading3>
+                            <Heading3 useGradient={useGradient}>
+                                {item.name}
+                            </Heading3>
                             <SponsorGroup>
                                 {item.list.map((sponsor) => (
                                     <SponsorItem

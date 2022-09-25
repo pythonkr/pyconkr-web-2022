@@ -8,13 +8,16 @@ import '../assets/styles/global.css'
 import Theme from '../assets/styles/theme'
 import { NextSeo } from 'next-seo'
 import Head from 'next/head'
+import { getSponsorList } from './api/sponsor'
+import { ISponsorList } from '../interfaces/ISponsor'
 
 const App = ({
     Component,
     pageProps,
     locale,
-    router
-}: AppProps & { locale: string }) => {
+    router,
+    sponsorList
+}: AppProps & { locale: string; sponsorList: ISponsorList }) => {
     const i18n = React.useMemo(() => createI18n({ locale }), [locale])
     const { t } = useTranslation()
     const { pathname } = router
@@ -22,7 +25,7 @@ const App = ({
     const pageName = pageProps?.title ?? ''
     const description = `${t(`label:pyconkrTitle`)}: ${t(`label:pyconkrDate`)}`
 
-    const hideSponsor = pathname === '/sponsor'
+    const hideSponsor = pathname.includes('/sponsor')
 
     const getPageTitle = (): string => {
         if (i18n.exists(`pageTitle:${pageName}`)) {
@@ -61,6 +64,7 @@ const App = ({
                         locale={locale}
                         pageName={pageName}
                         hideSponsor={hideSponsor}
+                        sponsorList={sponsorList}
                     >
                         <Component pageName={pageName} {...pageProps} />
                     </Layout>
@@ -72,7 +76,12 @@ const App = ({
 
 App.getInitialProps = async ({ ctx }: AppContext) => {
     const { locale } = ctx
-    return { locale }
+    const data = await getSponsorList()
+
+    return {
+        locale,
+        sponsorList: data
+    }
 }
 
 export default App

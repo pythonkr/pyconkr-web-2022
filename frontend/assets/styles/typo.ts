@@ -10,6 +10,7 @@ const Heading1 = styled.h1`
 const Heading2 = styled.h2`
     font-size: 1.9rem;
     line-height: 1.3;
+    margin: 1.4rem 0 2rem;
     ${(props) => {
         if (props.useGradient) {
             return `background: ${props.theme.gradient_violet};
