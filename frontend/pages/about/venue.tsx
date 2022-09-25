@@ -57,9 +57,9 @@ const TalkSchedule: NextPage = (props: PageProps) => {
                     </ul>
                 </Description>
                 <Heading3 useGradient={true}>{t('label:floorInfo')}</Heading3>
-                <FloorTitle>1층</FloorTitle>
+                <FloorTitle>{t('label:firstFloor')}</FloorTitle>
                 <ImageBlock src={FirstFloorMap} alt={'First Floor Image'} />
-                <FloorTitle>2층</FloorTitle>
+                <FloorTitle>{t('label:secondFloor')}</FloorTitle>
                 <ImageBlock src={SecondFloorMap} alt={'Second Floor Image'} />
             </VenueInfo>
         </>
