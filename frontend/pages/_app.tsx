@@ -49,7 +49,7 @@ const App = ({
                             description: description,
                             images: [
                                 {
-                                    url: `https://2022.pycon.kr/images/og-temp.jpg`
+                                    url: `https://2022.pycon.kr/images/og.jpg`
                                 }
                             ]
                         }}
