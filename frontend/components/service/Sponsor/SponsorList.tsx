@@ -1,4 +1,3 @@
-import { Link } from '../../core/SnsLink'
 import React from 'react'
 import styled, { useTheme } from 'styled-components'
 import { ISponsorLevelItem, ISponsorList } from '../../../interfaces/ISponsor'
@@ -13,6 +12,7 @@ const SponsorLevel = styled.div`
 const SponsorGroup = styled.ul`
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
     flex: auto;
     gap: 2rem;
@@ -23,11 +23,17 @@ const SponsorGroup = styled.ul`
 
 const SponsorItem = styled.li`
     background: ${(props) => props.color ?? props.theme.colors.white};
-    max-width: 200px;
+    width: 200px;
     height: 200px;
+    text-align: center;
     list-style: none;
     display: inline-flex;
     align-items: center;
+`
+
+const SponsorLink = styled.a`
+    display: block;
+    margin: 0 auto;
 `
 
 const SponsorImage = styled.img`
@@ -76,19 +82,17 @@ const SponsorList = (props: { list: ISponsorList }) => {
                                         key={sponsor.slug}
                                         color={backgroundColor(sponsor.id)}
                                     >
-                                        <Link
+                                        <SponsorLink
                                             href={`/sponsor/list/${sponsor.id}`}
                                         >
-                                            <a>
-                                                <SponsorImage
-                                                    src={
-                                                        sponsor.logo_image ??
-                                                        DEFAULT_PROFILE_PATH
-                                                    }
-                                                    alt={sponsor.name}
-                                                />
-                                            </a>
-                                        </Link>
+                                            <SponsorImage
+                                                src={
+                                                    sponsor.logo_image ??
+                                                    DEFAULT_PROFILE_PATH
+                                                }
+                                                alt={sponsor.name}
+                                            />
+                                        </SponsorLink>
                                     </SponsorItem>
                                 ))}
                             </SponsorGroup>

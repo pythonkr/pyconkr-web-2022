@@ -19,6 +19,7 @@ const SponsorImage = styled.img`
     margin: 0 auto;
     max-width: 400px;
     margin-top: 4rem;
+    background: ${(props) => props.theme.colors.white};
     ${media.mobile(`
         width: 100%;
     `)}
