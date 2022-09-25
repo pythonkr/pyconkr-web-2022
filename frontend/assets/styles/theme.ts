@@ -2,7 +2,7 @@ const Theme = {
     colors: {
         primary0: '#1F1A24',
         primary1: '#62599C',
-        blue0: '#0070f3',
+        blue0: '#5ea8ff',
         violet0: '#7B61FF',
         violet1: '#A163FF',
         violet2: '#C5C5F2',
