@@ -20,7 +20,10 @@ const Resources = {
             'https://live.staticflickr.com/3912/14958407280_c7e9e6717e_z.jpg'
     },
     pyconkrFacebook: 'https://www.facebook.com/pyconkorea',
-    pyconkrTwitter: 'https://twitter.com/PyConKR'
+    pyconkrTwitter: 'https://twitter.com/PyConKR',
+    KEYNOTE_CATEGORY: 13,
+    KEYNOTE_NAME: '키노트 (Keynote)',
+    FESTA_TICKET_LINK: 'https://festa.io/events/2605'
 }
 
 export default Resources

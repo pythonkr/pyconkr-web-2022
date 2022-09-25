@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 
 const Title = styled(Heading2)`
-    margin: 2rem 0;
+    margin: 2rem 0 3rem;
 `
 
 interface PageTitleProps {
@@ -12,9 +12,12 @@ interface PageTitleProps {
 }
 
 const PageTitle = (props: PageTitleProps) => {
-    const { t } = useTranslation()
+    const { t, i18n } = useTranslation()
+    const title = i18n.exists(`pageTitle:${props.title}`)
+        ? t(`pageTitle:${props.title}`)
+        : props.title
 
-    return <Title>{t(`pageTitle:${props.title}`)}</Title>
+    return <Title>{title}</Title>
 }
 
 export default PageTitle

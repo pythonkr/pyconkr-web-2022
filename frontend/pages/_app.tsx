@@ -1,5 +1,4 @@
 import React from 'react'
-import '../styles/globals.css'
 import type { AppContext, AppProps } from 'next/app'
 import Layout from '../components/layout/Layout'
 import createI18n from '../locales/i18n'
@@ -8,21 +7,35 @@ import { ThemeProvider } from 'styled-components'
 import '../assets/styles/global.css'
 import Theme from '../assets/styles/theme'
 import { NextSeo } from 'next-seo'
+import Head from 'next/head'
+import { getSponsorList } from './api/sponsor'
+import { ISponsorList } from '../interfaces/ISponsor'
 
 const App = ({
     Component,
     pageProps,
-    locale
-}: AppProps & { locale: string }) => {
+    locale,
+    router,
+    sponsorList
+}: AppProps & { locale: string; sponsorList: ISponsorList }) => {
     const i18n = React.useMemo(() => createI18n({ locale }), [locale])
     const { t } = useTranslation()
+    const { pathname } = router
 
     const pageName = pageProps?.title ?? ''
-    const pageTitle =
-        pageName !== ''
-            ? `${t(`pageTitle:${pageName}`)} : ${t(`label:siteTitle`)}`
-            : `${t(`label:siteTitle`)}`
     const description = `${t(`label:pyconkrTitle`)}: ${t(`label:pyconkrDate`)}`
+
+    const hideSponsor = pathname.includes('/sponsor')
+
+    const getPageTitle = (): string => {
+        if (i18n.exists(`pageTitle:${pageName}`)) {
+            return `${t(`pageTitle:${pageName}`)} : ${t(`label:siteTitle`)}`
+        } else if (pageProps?.title) {
+            return `${pageProps?.title} : ${t(`label:siteTitle`)}`
+        }
+        return `${t(`label:siteTitle`)}`
+    }
+    const pageTitle = getPageTitle()
 
     return (
         <>
@@ -39,12 +52,20 @@ const App = ({
                             description: description,
                             images: [
                                 {
-                                    url: `https://2022.pycon.kr/images/og-temp.jpg`
+                                    url: `https://2022.pycon.kr/images/og.jpg`
                                 }
                             ]
                         }}
                     />
-                    <Layout locale={locale} pageName={pageName}>
+                    <Head>
+                        <title>{pageTitle}</title>
+                    </Head>
+                    <Layout
+                        locale={locale}
+                        pageName={pageName}
+                        hideSponsor={hideSponsor}
+                        sponsorList={sponsorList}
+                    >
                         <Component pageName={pageName} {...pageProps} />
                     </Layout>
                 </ThemeProvider>
@@ -55,7 +76,12 @@ const App = ({
 
 App.getInitialProps = async ({ ctx }: AppContext) => {
     const { locale } = ctx
-    return { locale }
+    const data = await getSponsorList()
+
+    return {
+        locale,
+        sponsorList: data
+    }
 }
 
 export default App

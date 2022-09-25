@@ -1,5 +1,4 @@
 import React from 'react'
-import Image from '../../core/Image'
 import { ColorLink, Heading3, Paragraph } from '../../../assets/styles/typo'
 import { media } from '../../../assets/styles/mixin'
 import styled from 'styled-components'
@@ -19,12 +18,20 @@ const Col = styled.div`
         width: 100%;
     `)}
     & + & {
-        margin-left: 1.6rem;
+        margin-left: 3rem;
         ${media.mobile(`
             margin-left: 0;
             margin-top: 1.2rem;
         `)}
     }
+`
+const Image = styled.img`
+    display: inline-flex;
+    max-width: 400px;
+    height: auto;
+    ${media.mobile(`
+        width: 100%;
+    `)}
 `
 const Container = styled.div`
     padding-bottom: 2rem;
@@ -34,6 +41,9 @@ const Container = styled.div`
             padding-top: 3rem;
         `)}
     }
+`
+const Title = styled(Heading3)`
+    margin: 0;
 `
 const ParagraphContainer = styled.div`
     margin-top: 1rem;
@@ -67,9 +77,9 @@ const PreviousPyconkrList: React.FC<PreviousPyconkrList> = ({ keys }) => {
                                 />
                             </Col>
                             <Col>
-                                <Heading3>
+                                <Title useGradient={true}>
                                     {t(`contentDescription:${year}.title`)}
-                                </Heading3>
+                                </Title>
                                 <ParagraphContainer>
                                     <Paragraph>
                                         {t(

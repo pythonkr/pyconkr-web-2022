@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { routes, RouteType } from '../../routes/routes'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 import { useRouter } from 'next/router'
 import { media } from '../../assets/styles/mixin'
 import {
-    Link,
     SubMenuList,
     SubMenuListItem,
     SubMenuToggleCheckbox,
@@ -14,6 +13,9 @@ import {
     SubMenuToggleSpan
 } from './NavBar'
 import SnsLink from './SnsLink'
+import PyconLogoWhite from '../../public/images/pyconkr_2022_logo_white.png'
+import Image from 'next/image'
+import Link from 'next/link'
 
 const Container = styled.div`
     display: none;
@@ -29,8 +31,17 @@ const Container = styled.div`
         if (props.isTransparent) {
             return `background: transparent;`
         }
-        return `background-image: ${props.theme.gradient};`
+        return `background: ${props.theme.black_10};`
     }}
+`
+export const BlockLink = styled.a`
+    display: block;
+    cursor: pointer;
+`
+
+const HomeLink = styled.a`
+    display: block;
+    padding: 1.3rem;
 `
 
 const ToggleMenu = styled.input`
@@ -39,7 +50,7 @@ const ToggleMenu = styled.input`
 
 const ToggleMenuLabel = styled.label`
     cursor: pointer;
-    position: absolute;
+    position: fixed;
     right: 0;
     top: 0;
     padding: 1.25rem;
@@ -181,8 +192,20 @@ const NavBarMobile = (props: NavProps) => {
         router.push(router.asPath, undefined, { locale: lang })
     }
 
+    useEffect(() => {
+        setIsMenuOpen(false)
+    }, [router.pathname])
+
     return (
         <Container isTransparent={isHome}>
+            <HomeLink href="/">
+                <Image
+                    src={PyconLogoWhite}
+                    alt="Pycon Korea 2022"
+                    width={140}
+                    height={40}
+                />
+            </HomeLink>
             <ToggleMenu
                 type="checkbox"
                 id="menu-btn"
@@ -217,22 +240,22 @@ const NavBarMobile = (props: NavProps) => {
                                     <MobileSubMenuList>
                                         {route.subMenu.map((subMenu, index) => (
                                             <MobileSubMenuListItem key={index}>
-                                                <Link
+                                                <BlockLink
                                                     href={getPath(subMenu.path)}
                                                 >
                                                     {t(
                                                         `pageTitle:${subMenu.name}`
                                                     )}
-                                                </Link>
+                                                </BlockLink>
                                             </MobileSubMenuListItem>
                                         ))}
                                     </MobileSubMenuList>
                                 </ListItem>
                             ) : (
                                 <ListItem key={index} active={isActive(route)}>
-                                    <Link href={getPath(route.path)}>
+                                    <BlockLink href={getPath(route.path)}>
                                         {t(`pageTitle:${route.name}`)}
-                                    </Link>
+                                    </BlockLink>
                                 </ListItem>
                             )
                         })}

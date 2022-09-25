@@ -1,7 +1,7 @@
 import React from 'react'
 import type { NextPage, GetServerSideProps } from 'next'
 import { PageName } from '../../../data/enums/PageName'
-import { SponsorPage } from '../../../interfaces/PageProps'
+import { ContentPage } from '../../../interfaces/PageProps'
 import { GetServerSidePropsContext } from 'next'
 import { getCfpGuide } from '../../api/contribute'
 import ReactMarkdown from 'react-markdown'
@@ -11,7 +11,7 @@ import PageTitle from '../../../components/core/PageTitle'
 import remarkGfm from 'remark-gfm'
 import styled from 'styled-components'
 
-interface SponsorSponsorFaqPage extends SponsorPage {
+interface GuidePage extends ContentPage {
     locale: string
 }
 
@@ -24,7 +24,7 @@ const CfpGuideStyle = styled.div`
     }
 `
 
-const SponsorFaq: NextPage = (props: SponsorSponsorFaqPage) => {
+const SponsorFaq: NextPage = (props: GuidePage) => {
     return (
         <div>
             <PageTitle title={props.pageName} />

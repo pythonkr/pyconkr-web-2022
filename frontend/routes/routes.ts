@@ -8,10 +8,6 @@ export interface RouteType {
 
 export const routes: RouteType[] = [
     {
-        path: '/',
-        name: PageName.Home
-    },
-    {
         path: '/about',
         name: PageName.About,
         subMenu: [
@@ -22,6 +18,28 @@ export const routes: RouteType[] = [
             {
                 path: '/about/previous-pyconkr',
                 name: PageName.PreviousPyconkr
+            },
+            {
+                path: '/about/ticket',
+                name: PageName.Ticket
+            }
+        ]
+    },
+    {
+        path: '/program',
+        name: PageName.Program,
+        subMenu: [
+            {
+                path: '/program/keynote',
+                name: PageName.Keynote
+            },
+            {
+                path: '/program/talks',
+                name: PageName.Talks
+            },
+            {
+                path: '/program/talk-schedule',
+                name: PageName.TalkSchedule
             }
         ]
     },
@@ -43,6 +61,14 @@ export const routes: RouteType[] = [
         path: '/sponsor',
         name: PageName.Sponsor,
         subMenu: [
+            {
+                path: '/sponsor/list',
+                name: PageName.SponsorList
+            },
+            {
+                path: '/sponsor/patrons',
+                name: PageName.SponsorPatrons
+            },
             {
                 path: '/sponsor/prospectus',
                 name: PageName.SponsorProspectus
