@@ -5,6 +5,9 @@ import { useTranslation } from 'react-i18next'
 
 const MainTheme = styled.div`
     height: calc(100vh - 100px);
+    ${media.mobile(`
+        height: calc(100vh - 120px);
+    `)}
 `
 
 const Window = styled.div`

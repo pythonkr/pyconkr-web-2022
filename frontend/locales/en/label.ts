@@ -17,9 +17,10 @@ export default {
             desc:
                 'The slogan for PyCon Korea 2022 is "Do Anything with Python".\n' +
                 'We all have the potential to create anything as long as we love Python!\n' +
+                'PyCon Korea will open this year as well!\n' +
                 'Pythonistas from all walks of life share their experiences and their dreams.\n' +
-                'PyCon will open this year as well!\n' +
-                'See you in PyCon KR 2022.'
+                'PyCon Korea 2022 will be held both online and offline.\n' +
+                'See you in PyCon Korea 2022.'
         },
         diff: {
             title: "What's the difference between PyCon and other developer's conferences?",
@@ -49,5 +50,13 @@ export default {
         'PyCon Korea 2022 merchandises and offline tickets are available at Festa (festa.io).\nOffline ticket has limited quantities are sold and may be sold out early, so please purchase as soon as possible.',
     buyTicket: 'Buy ticket',
     locationInfo: 'Simultaneous online-offline',
-    eventDetail: 'About Pycon Korea 2022'
+    eventDetail: 'About Pycon Korea 2022',
+    venueTitle: 'Community House MASIL',
+    venueAddress: '14, Myeongdong 11-gil, Jung-gu, Seoul, Republic of Korea',
+    noParking: 'Parking is not supported, so please use public transportation.',
+    elevatorAvailable: 'Elevator is available.',
+    floorInfo: 'Floor Information',
+    youtubeStreaming:
+        'PyCon Korea 2022 will be held both online and offline. The talks will be streamed on the PyCon Korea YouTube(https://www.youtube.com/c/PyConKRtube).',
+    pyConKrYoutube: 'PyCon Korea YouTube'
 }

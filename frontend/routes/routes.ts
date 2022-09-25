@@ -22,6 +22,10 @@ export const routes: RouteType[] = [
             {
                 path: '/about/ticket',
                 name: PageName.Ticket
+            },
+            {
+                path: '/about/venue',
+                name: PageName.Venue
             }
         ]
     },
