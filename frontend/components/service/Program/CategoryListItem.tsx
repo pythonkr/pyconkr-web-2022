@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { ITalkItem } from '../../../interfaces/IProgram'
 import { media } from '../../../assets/styles/mixin'
 import { Heading4 } from '../../../assets/styles/typo'
-import Link from 'next/link'
 import { DEFAULT_PROFILE_PATH } from '../../../data/constants/config'
 
 const TalkList = styled.ul`
@@ -17,7 +16,7 @@ const TalkListItem = styled.li`
         `)}
     }
 `
-const TalkLink = styled(Link)`
+const TalkLink = styled.a`
     display: block;
 `
 const TalkBlock = styled.div`
@@ -50,20 +49,18 @@ const CategoryListItem = (props: { list: ITalkItem[] }) => {
             {props.list.map((talk, index) => (
                 <TalkListItem key={talk.id}>
                     <TalkLink href={`/program/talks/${talk.id}`}>
-                        <a>
-                            <TalkBlock>
-                                <SpeakerProfile
-                                    image={
-                                        talk.speaker_profile_img ??
-                                        DEFAULT_PROFILE_PATH
-                                    }
-                                />
-                                <PersonBlock>
-                                    <Title>{talk.title}</Title>
-                                    <Speaker>{talk.user_name}</Speaker>
-                                </PersonBlock>
-                            </TalkBlock>
-                        </a>
+                        <TalkBlock>
+                            <SpeakerProfile
+                                image={
+                                    talk.speaker_profile_img ??
+                                    DEFAULT_PROFILE_PATH
+                                }
+                            />
+                            <PersonBlock>
+                                <Title>{talk.title}</Title>
+                                <Speaker>{talk.user_name}</Speaker>
+                            </PersonBlock>
+                        </TalkBlock>
                     </TalkLink>
                 </TalkListItem>
             ))}
