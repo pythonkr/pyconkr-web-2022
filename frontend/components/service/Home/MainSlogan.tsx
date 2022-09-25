@@ -1,9 +1,9 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { Heading2, Paragraph } from '../../../assets/styles/typo'
+import { Heading2 } from '../../../assets/styles/typo'
 import styled from 'styled-components'
 
-const Content = styled(Paragraph)`
+const Content = styled.div`
     margin-top: 1rem;
     white-space: pre-line;
 `

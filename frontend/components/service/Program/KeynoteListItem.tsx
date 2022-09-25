@@ -9,19 +9,22 @@ import { Link } from '../../core/SnsLink'
 const ListItem = styled.div`
     & + & {
         margin-top: 6rem;
-        ${media.mobile(`
-            margin-top: 3rem;
-        `)}
     }
 `
 const TalkBlock = styled.div`
     display: flex;
     align-items: flex-start;
     flex-direction: row;
+    ${media.mobile(`
+        flex-direction: column;
+    `)}
 `
 const PersonBlock = styled.div`
     flex: 1;
     margin-left: 2rem;
+    ${media.mobile(`
+        margin: 1rem 0;
+    `)}
 `
 const Speaker = styled(Heading3)`
     font-size: 1.6rem;
