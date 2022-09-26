@@ -21,7 +21,9 @@ class SponsorViewSet(ReadOnlyModelViewSet):
         return Sponsor.objects.all()
 
     def list(self, request, *args, **kwargs):
-        queryset = Sponsor.objects.filter(accepted=True).order_by("name")  # 모든 절차가 완료된 후원사만 리스팅
+        queryset = Sponsor.objects.filter(accepted=True).order_by(
+            "name"
+        )  # 모든 절차가 완료된 후원사만 리스팅
         serializer = SponsorListSerializer(queryset, many=True)
         return Response(serializer.data)
 
