@@ -6,11 +6,12 @@ const ButtonGroup = styled.div`
     width: 100%;
     align-items: center;
     justify-content: center;
+    border-bottom: 1px solid ${(props) => props.theme.colors.white};
 `
 const Button = styled.button<{ selected: boolean }>`
     border-radius: 4px;
     font-size: 1rem;
-    padding: 0 2rem;
+    padding: 1rem 2rem;
     background: inherit;
     cursor: pointer;
     border: 0;

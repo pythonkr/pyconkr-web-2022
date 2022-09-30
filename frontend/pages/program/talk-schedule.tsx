@@ -6,7 +6,7 @@ import PageTitle from '../../components/core/PageTitle'
 import { PageProps } from '../../interfaces/PageProps'
 import { getTalkList } from '../api/program'
 import { GetServerSidePropsContext } from 'next'
-import { ITalkItem, ITalkList } from '../../interfaces/IProgram'
+import { ITalkItem, ITalkList, ITalkTableList } from '../../interfaces/IProgram'
 import { compareAsc, isSameDay } from 'date-fns'
 import TalkTableToggleButton from '../../components/service/Program/TalkTableToggleButton'
 import TalkTable from '../../components/service/Program/TalkTable'
@@ -24,6 +24,25 @@ const TalkSchedule: NextPage = (props: TalkTableProps) => {
         setSelectedDay(day)
     }
 
+    const groupByProperty = (
+        array: ITalkItem[],
+        property: string
+    ): ITalkTableList[] => {
+        const groupByValue: { [key: string]: ITalkItem[] } = array.reduce(
+            (obj, item) => {
+                obj[item[property]] = obj[item[property]] || []
+                obj[item[property]].push(item)
+                return obj
+            },
+            {}
+        )
+
+        return Object.keys(groupByValue).map((key: string) => ({
+            [property]: key,
+            talkList: groupByValue[key]
+        }))
+    }
+
     const tableData: ITalkItem[] = data.list.sort((a, b) =>
         compareAsc(new Date(a.video_open_at), new Date(b.video_open_at))
     )
@@ -32,7 +51,7 @@ const TalkSchedule: NextPage = (props: TalkTableProps) => {
         isSameDay(new Date(item.video_open_at), new Date(2022, 9, 1))
     )
     const day2tableList: ITalkItem[] = tableData.filter((item) =>
-        isSameDay(new Date(item.video_open_at), new Date(2022, 10, 1))
+        isSameDay(new Date(item.video_open_at), new Date(2022, 9, 2))
     )
 
     return (
@@ -42,14 +61,14 @@ const TalkSchedule: NextPage = (props: TalkTableProps) => {
             {selectedDay === 'day1' ? (
                 <TalkTable
                     day="day1"
-                    headers={['트랙1(101)', '트랙2(102)']}
-                    list={day1tableList}
+                    headers={['트랙1', '트랙2']}
+                    list={groupByProperty(day1tableList, 'video_open_at')}
                 />
             ) : (
                 <TalkTable
                     day="day2"
-                    headers={['트랙1(103)', '트랙2(104)']}
-                    list={day2tableList}
+                    headers={['트랙1', '트랙2']}
+                    list={groupByProperty(day2tableList, 'video_open_at')}
                 />
             )}
         </div>

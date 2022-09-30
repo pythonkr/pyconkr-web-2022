@@ -1,5 +1,10 @@
 import { IApiTalkItem } from './api/IApiPrograms'
 
+export interface ITalkTableList {
+    [key: string]: any
+    talkList: ITalkItem[]
+}
+
 export interface ITalkItem extends IApiTalkItem {}
 
 export interface ICategoryListItem {
