@@ -67,7 +67,7 @@ const TalkSchedule: NextPage = (props: TalkTableProps) => {
             ) : (
                 <TalkTable
                     day="day2"
-                    headers={['트랙1', '트랙2']}
+                    headers={['트랙3', '트랙4']}
                     list={groupByProperty(day2tableList, 'video_open_at')}
                 />
             )}
