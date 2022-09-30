@@ -5,11 +5,20 @@ import { useTranslation } from 'react-i18next'
 import { Heading3 } from '../../../assets/styles/typo'
 import { DEFAULT_PROFILE_PATH } from '../../../data/constants/config'
 import { media } from '../../../assets/styles/mixin'
+import { SponsorLevel } from '../../../data/enums/SponsorLevel'
 
-const SponsorLevel = styled.div`
+const SponsorLevelContainer = styled.div`
     margin-bottom: 6rem;
 `
 const SponsorGroup = styled.ul`
+    ${(props) => {
+        if (props.keynote) {
+            return `
+                width: 100%;
+                background: ${props.theme.colors.white};
+            `
+        }
+    }}
     display: flex;
     align-items: center;
     justify-content: center;
@@ -72,18 +81,22 @@ const SponsorList = (props: {
         return theme.colors.white
     }
 
+    const isKeynote = (key: string) => {
+        return (key as SponsorLevel) === SponsorLevel.LEVEL_1
+    }
+
     return (
         <>
             {Object.keys(sponsorList)
                 .sort()
-                .map((key) => {
+                .map((key, index) => {
                     const item = sponsorList[key]
                     return (
-                        <SponsorLevel key={key}>
+                        <SponsorLevelContainer key={`sponsor-${index}`}>
                             <Heading3 useGradient={useGradient}>
                                 {item.name}
                             </Heading3>
-                            <SponsorGroup>
+                            <SponsorGroup keynote={isKeynote(key)}>
                                 {item.list.map((sponsor) => (
                                     <SponsorItem
                                         key={sponsor.slug}
@@ -103,7 +116,7 @@ const SponsorList = (props: {
                                     </SponsorItem>
                                 ))}
                             </SponsorGroup>
-                        </SponsorLevel>
+                        </SponsorLevelContainer>
                     )
                 })}
         </>

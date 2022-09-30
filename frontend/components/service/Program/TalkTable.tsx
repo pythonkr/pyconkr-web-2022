@@ -3,7 +3,6 @@ import { ITalkItem, ITalkTableList } from '../../../interfaces/IProgram'
 import styled from 'styled-components'
 import { format } from 'date-fns'
 import Link from 'next/link'
-import DifficultyBadge from './DifficultyBadge'
 import Resources from '../../../data/constants/resources'
 
 const Table = styled.table`
