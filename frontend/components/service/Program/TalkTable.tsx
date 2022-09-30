@@ -62,7 +62,10 @@ const TalkTable = (props: {
     list: ITalkTableList[]
 }) => {
     const { list } = props
-    console.log(list)
+
+    const sortByTrack = (list: ITalkItem[]) => {
+        return list.sort((a, b) => a.track_num - b.track_num)
+    }
 
     const getTime = (timeString: string): string => {
         return format(new Date(timeString), 'HH:mm')
@@ -94,7 +97,7 @@ const TalkTable = (props: {
                                 </TableCell>
                             </td>
                             {item.talkList.length > 1 ? (
-                                item.talkList.map((talkItem) => (
+                                sortByTrack(item.talkList).map((talkItem) => (
                                     <td key={`talk-${talkItem.id}`}>
                                         <TableCell>
                                             <TalkTableItem item={talkItem} />
