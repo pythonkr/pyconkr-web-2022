@@ -67,7 +67,7 @@ const TalkSchedule: NextPage = (props: TalkTableProps) => {
     )
 
     const TRACK_1_LINK = `https://youtu.be/OrrquS5PFtw`
-    const TRACK_2_LINK = `https://youtu.be/OrrquS5PFtw`
+    const TRACK_2_LINK = `https://youtu.be/pJGRoe-jt9E`
 
     return (
         <div>
