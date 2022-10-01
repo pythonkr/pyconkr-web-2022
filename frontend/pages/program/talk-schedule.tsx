@@ -10,10 +10,22 @@ import { ITalkItem, ITalkList, ITalkTableList } from '../../interfaces/IProgram'
 import { compareAsc, isSameDay } from 'date-fns'
 import TalkTableToggleButton from '../../components/service/Program/TalkTableToggleButton'
 import TalkTable from '../../components/service/Program/TalkTable'
+import styled from 'styled-components'
 
 interface TalkTableProps extends PageProps {
     data: ITalkList
 }
+
+const LinkList = styled.li`
+    list-style: disc;
+    a {
+        color: ${(props) => props.theme.colors.blue0};
+    }
+`
+
+const ButtonWrap = styled.div`
+    margin-top: 1.5rem;
+`
 
 const TalkSchedule: NextPage = (props: TalkTableProps) => {
     const { t } = useTranslation()
@@ -54,10 +66,29 @@ const TalkSchedule: NextPage = (props: TalkTableProps) => {
         isSameDay(new Date(item.video_open_at), new Date(2022, 9, 2))
     )
 
+    const TRACK_1_LINK = `https://youtu.be/OrrquS5PFtw`
+    const TRACK_2_LINK = `https://youtu.be/OrrquS5PFtw`
+
     return (
         <div>
             <PageTitle title={pageName} />
-            <TalkTableToggleButton handleClick={updateSelectedDay} />
+            <ul>
+                <LinkList>
+                    세션 트랙1 링크:{' '}
+                    <a href={TRACK_1_LINK} target={'_blank'} rel="noreferrer">
+                        {TRACK_1_LINK}
+                    </a>
+                </LinkList>
+                <LinkList>
+                    세션 트랙2 링크:{' '}
+                    <a href={TRACK_2_LINK} target={'_blank'} rel="noreferrer">
+                        {TRACK_2_LINK}
+                    </a>
+                </LinkList>
+            </ul>
+            <ButtonWrap>
+                <TalkTableToggleButton handleClick={updateSelectedDay} />
+            </ButtonWrap>
             {selectedDay === 'day1' ? (
                 <TalkTable
                     day="day1"
