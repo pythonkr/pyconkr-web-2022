@@ -66,39 +66,57 @@ const TalkSchedule: NextPage = (props: TalkTableProps) => {
         isSameDay(new Date(item.video_open_at), new Date(2022, 9, 2))
     )
 
-    const TRACK_1_LINK = `https://youtu.be/OrrquS5PFtw`
-    const TRACK_2_LINK = `https://youtu.be/pJGRoe-jt9E`
-    const TRACK_3_LINK = 'https://youtu.be/L6Lz793mzrU'
-    const TRACK_4_LINK = 'https://youtu.be/10qBldkS0wk'
+    const trackLinkGroup = [
+        {
+            day: 'day1',
+            links: [
+                {
+                    track: '트랙1',
+                    link: `https://youtu.be/OrrquS5PFtw`
+                },
+                {
+                    track: '트랙2',
+                    link: `https://youtu.be/pJGRoe-jt9E`
+                }
+            ]
+        },
+        {
+            day: 'day2',
+            links: [
+                {
+                    track: '트랙3',
+                    link: `https://youtu.be/L6Lz793mzrU`
+                },
+                {
+                    track: '트랙4',
+                    link: `https://youtu.be/10qBldkS0wk`
+                }
+            ]
+        }
+    ]
 
     return (
         <div>
             <PageTitle title={pageName} />
             <ul>
-                <LinkList>
-                    세션 트랙1 링크:{' '}
-                    <a href={TRACK_1_LINK} target={'_blank'} rel="noreferrer">
-                        {TRACK_1_LINK}
-                    </a>
-                </LinkList>
-                <LinkList>
-                    세션 트랙2 링크:{' '}
-                    <a href={TRACK_2_LINK} target={'_blank'} rel="noreferrer">
-                        {TRACK_2_LINK}
-                    </a>
-                </LinkList>
-                <LinkList>
-                    세션 트랙3 링크:{' '}
-                    <a href={TRACK_3_LINK} target={'_blank'} rel="noreferrer">
-                        {TRACK_3_LINK}
-                    </a>
-                </LinkList>
-                <LinkList>
-                    세션 트랙4 링크:{' '}
-                    <a href={TRACK_4_LINK} target={'_blank'} rel="noreferrer">
-                        {TRACK_4_LINK}
-                    </a>
-                </LinkList>
+                {trackLinkGroup
+                    .filter((item) => item.day === selectedDay)
+                    .map((item, index) => (
+                        <div key={`linkGroup-${index}`}>
+                            {item.links.map((linkItem, index) => (
+                                <LinkList key={`linkItem-${index}`}>
+                                    세션 {linkItem.track} 링크:{' '}
+                                    <a
+                                        href={linkItem.link}
+                                        target={'_blank'}
+                                        rel="noreferrer"
+                                    >
+                                        {linkItem.link}
+                                    </a>
+                                </LinkList>
+                            ))}
+                        </div>
+                    ))}
             </ul>
             <ButtonWrap>
                 <TalkTableToggleButton handleClick={updateSelectedDay} />
