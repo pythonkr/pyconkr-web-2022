@@ -68,6 +68,8 @@ const TalkSchedule: NextPage = (props: TalkTableProps) => {
 
     const TRACK_1_LINK = `https://youtu.be/OrrquS5PFtw`
     const TRACK_2_LINK = `https://youtu.be/pJGRoe-jt9E`
+    const TRACK_3_LINK = 'https://youtu.be/L6Lz793mzrU'
+    const TRACK_4_LINK = 'https://youtu.be/10qBldkS0wk'
 
     return (
         <div>
@@ -83,6 +85,18 @@ const TalkSchedule: NextPage = (props: TalkTableProps) => {
                     세션 트랙2 링크:{' '}
                     <a href={TRACK_2_LINK} target={'_blank'} rel="noreferrer">
                         {TRACK_2_LINK}
+                    </a>
+                </LinkList>
+                <LinkList>
+                    세션 트랙3 링크:{' '}
+                    <a href={TRACK_3_LINK} target={'_blank'} rel="noreferrer">
+                        {TRACK_3_LINK}
+                    </a>
+                </LinkList>
+                <LinkList>
+                    세션 트랙4 링크:{' '}
+                    <a href={TRACK_4_LINK} target={'_blank'} rel="noreferrer">
+                        {TRACK_4_LINK}
                     </a>
                 </LinkList>
             </ul>
