@@ -24,6 +24,9 @@ const DetailContainer = styled.div`
 const Description = styled.div`
     margin-top: 2rem;
     white-space: pre-line;
+    & + & {
+        margin-top: 4rem;
+    }
 `
 
 const SpeakerContainer = styled.div`
@@ -39,6 +42,7 @@ const TalkListDetail: NextPage = (props: TalkListDetailProps) => {
         name: item.user_name,
         introduction: item.introduction
     }
+    const videoUrl = item.video_url ?? ''
 
     return (
         <DetailContainer>
@@ -58,6 +62,12 @@ const TalkListDetail: NextPage = (props: TalkListDetailProps) => {
             <Description>
                 <Heading3 useGradient={true}>{t('label:description')}</Heading3>
                 <Linkify>{item.desc}</Linkify>
+            </Description>
+            <Description>
+                <Heading3 useGradient={true}>{t('label:videoLink')}</Heading3>
+                <a href={videoUrl} target={'_blank'} rel="noreferrer">
+                    {videoUrl}
+                </a>
             </Description>
             <SpeakerContainer>
                 <Heading3 useGradient={true}>

@@ -65,5 +65,6 @@ export default {
         '파이콘 한국 2022는 파이콘 한국 유튜브 채널(https://www.youtube.com/c/PyConKRtube)에서 시청 가능합니다. 세션은 온라인과 오프라인 동시에 진행됩니다.',
     pyConKrYoutube: '파이콘 한국 유튜브',
     firstFloor: '1층',
-    secondFloor: '2층'
+    secondFloor: '2층',
+    videoLink: '발표 영상'
 }

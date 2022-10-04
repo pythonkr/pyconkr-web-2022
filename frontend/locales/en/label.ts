@@ -60,5 +60,6 @@ export default {
         'PyCon Korea 2022 will be held both online and offline. The talks will be streamed on the PyCon Korea YouTube(https://www.youtube.com/c/PyConKRtube).',
     pyConKrYoutube: 'PyCon Korea YouTube',
     firstFloor: 'First Floor',
-    secondFloor: 'Second Floor'
+    secondFloor: 'Second Floor',
+    videoLink: 'Video Link'
 }
