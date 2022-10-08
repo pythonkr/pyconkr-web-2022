@@ -61,5 +61,10 @@ export default {
     pyConKrYoutube: 'PyCon Korea YouTube',
     firstFloor: 'First Floor',
     secondFloor: 'Second Floor',
-    videoLink: 'Video Link'
+    videoLink: 'Video Link',
+    organizingTeam: 'PyCon Korea Organizing Team',
+    organizingTeamInfo:
+        "PyCon Korea Organizing Team is an open community of Pythonistas recruiting new members every year. PyCon Korea Organizing Team was first organized in 2014 and we're preparing our 8th PyCon in Korea.",
+    staffList: 'PyCon Korea Organizing Team (Ordered alphabetically in Korean)',
+    staffListInfo: 'PyCon Korea 2020 is being prepared by the following people.'
 }

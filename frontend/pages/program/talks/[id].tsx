@@ -38,7 +38,7 @@ const TalkListDetail: NextPage = (props: TalkListDetailProps) => {
 
     const item: ITalkItem = props[props.locale]
     const speaker: ISpeaker = {
-        imageUrl: item.speaker_profile_img ?? DEFAULT_PROFILE_PATH,
+        image: item.speaker_profile_img ?? DEFAULT_PROFILE_PATH,
         name: item.user_name,
         introduction: item.introduction
     }
