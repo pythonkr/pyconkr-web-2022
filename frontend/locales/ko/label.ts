@@ -1,3 +1,5 @@
+import { PageName } from '../../data/enums/PageName'
+
 export default {
     siteTitle: '파이콘 한국 2022',
     preparing: '준비 중입니다.',
@@ -65,5 +67,11 @@ export default {
         '파이콘 한국 2022는 파이콘 한국 유튜브 채널(https://www.youtube.com/c/PyConKRtube)에서 시청 가능합니다. 세션은 온라인과 오프라인 동시에 진행됩니다.',
     pyConKrYoutube: '파이콘 한국 유튜브',
     firstFloor: '1층',
-    secondFloor: '2층'
+    secondFloor: '2층',
+    videoLink: '발표 영상',
+    organizingTeam: '파이콘 한국 준비위원회',
+    organizingTeamInfo:
+        '파이콘 한국 준비위원회는 2014년 조직되어, 올해 아홉 번째 한국에서의 파이콘 행사를 준비하고 있습니다. 준비위원회는 매년 신규 멤버를 모집하는 파이콘을 사랑하는 사람들의 열린 모임입니다.',
+    staffList: '준비위원회 명단(가나다순)',
+    staffListInfo: '파이콘 한국 2020는 다음과 같은 사람들이 준비하고 있습니다.'
 }

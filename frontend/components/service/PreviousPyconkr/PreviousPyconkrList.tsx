@@ -66,15 +66,12 @@ const PreviousPyconkrList: React.FC<PreviousPyconkrList> = ({ keys }) => {
             {keys.map((item, index) => {
                 const { year } = item
                 const imageKey = `${year}_IMG`
-                const imageUrl = images[imageKey] ?? ''
+                const image = images[imageKey] ?? ''
                 return (
                     <Container key={index}>
                         <Row>
                             <Col>
-                                <Image
-                                    src={imageUrl}
-                                    alt={`Image of ${year}`}
-                                />
+                                <Image src={image} alt={`Image of ${year}`} />
                             </Col>
                             <Col>
                                 <Title useGradient={true}>

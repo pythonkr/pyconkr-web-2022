@@ -1,5 +1,5 @@
 import React from 'react'
-import { ISpeaker } from '../../../interfaces/IProgram'
+import { IPerson } from '../../../interfaces/IProgram'
 import styled from 'styled-components'
 import { media } from '../../../assets/styles/mixin'
 import Linkify from 'react-linkify'
@@ -36,12 +36,12 @@ const SpeakerIntro = styled.p`
     white-space: pre-wrap;
 `
 
-const Speaker = (props: { item: ISpeaker }) => {
+const Speaker = (props: { item: IPerson }) => {
     const { item } = props
 
     return (
         <SpeakerContainer>
-            <SpeakerImage src={item.imageUrl} alt={item.name} />
+            <SpeakerImage src={item.image} alt={item.name} />
             <SpeakerInfo>
                 <SpeakerName>{item.name}</SpeakerName>
                 <SpeakerIntro>

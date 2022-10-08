@@ -24,6 +24,10 @@ export const routes: RouteType[] = [
                 name: PageName.Venue
             },
             {
+                path: '/about/organizing-team',
+                name: PageName.OrganizingTeam
+            },
+            {
                 path: '/about/previous-pyconkr',
                 name: PageName.PreviousPyconkr
             }

@@ -16,8 +16,8 @@ export interface ITalkList {
     list: ITalkItem[]
 }
 
-export interface ISpeaker {
-    imageUrl: string
+export interface IPerson {
+    image: string
     name: string
     introduction: string
 }
