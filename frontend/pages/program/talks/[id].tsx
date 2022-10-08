@@ -63,12 +63,6 @@ const TalkListDetail: NextPage = (props: TalkListDetailProps) => {
                 <Heading3 useGradient={true}>{t('label:description')}</Heading3>
                 <Linkify>{item.desc}</Linkify>
             </Description>
-            <Description>
-                <Heading3 useGradient={true}>{t('label:videoLink')}</Heading3>
-                <a href={videoUrl} target={'_blank'} rel="noreferrer">
-                    {videoUrl}
-                </a>
-            </Description>
             <SpeakerContainer>
                 <Heading3 useGradient={true}>
                     {t('label:speakerIntro')}
