@@ -8,6 +8,7 @@ import { DEFAULT_PROFILE_PATH } from '../../../data/constants/config'
 const PersonProfile = styled.div`
     width: 6rem;
     height: 6rem;
+    flex-shrink: 0;
     background-image: url(${(props) => props.image});
     background-size: cover;
     background-position: center;
@@ -17,6 +18,7 @@ const PersonProfile = styled.div`
 const PersonContainer = styled.li`
     display: flex;
     align-items: flex-start;
+    overflow-wrap: anywhere;
     & + & {
         margin-top: 2rem;
         ${media.mobile(`
@@ -35,7 +37,6 @@ const PersonName = styled.div`
 `
 const PersonIntro = styled.p`
     margin-top: 0.8rem;
-    white-space: pre-wrap;
     a {
         color: ${(props) => props.theme.colors.blue0};
     }
