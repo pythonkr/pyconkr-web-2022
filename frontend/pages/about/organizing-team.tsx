@@ -10,6 +10,9 @@ import { IPerson } from '../../interfaces/IProgram'
 import PersonListItem from '../../components/service/Home/PersonListItem'
 import styled from 'styled-components'
 
+const PageInfo = styled.div`
+    margin: 2rem 0 3rem;
+`
 const PersonList = styled.ul`
     margin-top: 2rem;
 `
@@ -21,7 +24,7 @@ const OrganizingTeamPage: NextPage = (props: PageProps) => {
     return (
         <>
             <PageTitle title={props.pageName} />
-            <div>{t('label:organizingTeamInfo')}</div>
+            <PageInfo>{t('label:organizingTeamInfo')}</PageInfo>
             <Heading3 useGradient={true}>{t('label:staffList')}</Heading3>
             <PersonList>
                 {list.map((item, index) => (
