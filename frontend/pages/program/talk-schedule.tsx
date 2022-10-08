@@ -16,13 +16,6 @@ interface TalkTableProps extends PageProps {
     data: ITalkList
 }
 
-const LinkList = styled.li`
-    list-style: disc;
-    a {
-        color: ${(props) => props.theme.colors.blue0};
-    }
-`
-
 const ButtonWrap = styled.div`
     margin-top: 1.5rem;
 `
@@ -66,58 +59,9 @@ const TalkSchedule: NextPage = (props: TalkTableProps) => {
         isSameDay(new Date(item.video_open_at), new Date(2022, 9, 2))
     )
 
-    const trackLinkGroup = [
-        {
-            day: 'day1',
-            links: [
-                {
-                    track: '트랙1',
-                    link: `https://youtu.be/OrrquS5PFtw`
-                },
-                {
-                    track: '트랙2',
-                    link: `https://youtu.be/pJGRoe-jt9E`
-                }
-            ]
-        },
-        {
-            day: 'day2',
-            links: [
-                {
-                    track: '트랙3',
-                    link: `https://youtu.be/L6Lz793mzrU`
-                },
-                {
-                    track: '트랙4',
-                    link: `https://youtu.be/10qBldkS0wk`
-                }
-            ]
-        }
-    ]
-
     return (
         <div>
             <PageTitle title={pageName} />
-            <ul>
-                {trackLinkGroup
-                    .filter((item) => item.day === selectedDay)
-                    .map((item, index) => (
-                        <div key={`linkGroup-${index}`}>
-                            {item.links.map((linkItem, index) => (
-                                <LinkList key={`linkItem-${index}`}>
-                                    세션 {linkItem.track} 링크:{' '}
-                                    <a
-                                        href={linkItem.link}
-                                        target={'_blank'}
-                                        rel="noreferrer"
-                                    >
-                                        {linkItem.link}
-                                    </a>
-                                </LinkList>
-                            ))}
-                        </div>
-                    ))}
-            </ul>
             <ButtonWrap>
                 <TalkTableToggleButton handleClick={updateSelectedDay} />
             </ButtonWrap>
