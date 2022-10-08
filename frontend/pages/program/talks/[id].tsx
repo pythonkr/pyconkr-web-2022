@@ -1,7 +1,7 @@
 import { GetServerSideProps, GetServerSidePropsContext, NextPage } from 'next'
 import React from 'react'
 import { LocalePage } from '../../../interfaces/PageProps'
-import { ISpeaker, ITalkItem } from '../../../interfaces/IProgram'
+import { IPerson, ITalkItem } from '../../../interfaces/IProgram'
 import { getTalkById } from '../../api/program'
 import PageTitle from '../../../components/core/PageTitle'
 import { useTranslation } from 'react-i18next'
@@ -34,7 +34,7 @@ const TalkListDetail: NextPage = (props: TalkListDetailProps) => {
     const { t } = useTranslation()
 
     const item: ITalkItem = props[props.locale]
-    const speaker: ISpeaker = {
+    const speaker: IPerson = {
         image: item.speaker_profile_img ?? DEFAULT_PROFILE_PATH,
         name: item.user_name,
         introduction: item.introduction
