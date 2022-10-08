@@ -5,6 +5,7 @@ export default {
     [PageName.About]: '파이콘 한국',
     [PageName.Pyconkr2022]: '파이콘 한국 2022',
     [PageName.PreviousPyconkr]: '지난 파이콘 한국',
+    [PageName.OrganizingTeam]: '파이콘 한국 준비위원회',
     [PageName.Ticket]: '티켓 구입',
     [PageName.Venue]: '장소 안내',
     [PageName.Program]: '프로그램',
