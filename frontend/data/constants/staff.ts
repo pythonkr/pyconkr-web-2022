@@ -18,8 +18,9 @@ const staffList: IPerson[] = [
     },
     {
         name: '김다현',
-        image: '',
-        introduction: ''
+        image: 'https://pyconweb2022-static.s3.ap-northeast-2.amazonaws.com/image/dahyun-kim.jpg',
+        introduction:
+            '파이썬을 좋아하며 음악하고 싶은 김다현입니다. 함께하는 사람들을 사랑합니다. 백엔드 개발자로 근무하고 있습니다. 개인 블로그: https://dahyun.pages.dev/'
     },
     {
         name: '김순태',
