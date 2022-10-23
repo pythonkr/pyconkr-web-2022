@@ -40,4 +40,4 @@ class PersonalSponsorshipViewSet(ReadOnlyModelViewSet):
     permission_classes = [AllowAny]
 
     def get_queryset(self):
-        return PersonalSponsorship.objects.all().order_by("-amount")
+        return PersonalSponsorship.objects.all().order_by("?")
