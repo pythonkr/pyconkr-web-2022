@@ -47,7 +47,7 @@ const PersonListItem = (props: { item: IPerson }) => {
 
     return (
         <PersonContainer>
-            <PersonProfile image={item.image || DEFAULT_PROFILE_PATH} />
+            <PersonProfile image={item?.image || DEFAULT_PROFILE_PATH} />
             <PersonInfo>
                 <PersonName>{item.name}</PersonName>
                 <PersonIntro>

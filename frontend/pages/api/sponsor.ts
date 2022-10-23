@@ -4,7 +4,8 @@ import { IApiContents } from '../../interfaces/api/IApiContents'
 import { API_SERVER } from '../../data/constants/config'
 import {
     IApiSponsorDetail,
-    IApiSponsorListItem
+    IApiSponsorListItem,
+    IPatrons
 } from '../../interfaces/api/IApiSponsor'
 import { ISponsorDetail, ISponsorList } from '../../interfaces/ISponsor'
 
@@ -45,4 +46,9 @@ export const getSponsorContentData = async (
             en: data.eng_content || ''
         }
     }
+}
+
+export const getPatronData = async (): Promise<IPatrons[]> => {
+    const response = await axios.get(`${API_SERVER}/sponsor/personal`)
+    return response.data
 }

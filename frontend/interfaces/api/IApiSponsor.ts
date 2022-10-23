@@ -29,3 +29,8 @@ export interface IApiSponsorDetail {
     created_at: string
     updated_at: string
 }
+
+export interface IPatrons {
+    name: string
+    message: string
+}

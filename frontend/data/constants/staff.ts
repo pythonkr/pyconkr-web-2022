@@ -50,8 +50,9 @@ const staffList: IPerson[] = [
     },
     {
         name: '정동규',
-        image: '',
-        introduction: ''
+        image: 'https://pyconweb2022-static.s3.ap-northeast-2.amazonaws.com/image/donggyu-jung.jpg',
+        introduction:
+            '🔥 도전 없는 포기 혐오🔥 하고 싶은건 다 도전하고 있는 개발자 지망생'
     },
     {
         name: '조용주 Peniel Cho',
