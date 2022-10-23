@@ -17,7 +17,7 @@ export default {
     [PageName.CfpGuide]: '발표안 작성 가이드',
     [PageName.Sponsor]: '후원하기',
     [PageName.SponsorList]: '후원사 목록',
-    [PageName.SponsorPatrons]: '개인 후원자',
+    [PageName.SponsorPatrons]: '개인 후원자 목록',
     [PageName.SponsorProspectus]: '후원사 안내',
     [PageName.SponsorJoin]: '후원사로 참여하기',
     [PageName.SponsorBenefit]: '후원사 혜택 설명',

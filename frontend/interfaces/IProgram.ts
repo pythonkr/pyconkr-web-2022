@@ -17,7 +17,7 @@ export interface ITalkList {
 }
 
 export interface IPerson {
-    image: string
+    image?: string
     name: string
     introduction: string
 }
