@@ -149,3 +149,4 @@ class PersonalSponsorship(models.Model):
 
     name = models.CharField(max_length=50)
     amount = models.IntegerField()
+    message = models.CharField(max_length=300, blank=True)

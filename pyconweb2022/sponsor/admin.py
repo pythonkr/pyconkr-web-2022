@@ -76,6 +76,7 @@ class PersonalSponsorshipAdmin(ImportExportModelAdmin):
     list_display = (
         "name",
         "amount",
+        "message",
     )
     ordering = ("-amount",)
 
