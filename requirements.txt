@@ -17,3 +17,4 @@ Werkzeug
 zappa-django-utils
 martor
 drf-spectacular
+psycopg2-binary
