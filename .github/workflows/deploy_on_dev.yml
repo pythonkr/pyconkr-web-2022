@@ -57,6 +57,12 @@ jobs:
           pip install pytest
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
+      - name: Get current date and repo name
+        id: info
+        run: |
+          echo "::set-output name=date::$(date +'%Y-%m-%d_%H:%M:%S')"
+          echo "::set-output name=repository_name::$(echo ${{ github.repository }} | sed -e 's/${{ github.repository_owner }}\///')"
+
       # Checkout and import zappa config & environment variables from secrets repo
       - name: Checkout secrets repo
         uses: actions/checkout@v4
