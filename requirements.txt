@@ -18,3 +18,4 @@ zappa-django-utils
 martor
 drf-spectacular
 psycopg2-binary
+setuptools==74.1.2
