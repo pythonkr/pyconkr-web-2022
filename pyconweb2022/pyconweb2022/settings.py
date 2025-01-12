@@ -134,15 +134,25 @@ USE_TZ = False
 STATIC_URL = "static/"
 
 # S3
-DEFAULT_FILE_STORAGE = DEFAULT_STORAGE_BACKEND = "pyconweb2022.customBoto3Storage.SecurityTokenWorkaroundS3Boto3Storage"
-STATICFILES_STORAGE = STATIC_STORAGE_BACKEND = "storages.backends.s3boto3.S3StaticStorage"
+DEFAULT_FILE_STORAGE = DEFAULT_STORAGE_BACKEND = (
+    "pyconweb2022.customBoto3Storage.SecurityTokenWorkaroundS3Boto3Storage"
+)
+STATICFILES_STORAGE = STATIC_STORAGE_BACKEND = (
+    "storages.backends.s3boto3.S3StaticStorage"
+)
 
 AWS_S3_SESSION_PROFILE = "pycon"
 AWS_STORAGE_BUCKET_NAME = os.getenv("AWS_STATIC_S3_BUCKET")
 
 STORAGES = {
-    "default": {"BACKEND": DEFAULT_STORAGE_BACKEND, "OPTIONS": {"bucket_name": AWS_STORAGE_BUCKET_NAME}},
-    "staticfiles": {"BACKEND": STATIC_STORAGE_BACKEND, "OPTIONS": {"bucket_name": AWS_STORAGE_BUCKET_NAME}},
+    "default": {
+        "BACKEND": DEFAULT_STORAGE_BACKEND,
+        "OPTIONS": {"bucket_name": AWS_STORAGE_BUCKET_NAME},
+    },
+    "staticfiles": {
+        "BACKEND": STATIC_STORAGE_BACKEND,
+        "OPTIONS": {"bucket_name": AWS_STORAGE_BUCKET_NAME},
+    },
 }
 
 # Default primary key field type
