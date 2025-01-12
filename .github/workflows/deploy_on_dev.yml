@@ -14,9 +14,9 @@ jobs:
         python-version: [3.8]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: psf/black@stable
-        with: 
+        with:
           options: "--check --verbose"
           src: "./pyconweb2022"
 
@@ -57,17 +57,17 @@ jobs:
           pip install pytest
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      # Pull request dose not get the gitub action secrets
-      # this section will be applied to the deploy workflow
-      - name: Setup Auth for Private Repo
-        uses: webfactory/ssh-agent@v0.5.4
+      # Checkout and import zappa config & environment variables from secrets repo
+      - name: Checkout secrets repo
+        uses: actions/checkout@v4
         with:
-            ssh-private-key: ${{ secrets.SSH_SECRET_GOLONY }}
-          #  ssh-private-key: ${{ secrets.GH_PYCONKR_SECRETS }}
-
-      - name: update pyconkr-secretes
-        run: |
-         ./update_secrets.sh
+          repository: ${{ secrets.PYCONKR_SECRET_REPOSITORY }}
+          ssh-key: ${{ secrets.PYCONKR_SECRET_REPOSITORY_DEPLOY_KEY }}
+          path: secret_envs
+          clean: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: ${{ steps.info.outputs.repository_name }}/zappa_settings.json
+      - run: mv secret_envs/${{ steps.info.outputs.repository_name }}/*.json ./ && rm -rf secret_envs
 
       - name: Test with Django Test
         run: |
