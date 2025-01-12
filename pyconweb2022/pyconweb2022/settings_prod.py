@@ -9,9 +9,9 @@ if os.environ.get("AWS_PSQL_HOST"):
             "ENGINE": "django.db.backends.postgresql",
             "HOST": os.getenv("AWS_PSQL_HOST"),
             "PORT": os.getenv("AWS_PSQL_PORT"),
-            "NAME": os.getenv("AWS_PSQL_DATABASE"),
-            "USER": os.getenv("AWS_PSQL_USER_ID"),
-            "PASSWORD": os.getenv("AWS_PSQL_PW"),
+            "NAME": os.getenv("AWS_RDS_DATABASE"),
+            "USER": os.getenv("AWS_RDS_USER_ID"),
+            "PASSWORD": os.getenv("AWS_RDS_PW"),
         }
     }
 else:
