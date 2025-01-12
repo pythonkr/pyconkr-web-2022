@@ -53,7 +53,8 @@ class Migration(migrations.Migration):
                 (
                     "difficulty",
                     models.CharField(
-                        choices=[("B", "초급"), ("I", "중급"), ("E", "고급")], max_length=1
+                        choices=[("B", "초급"), ("I", "중급"), ("E", "고급")],
+                        max_length=1,
                     ),
                 ),
                 (
@@ -95,7 +96,9 @@ class Migration(migrations.Migration):
                 (
                     "video_open_at",
                     models.DateTimeField(
-                        blank=True, help_text="파이콘 한국 유튜브에 공개되는 시간", null=True
+                        blank=True,
+                        help_text="파이콘 한국 유튜브에 공개되는 시간",
+                        null=True,
                     ),
                 ),
                 (

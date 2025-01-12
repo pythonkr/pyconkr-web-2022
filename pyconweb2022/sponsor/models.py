@@ -13,12 +13,18 @@ class SponsorLevelManager(models.Manager):
 
 
 class SponsorLevel(models.Model):
-    name = models.CharField(max_length=255, blank=True, default="", help_text="후원 등급명")
+    name = models.CharField(
+        max_length=255, blank=True, default="", help_text="후원 등급명"
+    )
     slug = models.SlugField(
-        max_length=100, unique=True, help_text="level별 후원사 정보를 보여주는 페이지의 path명"
+        max_length=100,
+        unique=True,
+        help_text="level별 후원사 정보를 보여주는 페이지의 path명",
     )
     desc = models.TextField(
-        null=True, blank=True, help_text="후원 혜택을 입력하면 될 거 같아요 :) 후원사가 등급을 정할 때 볼 문구입니다."
+        null=True,
+        blank=True,
+        help_text="후원 혜택을 입력하면 될 거 같아요 :) 후원사가 등급을 정할 때 볼 문구입니다.",
     )
     visible = models.BooleanField(default=True)
     price = models.IntegerField(default=0)
@@ -68,30 +74,45 @@ class Sponsor(models.Model):
         ordering = ["paid_at", "id"]
 
     slug = models.SlugField(
-        max_length=100, null=True, blank=True, help_text="후원사 상세 페이지의 path로 사용됩니다."
+        max_length=100,
+        null=True,
+        blank=True,
+        help_text="후원사 상세 페이지의 path로 사용됩니다.",
     )
     name = models.CharField(
-        max_length=255, help_text=("후원사의 이름입니다. 서비스나 회사 이름이 될 수 있습니다.")
+        max_length=255,
+        help_text=("후원사의 이름입니다. 서비스나 회사 이름이 될 수 있습니다."),
     )
     level = models.ForeignKey(
         SponsorLevel,
         null=True,
         on_delete=models.SET_NULL,
         blank=True,
-        help_text=("후원을 원하시는 등급을 선택해주십시오. 모두 판매된 등급은 선택할 수 없습니다."),
+        help_text=(
+            "후원을 원하시는 등급을 선택해주십시오. 모두 판매된 등급은 선택할 수 없습니다."
+        ),
     )
     desc = models.TextField(
-        null=True, blank=True, help_text=("후원사 설명입니다. 이 설명은 홈페이지에 게시됩니다.")
+        null=True,
+        blank=True,
+        help_text=("후원사 설명입니다. 이 설명은 홈페이지에 게시됩니다."),
     )
     eng_desc = models.TextField(
-        null=True, blank=True, help_text=("후원사 영문설명입니다. 이 설명은 홈페이지에 게시됩니다.")
+        null=True,
+        blank=True,
+        help_text=("후원사 영문설명입니다. 이 설명은 홈페이지에 게시됩니다."),
     )
     manager_name = models.CharField(
-        max_length=100, help_text=("준비위원회와 후원과 관련된 논의를 진행할 담당자의 이름을 입력해주십시오.")
+        max_length=100,
+        help_text=(
+            "준비위원회와 후원과 관련된 논의를 진행할 담당자의 이름을 입력해주십시오."
+        ),
     )
     manager_email = models.CharField(
         max_length=100,
-        help_text=("입력하신 메일로 후원과 관련된 안내 메일이나 문의를 보낼 예정입니다. 후원 담당자의 이메일 주소를 입력해주십시오."),
+        help_text=(
+            "입력하신 메일로 후원과 관련된 안내 메일이나 문의를 보낼 예정입니다. 후원 담당자의 이메일 주소를 입력해주십시오."
+        ),
     )
     business_registration_number = models.CharField(
         max_length=100,
@@ -120,17 +141,22 @@ class Sponsor(models.Model):
     virtual_booth_content = models.TextField(
         null=True,
         blank=True,
-        help_text=("Virtual booth에 들어가는 내용입니다. 홈페이지의 virtual booth에 게시됩니다."),
+        help_text=(
+            "Virtual booth에 들어가는 내용입니다. 홈페이지의 virtual booth에 게시됩니다."
+        ),
     )
     submitted = models.BooleanField(
         default=False,
         help_text="사용자가 제출했는지 여부를 저장합니다. 요청이 제출되면 준비위원회에서 검토하고 받아들일지를 결정합니다.",
     )
     accepted = models.BooleanField(
-        default=False, help_text="후원사 신청이 접수되었고, 입금 대기 상태인 경우 True로 설정됩니다."
+        default=False,
+        help_text="후원사 신청이 접수되었고, 입금 대기 상태인 경우 True로 설정됩니다.",
     )
     paid_at = models.DateTimeField(
-        null=True, blank=True, help_text="후원금이 입금된 일시입니다. 아직 입금되지 않았을 경우 None이 들어갑니다."
+        null=True,
+        blank=True,
+        help_text="후원금이 입금된 일시입니다. 아직 입금되지 않았을 경우 None이 들어갑니다.",
     )
     exported = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)

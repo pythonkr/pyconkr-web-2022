@@ -80,7 +80,10 @@ class Proposal(models.Model):
     )
     track_num = models.IntegerField(null=True, blank=True, help_text="트랙 번호")
     speaker_profile_img = models.ImageField(
-        null=True, blank=True, help_text="발표자님 프로필 사진", upload_to=profile_img_upload_to
+        null=True,
+        blank=True,
+        help_text="발표자님 프로필 사진",
+        upload_to=profile_img_upload_to,
     )
 
     # 이력관리용 필드

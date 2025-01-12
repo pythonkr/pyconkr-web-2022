@@ -14,7 +14,9 @@ class Migration(migrations.Migration):
             model_name="sponsor",
             name="eng_desc",
             field=models.TextField(
-                blank=True, help_text="후원사 영문설명입니다. 이 설명은 홈페이지에 게시됩니다.", null=True
+                blank=True,
+                help_text="후원사 영문설명입니다. 이 설명은 홈페이지에 게시됩니다.",
+                null=True,
             ),
         ),
     ]

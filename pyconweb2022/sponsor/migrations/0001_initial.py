@@ -52,7 +52,10 @@ class Migration(migrations.Migration):
                 ),
                 ("visible", models.BooleanField(default=True)),
                 ("price", models.IntegerField(default=0)),
-                ("limit", models.IntegerField(default=0, help_text="후원사 등급 별 구좌수")),
+                (
+                    "limit",
+                    models.IntegerField(default=0, help_text="후원사 등급 별 구좌수"),
+                ),
                 ("order", models.IntegerField(default=1)),
                 ("created_at", models.DateTimeField(auto_now_add=True)),
                 ("updated_at", models.DateTimeField(auto_now=True)),
@@ -82,13 +85,16 @@ class Migration(migrations.Migration):
                 (
                     "name",
                     models.CharField(
-                        help_text="후원사의 이름입니다. 서비스나 회사 이름이 될 수 있습니다.", max_length=255
+                        help_text="후원사의 이름입니다. 서비스나 회사 이름이 될 수 있습니다.",
+                        max_length=255,
                     ),
                 ),
                 (
                     "desc",
                     models.TextField(
-                        blank=True, help_text="후원사 설명입니다. 이 설명은 홈페이지에 게시됩니다.", null=True
+                        blank=True,
+                        help_text="후원사 설명입니다. 이 설명은 홈페이지에 게시됩니다.",
+                        null=True,
                     ),
                 ),
                 (
