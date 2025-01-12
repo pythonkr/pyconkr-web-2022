@@ -73,7 +73,7 @@ jobs:
           clean: false
           sparse-checkout-cone-mode: false
           sparse-checkout: ${{ steps.info.outputs.repository_name }}/zappa_settings.json
-      - run: mv secret_envs/${{ steps.info.outputs.repository_name }}/*.json ./ && rm -rf secret_envs
+      - run: mv secret_envs/${{ steps.info.outputs.repository_name }}/zappa_settings.json ./ && rm -rf secret_envs
 
       - name: Test with Django Test
         run: |
