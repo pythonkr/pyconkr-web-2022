@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-import os.path
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -86,14 +86,24 @@ WSGI_APPLICATION = "pyconweb2022.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
-
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+if os.getenv("AWS_PSQL_HOST"):
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "HOST": os.getenv("AWS_PSQL_HOST"),
+            "PORT": os.getenv("AWS_PSQL_PORT", "5432"),
+            "NAME": os.getenv("AWS_PSQL_DATABASE"),
+            "USER": os.getenv("AWS_PSQL_USER_ID"),
+            "PASSWORD": os.getenv("AWS_PSQL_PW"),
+        }
     }
-}
+else:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
+    }
 
 
 # Password validation
@@ -130,15 +140,36 @@ USE_TZ = False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
 
-# S3
-DEFAULT_FILE_STORAGE = (
-    "pyconweb2022.customBoto3Storage.SecurityTokenWorkaroundS3Boto3Storage"
-)
-STATICFILES_STORAGE = "storages.backends.s3boto3.S3StaticStorage"
-AWS_S3_SESSION_PROFILE = "pycon"
-AWS_STORAGE_BUCKET_NAME = os.getenv("AWS_STATIC_S3_BUCKET")
+if os.getenv("AWS_STATIC_S3_BUCKET"):
+    DEFAULT_FILE_STORAGE = (
+        "pyconweb2022.customBoto3Storage.SecurityTokenWorkaroundS3Boto3Storage"
+    )
+    STATICFILES_STORAGE = "storages.backends.s3boto3.S3StaticStorage"
+    AWS_S3_SESSION_PROFILE = "pycon"
+    AWS_STORAGE_BUCKET_NAME = os.getenv("AWS_STATIC_S3_BUCKET")
+
+    STORAGES = {
+        "default": {
+            "BACKEND": "pyconweb2022.customBoto3Storage.SecurityTokenWorkaroundS3Boto3Storage",
+        },
+        "staticfiles": {
+            "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
+        },
+    }
+else:
+    STORAGES = {
+        "default": {
+            "BACKEND": "django.core.files.storage.FileSystemStorage",
+        },
+        "staticfiles": {
+            "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+        },
+    }
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
